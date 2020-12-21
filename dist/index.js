@@ -1,6 +1,6 @@
 var React = require('react');
 
-var styles = {"test":"_styles-module__test__3ybTi"};
+var styles = {"test":"_3ybTi"};
 
 var ExampleComponent = function ExampleComponent(_ref) {
   var text = _ref.text;
@@ -8,6 +8,13 @@ var ExampleComponent = function ExampleComponent(_ref) {
     className: styles.test
   }, "Example Component: ", text);
 };
+var Button = function Button(_ref2) {
+  var text = _ref2.text;
+  return React.createElement("div", {
+    className: styles.test
+  }, "Example Component: ", text);
+};
 
+exports.Button = Button;
 exports.ExampleComponent = ExampleComponent;
 //# sourceMappingURL=index.js.map
