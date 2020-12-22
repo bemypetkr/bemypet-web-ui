@@ -1,6 +1,2 @@
-interface Props {
-    text: string;
-}
-export declare const ExampleComponent: ({ text }: Props) => JSX.Element;
-export declare const Button: ({ text }: Props) => JSX.Element;
-export {};
+export declare const ThemeProvider: ({ children }: any) => JSX.Element;
+export { Typography } from "components/Typography";

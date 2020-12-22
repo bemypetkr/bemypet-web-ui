@@ -1,10 +1,18 @@
 import React from "react";
 
-import { ExampleComponent } from "bemypet-web-ui";
-import "bemypet-web-ui/dist/index.css";
+import { Typography, ThemeProvider } from "bemypet-web-ui";
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />;
+  return (
+    <div>
+      <ThemeProvider>
+        <Typography variant="heading1" color="green">
+          산돌고딕네오인가?
+        </Typography>
+        <Typography color="">산돌고딕네오인가?</Typography>
+      </ThemeProvider>
+    </div>
+  );
 };
 
 export default App;
