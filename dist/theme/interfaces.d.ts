@@ -25,22 +25,3 @@ export interface TypographyVariant {
     article1: string;
     article2: string;
 }
-declare const theme: {
-    fontSizes: TypographyVariant;
-    lineHeights: TypographyVariant;
-    colors: Color;
-    deviceSizes: {
-        mobile: string;
-        tablet: string;
-    };
-    device: {
-        mobile: string;
-        tablet: string;
-    };
-    buttonSizes: {
-        small: string;
-        medium: string;
-        large: string;
-    };
-};
-export default theme;

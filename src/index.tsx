@@ -4,7 +4,7 @@ import {
   createGlobalStyle,
 } from "styled-components";
 
-import theme from "lib/theme";
+import theme from "theme";
 
 const BemypetTheme = createGlobalStyle`
   @font-face {
@@ -38,6 +38,11 @@ const BemypetTheme = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  p, ul {
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 export const ThemeProvider = ({ children }: any) => {
@@ -49,5 +54,6 @@ export const ThemeProvider = ({ children }: any) => {
   );
 };
 
-// export { default as theme } from "lib/theme";
+export { Button } from "components/Button";
+export { Layout, Header, Row, Column } from "components/Layout";
 export { Typography } from "components/Typography";

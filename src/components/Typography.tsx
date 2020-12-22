@@ -1,26 +1,58 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Color, TypographyVariant } from "lib/theme";
+export type TypographyColor =
+  | "grey100"
+  | "grey200"
+  | "grey300"
+  | "grey400"
+  | "grey500"
+  | "grey600"
+  | "primary100"
+  | "primary200"
+  | "secondary100"
+  | "secondary200"
+  | "green"
+  | "red";
 
-interface TypographyProps {
-  children?: React.ReactNode;
-  variant?: keyof TypographyVariant;
-  color?: keyof Color;
-}
+export type TypographyVariant =
+  | "heading1"
+  | "heading2"
+  | "heading3"
+  | "body1"
+  | "body2"
+  | "caption"
+  | "article1"
+  | "article2";
 
-export const Typography = ({ children, variant, color }: TypographyProps) => {
-  return (
-    <TypographyWrapper variant={variant} color={color}>
-      {children}
-    </TypographyWrapper>
-  );
+export type TypographyProps = Omit<
+  React.HTMLProps<HTMLParagraphElement>,
+  "color" | "variant"
+> & {
+  /**
+   * "grey100" | "grey200" | "grey300" | "grey400" | "grey500" | "grey600" | "primary100" | "primary200" | "secondary100" | "secondary200" | "green" | "red"
+   *
+   * @type {TypographyColor}
+   */
+  color?: TypographyColor;
+  /**
+   * "heading1" | "heading2" | "heading3" | "body1" | "body2" | "caption" | "article1" | "article2"
+   *
+   * @type { TypographyVariant}
+   */
+  variant?: TypographyVariant;
 };
 
-const TypographyWrapper = styled.div<TypographyProps>`
-  font-family: "Apple SD Gothic Neo", san-serif;
-  font-size: ${({ theme, variant }) => theme.fontSizes[variant ?? "body2"]};
-  line-height: ${({ theme, variant }) => theme.lineHeights[variant ?? "body2"]};
+export const Typography = styled(
+  ({ color, variant, ...rest }: TypographyProps) => <p {...rest} />,
+)`
+  width: ${({ width }) =>
+    width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
 
-  color: ${({ theme, color }) => theme.colors[color ?? "grey600"]};
+  ${({ theme, variant = "body2" }) => `
+  font-size: ${theme.fontSizes[variant]};
+  line-height: ${theme.lineHeights[variant]};
+  `}
+
+  color: ${({ theme, color = "grey600" }) => theme.colors[color]};
 `;
