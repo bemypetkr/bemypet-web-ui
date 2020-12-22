@@ -49,10 +49,7 @@ export const Typography = styled(
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
 
-  ${({ theme, variant = "body2" }) => `
-  font-size: ${theme.fontSizes[variant]};
-  line-height: ${theme.lineHeights[variant]};
-  `}
+  ${({ theme, variant = "body2" }) => theme.typography[variant]}
 
   color: ${({ theme, color = "grey600" }) => theme.colors[color]};
 `;

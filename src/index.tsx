@@ -39,10 +39,23 @@ const BemypetTheme = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  p, ul {
+  h1, h2, h3, h4, h5, h6, p, ul {
     margin: 0;
     padding: 0;
   }
+
+  ::selection {
+    background: ${({ theme }: any) =>
+      theme.colors.primary100}; /* WebKit/Blink Browsers */
+    color: inherit;
+  }
+
+  ::-moz-selection {
+    background: ${({ theme }: any) =>
+      theme.colors.primary100}; /* Gecko Browsers */
+    color: inherit;
+  }
+  
 `;
 
 export const ThemeProvider = ({ children }: any) => {
@@ -55,5 +68,5 @@ export const ThemeProvider = ({ children }: any) => {
 };
 
 export { Button } from "components/Button";
-export { Layout, Header, Row, Column } from "components/Layout";
+export { Layout, Header, Row, Column, PageBody } from "components/Layout";
 export { Typography } from "components/Typography";

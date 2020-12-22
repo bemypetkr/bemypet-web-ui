@@ -1,4 +1,3 @@
-import Color from "color";
 import React from "react";
 import styled from "styled-components";
 
@@ -8,7 +7,7 @@ export type ButtonSize = "small" | "medium" | "large";
 
 export type ButtonProps = Omit<
   React.HTMLProps<HTMLButtonElement>,
-  "color" | "size"
+  "color" | "size" | "positive" | "negative"
 > & {
   /**
    * Width in pixel.
@@ -30,12 +29,19 @@ export type ButtonProps = Omit<
    * @type {ButtonSize}
    */
   size?: ButtonSize;
+  positive?: boolean;
+  negative?: boolean;
 };
 
 export const Button = styled(
-  ({ color, size, type = "button", ...rest }: ButtonProps) => (
-    <button {...rest} />
-  ),
+  ({
+    color,
+    size,
+    type = "button",
+    positive,
+    negative,
+    ...rest
+  }: ButtonProps) => <button {...rest} />,
 )`
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
@@ -44,22 +50,29 @@ export const Button = styled(
   border: none;
   border-radius: 50px;
 
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+
   ${({ theme, color = "default" }) => `
-    color: ${color == "primary" ? theme.colors.grey600 : theme.colors.grey500};
-    background-color: ${
-      color == "primary" ? theme.colors.primary100 : theme.colors.grey200
-    };
+    ${theme.buttonColors[color]}
 
     :hover {
       cursor: pointer;
-      background-color: ${Color(
-        color == "primary" ? theme.colors.primary100 : theme.colors.grey200,
-      )
-        .darken(0.2)
-        .toString()};
-  
+    }
+
+    :disabled {
+      color: ${theme.colors.grey400};
+      background-color: ${theme.colors.grey200};
+      cursor: not-allowed;
     }
   `}
+
+  // positive will be green colored text
+  ${({ theme, positive }) => (positive ? `color: ${theme.colors.green}` : "")};
+
+  // negative will be red colored text
+  ${({ theme, negative }) => (negative ? `color: ${theme.colors.red}` : "")};
 
   ${({ theme, size = "medium" }) => `
     ${theme.buttonSizes[size]};

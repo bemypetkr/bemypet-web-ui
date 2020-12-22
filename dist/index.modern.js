@@ -1,48 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider as ThemeProvider$1 } from 'styled-components';
-import Color from 'color';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-
-const calcRem = size => `${size / 16}rem`;
-const calcHeight = (size, height) => `${height / size}`;
-
-const buttonBase = `
-  font-size: ${calcRem(13)};
-  font-weight: bold;
-  line-height: ${calcHeight(13, 20)};
-`;
-const buttonSizes = {
-  small: `
-    ${buttonBase}
-    padding: 6px 8px;
-  `,
-  medium: `
-    ${buttonBase}
-    padding: 10px 8px;
-  `,
-  large: `
-    ${buttonBase}
-    padding: 14px 8px;
-  `
-};
-const buttonColors = {
-  default: `
-    ${buttonBase}
-    padding: 10px 8px;
-  `,
-  primary: `
-    ${buttonBase}
-    padding: 14px 8px;
-  `,
-  disabled: `
-    ${buttonBase}
-    padding: 6px 8px;
-  `
-};
-var buttons = {
-  buttonSizes,
-  buttonColors
-};
 
 const colors = {
   grey100: "#ffffff",
@@ -64,6 +22,44 @@ var colors$1 = {
   colors
 };
 
+const buttonSizes = {
+  small: `
+    padding: 6px 8px;
+  `,
+  medium: `
+    padding: 10px 8px;
+  `,
+  large: `
+    padding: 14px 8px;
+  `
+};
+const buttonColors = {
+  default: `
+    color: ${colors.grey500};
+    background-color: ${colors.grey200};
+
+    :hover {
+      background-color: ${colors.grey300};
+    }
+  `,
+  primary: `
+    color: ${colors.grey600};
+    background-color: ${colors.primary100};
+
+    :hover {
+      background-color: ${colors.primary200};
+    }
+  `
+};
+var buttons = {
+  buttonSizes,
+  buttonColors
+};
+
+const getPixel = value => typeof value === "string" ? value : `${value}px`;
+const calcRem = size => `${size / 16}rem`;
+const calcHeight = (size, height) => `${height / size}`;
+
 const fontSizes = {
   heading1: calcRem(36),
   heading2: calcRem(26),
@@ -84,9 +80,52 @@ const lineHeights = {
   article1: calcHeight(16, 32),
   article2: calcHeight(14, 24)
 };
-var typography = {
+const typography = {
+  heading1: `
+    font-size: ${fontSizes.heading1};
+    line-height: ${lineHeights.heading1};
+    font-weight: normal;
+  `,
+  heading2: `
+    font-size: ${fontSizes.heading2};
+    line-height: ${lineHeights.heading2};
+    font-weight: normal;
+  `,
+  heading3: `
+    font-size: ${fontSizes.heading3};
+    line-height: ${lineHeights.heading3};
+    font-weight: normal;
+  `,
+  body1: `
+    font-size: ${fontSizes.body1};
+    line-height: ${lineHeights.body1};
+    font-weight: normal;
+  `,
+  body2: `
+    font-size: ${fontSizes.body2};
+    line-height: ${lineHeights.body2};
+    font-weight: normal;
+  `,
+  caption: `
+    font-size: ${fontSizes.caption};
+    line-height: ${lineHeights.caption};
+    font-weight: normal;
+  `,
+  article1: `
+    font-size: ${fontSizes.article1};
+    line-height: ${lineHeights.article1};
+    font-weight: normal;
+  `,
+  article2: `
+    font-size: ${fontSizes.article2};
+    line-height: ${lineHeights.article2};
+    font-weight: normal;
+  `
+};
+var typography$1 = {
   fontSizes,
-  lineHeights
+  lineHeights,
+  typography
 };
 
 const deviceSizes = {
@@ -99,7 +138,7 @@ const devices = {
 };
 const theme = { ...buttons,
   ...colors$1,
-  ...typography,
+  ...typography$1,
   devices
 };
 
@@ -109,6 +148,8 @@ const Button = styled(({
   color,
   size,
   type: _type = "button",
+  positive,
+  negative,
   ...rest
 }) => React.createElement("button", Object.assign({}, rest)))(_t || (_t = _`
   width: ${0};
@@ -117,7 +158,17 @@ const Button = styled(({
   border: none;
   border-radius: 50px;
 
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 20px;
+
   ${0}
+
+  // positive will be green colored text
+  ${0};
+
+  // negative will be red colored text
+  ${0};
 
   ${0}
 `), ({
@@ -126,15 +177,24 @@ const Button = styled(({
   theme,
   color: _color = "default"
 }) => `
-    color: ${_color == "primary" ? theme.colors.grey600 : theme.colors.grey500};
-    background-color: ${_color == "primary" ? theme.colors.primary100 : theme.colors.grey200};
+    ${theme.buttonColors[_color]}
 
     :hover {
       cursor: pointer;
-      background-color: ${Color(_color == "primary" ? theme.colors.primary100 : theme.colors.grey200).darken(0.2).toString()};
-  
+    }
+
+    :disabled {
+      color: ${theme.colors.grey400};
+      background-color: ${theme.colors.grey200};
+      cursor: not-allowed;
     }
   `, ({
+  theme,
+  positive
+}) => positive ? `color: ${theme.colors.green}` : "", ({
+  theme,
+  negative
+}) => negative ? `color: ${theme.colors.red}` : "", ({
   theme,
   size: _size = "medium"
 }) => `
@@ -145,14 +205,17 @@ let _$1 = t => t,
     _t$1,
     _t2,
     _t3,
-    _t4;
+    _t4,
+    _t5,
+    _t6;
 const Layout = ({
   helmetProps,
   children,
   loading,
+  header,
   footer
 }) => {
-  return React.createElement(Wrapper, null, React.createElement(Header, Object.assign({}, helmetProps)), React.createElement(Main, null, !!loading ? loading : children), !!footer ? footer : null);
+  return React.createElement(Wrapper, null, React.createElement(HelmetComponent, Object.assign({}, helmetProps)), !!header ? header : null, React.createElement(Main, null, !!loading ? loading : children), !!footer ? footer : null);
 };
 const Wrapper = styled.div(_t$1 || (_t$1 = _$1`
   display: flex;
@@ -162,22 +225,70 @@ const Wrapper = styled.div(_t$1 || (_t$1 = _$1`
 const Main = styled.main(_t2 || (_t2 = _$1`
   flex: 1;
 `));
-const Header = props => {
-  return React.createElement(HelmetProvider, null, React.createElement(Helmet, Object.assign({}, props)));
-};
-const Column = styled.div(_t3 || (_t3 = _$1`
+const PageBody = styled.div(_t3 || (_t3 = _$1`
+  width: 700px;
+  max-width: 100%;
+  margin: 0 auto;
+`));
+
+const HelmetComponent = ({ ...props
+}) => React.createElement(HelmetProvider, null, React.createElement(Helmet, Object.assign({}, props)));
+
+const Header = styled.div(_t4 || (_t4 = _$1`
+  padding: 0 30px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: ${0};
+  color: ${0};
+`), ({
+  theme
+}) => theme.colors.primary100, ({
+  theme
+}) => theme.colors.grey100);
+const Column = styled.div(_t5 || (_t5 = _$1`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-`));
-const Row = styled.div(_t4 || (_t4 = _$1`
+  margin-top: ${0};
+  margin-bottom: ${0};
+  margin-left: ${0};
+  margin-right: ${0};
+`), ({
+  marginTop: _marginTop = 0
+}) => getPixel(_marginTop), ({
+  marginBottom: _marginBottom = 0
+}) => getPixel(_marginBottom), ({
+  marginLeft: _marginLeft = 0
+}) => getPixel(_marginLeft), ({
+  marginRight: _marginRight = 0
+}) => getPixel(_marginRight));
+const Row = styled.div(_t6 || (_t6 = _$1`
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: flex-start;
-  align-items: flex-start;
-`));
+  justify-content: ${0};
+  align-items: ${0};
+  margin-top: ${0};
+  margin-bottom: ${0};
+  margin-left: ${0};
+  margin-right: ${0};
+`), ({
+  justifyContent: _justifyContent = "flex-start"
+}) => _justifyContent, ({
+  alignItems: _alignItems = "flex-start"
+}) => _alignItems, ({
+  marginTop: _marginTop2 = 0
+}) => getPixel(_marginTop2), ({
+  marginBottom: _marginBottom2 = 0
+}) => getPixel(_marginBottom2), ({
+  marginLeft: _marginLeft2 = 0
+}) => getPixel(_marginLeft2), ({
+  marginRight: _marginRight2 = 0
+}) => getPixel(_marginRight2));
 
 let _$2 = t => t,
     _t$2;
@@ -196,10 +307,7 @@ const Typography = styled(({
 }) => width ? typeof width === "string" ? width : `${width}px` : "100%", ({
   theme,
   variant: _variant = "body2"
-}) => `
-  font-size: ${theme.fontSizes[_variant]};
-  line-height: ${theme.lineHeights[_variant]};
-  `, ({
+}) => theme.typography[_variant], ({
   theme,
   color: _color = "grey600"
 }) => theme.colors[_color]);
@@ -239,11 +347,26 @@ const BemypetTheme = createGlobalStyle(_t$3 || (_t$3 = _$3`
     -moz-osx-font-smoothing: grayscale;
   }
 
-  p, ul {
+  h1, h2, h3, h4, h5, h6, p, ul {
     margin: 0;
     padding: 0;
   }
-`));
+
+  ::selection {
+    background: ${0}; /* WebKit/Blink Browsers */
+    color: inherit;
+  }
+
+  ::-moz-selection {
+    background: ${0}; /* Gecko Browsers */
+    color: inherit;
+  }
+  
+`), ({
+  theme
+}) => theme.colors.primary100, ({
+  theme
+}) => theme.colors.primary100);
 const ThemeProvider = ({
   children
 }) => {
@@ -252,5 +375,5 @@ const ThemeProvider = ({
   }, React.createElement(BemypetTheme, null), children);
 };
 
-export { Button, Column, Header, Layout, Row, ThemeProvider, Typography };
+export { Button, Column, Header, Layout, PageBody, Row, ThemeProvider, Typography };
 //# sourceMappingURL=index.modern.js.map

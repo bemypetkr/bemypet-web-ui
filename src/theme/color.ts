@@ -17,4 +17,5 @@ const colors: Color = {
   opacityBlack50: "rgba(9, 9, 9, 0.5)",
 };
 
+export { colors };
 export default { colors };

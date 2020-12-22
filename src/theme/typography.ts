@@ -1,5 +1,6 @@
+import { calcHeight, calcRem } from "lib/helpers";
+
 import { TypographyVariant } from "./interfaces";
-import { calcHeight, calcRem } from "./utils";
 
 const fontSizes: TypographyVariant = {
   heading1: calcRem(36),
@@ -23,4 +24,47 @@ const lineHeights: TypographyVariant = {
   article2: calcHeight(14, 24),
 };
 
-export default { fontSizes, lineHeights };
+const typography: TypographyVariant = {
+  heading1: `
+    font-size: ${fontSizes.heading1};
+    line-height: ${lineHeights.heading1};
+    font-weight: normal;
+  `,
+  heading2: `
+    font-size: ${fontSizes.heading2};
+    line-height: ${lineHeights.heading2};
+    font-weight: normal;
+  `,
+  heading3: `
+    font-size: ${fontSizes.heading3};
+    line-height: ${lineHeights.heading3};
+    font-weight: normal;
+  `,
+  body1: `
+    font-size: ${fontSizes.body1};
+    line-height: ${lineHeights.body1};
+    font-weight: normal;
+  `,
+  body2: `
+    font-size: ${fontSizes.body2};
+    line-height: ${lineHeights.body2};
+    font-weight: normal;
+  `,
+  caption: `
+    font-size: ${fontSizes.caption};
+    line-height: ${lineHeights.caption};
+    font-weight: normal;
+  `,
+  article1: `
+    font-size: ${fontSizes.article1};
+    line-height: ${lineHeights.article1};
+    font-weight: normal;
+  `,
+  article2: `
+    font-size: ${fontSizes.article2};
+    line-height: ${lineHeights.article2};
+    font-weight: normal;
+  `,
+};
+
+export default { fontSizes, lineHeights, typography };

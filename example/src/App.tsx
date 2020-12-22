@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Typography,
   ThemeProvider,
@@ -7,47 +6,95 @@ import {
   Layout,
   Row,
   Column,
+  Header,
+  PageBody,
 } from "bemypet-web-ui";
-import styled from "styled-components";
 
 const App = () => {
   return (
     <ThemeProvider>
-      <Layout>
-        <Container>
-          <Typography variant="heading1">Typography</Typography>
-          <Typography variant="heading3">Color Variation</Typography>
-          <Row>
-            <Typography>Default</Typography>
-            <Typography color="red">Red Color</Typography>
-            <Typography color="green">Green Color</Typography>
-          </Row>
-        </Container>
-        <Container>
-          <Typography variant="heading1">Button</Typography>
-          <Typography variant="heading3">Size Variation</Typography>
-          <Row>
-            <Button size="small">Small</Button>
-            <Button size="medium">Medium</Button>
-            <Button size="large">Large</Button>
-            <Button color="primary" size="small">
-              Small
-            </Button>
-            <Button color="primary" size="medium">
-              Medium
-            </Button>
-            <Button color="primary" size="large">
-              Large
-            </Button>
-          </Row>
-        </Container>
+      <Layout helmetProps={{ title: "Bemypet UI" }}>
+        <Header>
+          <Typography variant="heading2">Bemypet UI</Typography>
+        </Header>
+        <PageBody>
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              Typography
+            </Typography>
+            <Row>
+              <Column>
+                <Typography variant="heading3" as="h3">
+                  Style Variation
+                </Typography>
+                <Typography variant="heading1" as="h1">
+                  Heading 1
+                </Typography>
+                <Typography variant="heading2" as="h2">
+                  Heading 2
+                </Typography>
+                <Typography variant="heading3" as="h3">
+                  Heading 3
+                </Typography>
+                <Typography variant="body1">Body 1</Typography>
+                <Typography variant="body2">Body 2</Typography>
+                <Typography variant="article1">Article 1</Typography>
+                <Typography variant="article2">Article 2</Typography>
+                <Typography variant="caption">Caption</Typography>
+              </Column>
+              <Column>
+                <Typography variant="heading3" as="h3">
+                  Color Variation
+                </Typography>
+                <Typography>Default</Typography>
+                <Typography color="grey500">Grey 500</Typography>
+                <Typography color="grey400">Grey 400</Typography>
+                <Typography color="grey300">Grey 300</Typography>
+                <Typography color="grey200">Grey 200</Typography>
+                <Typography color="grey100">Grey 100</Typography>
+                <Typography color="primary100">Primary</Typography>
+                <Typography color="secondary100">Secondary</Typography>
+                <Typography color="red">Red</Typography>
+                <Typography color="green">Green</Typography>
+              </Column>
+            </Row>
+          </Column>
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              Button
+            </Typography>
+            <Typography variant="heading3" as="h3">
+              Color Variation
+            </Typography>
+            <Row>
+              <Button>Default</Button>
+              <Button positive>Positive</Button>
+              <Button negative>Negative</Button>
+              <Button disabled>Disabled</Button>
+              <Button color="primary">Primary</Button>
+            </Row>
+            <Typography variant="heading3" as="h3">
+              Size Variation
+            </Typography>
+            <Row>
+              <Button size="small">Small</Button>
+              <Button>Medium</Button>
+              <Button size="large">Large</Button>
+              <Button color="primary" size="small">
+                Small
+              </Button>
+              <Button color="primary" size="medium">
+                Medium
+              </Button>
+              <Button color="primary" size="large">
+                Large
+              </Button>
+            </Row>
+          </Column>
+        </PageBody>
       </Layout>
     </ThemeProvider>
   );
 };
 
 export default App;
-
-const Container = styled(Column)`
-  padding: 20px 30px 50px;
-`;

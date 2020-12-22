@@ -7,7 +7,6 @@ declare const _default: {
     buttonColors: {
         default: string;
         primary: string;
-        disabled: string;
     };
 };
 export default _default;
