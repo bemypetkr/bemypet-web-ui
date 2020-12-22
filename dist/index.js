@@ -197,7 +197,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 30px;\n  width: 100%;\n  height: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: ", ";\n  color: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 30px;\n  width: 100%;\n  height: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: ", ";\n  color: ", ";\n  box-sizing: border-box;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;

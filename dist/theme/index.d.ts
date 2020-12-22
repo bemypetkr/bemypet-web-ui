@@ -5,6 +5,7 @@ declare const theme: {
     };
     fontSizes: import("./interfaces").TypographyVariant;
     lineHeights: import("./interfaces").TypographyVariant;
+    typography: import("./interfaces").TypographyVariant;
     colors: import("./interfaces").Color;
     buttonSizes: {
         small: string;
@@ -14,7 +15,6 @@ declare const theme: {
     buttonColors: {
         default: string;
         primary: string;
-        disabled: string;
     };
 };
 export default theme;

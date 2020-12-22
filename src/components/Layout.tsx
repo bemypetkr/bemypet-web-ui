@@ -59,6 +59,7 @@ export const Header = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.colors.primary100};
   color: ${({ theme }) => theme.colors.grey100};
+  box-sizing: border-box;
 `;
 
 interface GridProps {
