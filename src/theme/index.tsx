@@ -1,10 +1,29 @@
 import React from "react";
+import buttons from "./button";
+import colors from "./color";
+import typography from "./typography";
+
+const deviceSizes = {
+  mobile: "360px",
+  tablet: "768px",
+};
+
+const devices = {
+  mobile: `only screen and (max-width: ${deviceSizes.mobile})`,
+  tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
+};
+
+const theme = {
+  ...buttons,
+  ...colors,
+  ...typography,
+  devices,
+};
+
 import {
   ThemeProvider as StyledThemeProvider,
   createGlobalStyle,
 } from "styled-components";
-
-import theme from "theme";
 
 const BemypetTheme = createGlobalStyle`
   @font-face {
@@ -55,7 +74,6 @@ const BemypetTheme = createGlobalStyle`
       theme.colors.primary100}; /* Gecko Browsers */
     color: inherit;
   }
-  
 `;
 
 export const ThemeProvider = ({ children }: any) => {
@@ -66,7 +84,3 @@ export const ThemeProvider = ({ children }: any) => {
     </StyledThemeProvider>
   );
 };
-
-export { Button } from "components/Button";
-export { Layout, Header, Row, Column, PageBody } from "components/Layout";
-export { Typography } from "components/Typography";

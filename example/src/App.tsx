@@ -18,7 +18,7 @@ const App = () => {
           <Typography variant="heading2">Bemypet UI</Typography>
         </Header>
         <PageBody>
-          <Column marginTop={50}>
+          <Column marginTop={50} justifyContent="space-evenly">
             <Typography variant="heading1" as="h1">
               Typography
             </Typography>

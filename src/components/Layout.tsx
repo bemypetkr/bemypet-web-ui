@@ -79,10 +79,11 @@ interface GridProps {
 }
 
 export const Column = styled.div<GridProps>`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
+  align-items: ${({ alignItems = "flex-start" }) => alignItems};
   margin-top: ${({ marginTop = 0 }) => getPixel(marginTop)};
   margin-bottom: ${({ marginBottom = 0 }) => getPixel(marginBottom)};
   margin-left: ${({ marginLeft = 0 }) => getPixel(marginLeft)};
@@ -90,9 +91,9 @@ export const Column = styled.div<GridProps>`
 `;
 
 export const Row = styled.div<GridProps>`
+  width: 100%;
   display: flex;
   flex-direction: row;
-  width: 100%;
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
   align-items: ${({ alignItems = "flex-start" }) => alignItems};
   margin-top: ${({ marginTop = 0 }) => getPixel(marginTop)};
