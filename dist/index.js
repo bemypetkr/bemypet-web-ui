@@ -2039,7 +2039,7 @@ var Row = styled__default.div(_templateObject5(), function (_ref9) {
 });
 
 function _templateObject$6() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n\n  ", "\n\n  color: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n\n  ", "\n\n  color: ", ";\n\n  text-align: ", ";\n"]);
 
   _templateObject$6 = function _templateObject() {
     return data;
@@ -2048,7 +2048,7 @@ function _templateObject$6() {
   return data;
 }
 var Typography = styled__default(function (_ref) {
-  var rest = _objectWithoutPropertiesLoose(_ref, ["color", "variant"]);
+  var rest = _objectWithoutPropertiesLoose(_ref, ["color", "variant", "textAlign"]);
 
   return React__default.createElement("p", Object.assign({}, rest));
 })(_templateObject$6(), function (_ref2) {
@@ -2064,6 +2064,10 @@ var Typography = styled__default(function (_ref) {
       _ref4$color = _ref4.color,
       color = _ref4$color === void 0 ? "grey600" : _ref4$color;
   return theme.colors[color];
+}, function (_ref5) {
+  var _ref5$textAlign = _ref5.textAlign,
+      textAlign = _ref5$textAlign === void 0 ? "inherit" : _ref5$textAlign;
+  return textAlign;
 });
 
 exports.AppleBlackIcon = AppleBlackIcon;

@@ -25,6 +25,8 @@ export type TypographyVariant =
   | "article1"
   | "article2";
 
+export type TypographyTextAlign = "left" | "center" | "right";
+
 export type TypographyProps = Omit<
   React.HTMLProps<HTMLParagraphElement>,
   "color" | "variant"
@@ -41,10 +43,18 @@ export type TypographyProps = Omit<
    * @type { TypographyVariant}
    */
   variant?: TypographyVariant;
+  /**
+   * Text align
+   * "left" | "center" | "right"
+   * Default is left
+   *
+   * @type {TypographyTextAlign}
+   */
+  textAlign?: TypographyTextAlign;
 };
 
 export const Typography = styled(
-  ({ color, variant, ...rest }: TypographyProps) => <p {...rest} />,
+  ({ color, variant, textAlign, ...rest }: TypographyProps) => <p {...rest} />,
 )`
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
@@ -52,4 +62,6 @@ export const Typography = styled(
   ${({ theme, variant = "body2" }) => theme.typography[variant]}
 
   color: ${({ theme, color = "grey600" }) => theme.colors[color]};
+
+  text-align: ${({ textAlign = "inherit" }) => textAlign};
 `;

@@ -2088,6 +2088,7 @@ let _$6 = t => t,
 const Typography = styled(({
   color,
   variant,
+  textAlign,
   ...rest
 }) => React.createElement("p", Object.assign({}, rest)))(_t$6 || (_t$6 = _$6`
   width: ${0};
@@ -2095,6 +2096,8 @@ const Typography = styled(({
   ${0}
 
   color: ${0};
+
+  text-align: ${0};
 `), ({
   width
 }) => width ? typeof width === "string" ? width : `${width}px` : "100%", ({
@@ -2103,7 +2106,9 @@ const Typography = styled(({
 }) => theme.typography[_variant], ({
   theme,
   color: _color = "grey600"
-}) => theme.colors[_color]);
+}) => theme.colors[_color], ({
+  textAlign: _textAlign = "inherit"
+}) => _textAlign);
 
 export { AppleBlackIcon, Button, Column, FacebookIcon, GoogleIcon, Header, Input, Layout, NaverIcon, PageBody, Row, ThemeProvider, Typography };
 //# sourceMappingURL=index.modern.js.map
