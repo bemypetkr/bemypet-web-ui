@@ -203,7 +203,8 @@ const ThemeProvider = ({
 };
 
 let _$1 = t => t,
-    _t$1;
+    _t$1,
+    _t2;
 const Button = styled(({
   color,
   size,
@@ -260,10 +261,27 @@ const Button = styled(({
 }) => `
     ${theme.buttonSizes[_size]};
   `);
+const IconButton = styled(({
+  icon,
+  type: _type2 = "button",
+  ...rest
+}) => React.createElement("button", Object.assign({}, rest, {
+  children: icon
+})))(_t2 || (_t2 = _$1`
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  :hover {
+    cursor: pointer;
+  }
+`));
 
 let _$2 = t => t,
     _t$2,
-    _t2,
+    _t2$1,
     _t3,
     _t4;
 const InputWrapper = styled.div(_t$2 || (_t$2 = _$2`
@@ -277,7 +295,7 @@ const InputWrapper = styled.div(_t$2 || (_t$2 = _$2`
     right: 16px;
   }
 `));
-const InputLabel = styled.label(_t2 || (_t2 = _$2`
+const InputLabel = styled.label(_t2$1 || (_t2$1 = _$2`
   color: ${0};
   margin-bottom: 8px;
   font-size: 13px;
@@ -361,7 +379,7 @@ const Input = styled(({
       }
       ` : "");
 
-const AppleBlackIcon = ({
+const AppleIcon = ({
   width: _width = 40,
   height: _height = 40
 }) => React.createElement("svg", {
@@ -382,6 +400,29 @@ const AppleBlackIcon = ({
   fill: "#FFF",
   d: "M27.797 23.895c-.052.144-.103.298-.161.45-.483 1.272-1.217 2.401-2.107 3.437-.172.201-.372.384-.579.553-.409.336-.879.539-1.423.558-.408.012-.8-.06-1.178-.21-.274-.108-.544-.23-.821-.328-.901-.318-1.797-.276-2.684.065-.32.123-.635.258-.96.365-.378.123-.77.173-1.168.1-.348-.063-.653-.221-.935-.424-.35-.253-.645-.56-.92-.886-1.305-1.546-2.18-3.294-2.603-5.253-.182-.842-.27-1.691-.216-2.552.063-1.032.31-2.014.876-2.9.712-1.113 1.716-1.842 3.037-2.143.795-.182 1.568-.108 2.326.176.398.149.798.296 1.199.441.368.135.735.135 1.105-.002.408-.152.817-.303 1.228-.451.42-.149.848-.271 1.294-.305.668-.053 1.319.031 1.953.238.898.292 1.629.809 2.18 1.562.016.02.032.043.043.06-1.392.943-2.185 2.19-2.07 3.877.117 1.688 1.052 2.83 2.584 3.572zm-7.808-9.518c.41.01.806-.067 1.186-.214 1.734-.669 2.64-2.452 2.613-3.816-.002-.11-.01-.22-.015-.347-.178.026-.34.038-.496.076-1.266.302-2.24.989-2.881 2.1-.375.652-.583 1.344-.52 2.1.005.08.035.1.113.1z",
   transform: "translate(-436 -1738) translate(436 1738)"
+})));
+
+const AppStoreIcon = ({
+  width: _width = 40,
+  height: _height = 40
+}) => React.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  style: {
+    width: _width,
+    height: _height
+  },
+  viewBox: "0 0 24 24"
+}, React.createElement("g", {
+  fill: "none",
+  "fill-rule": "evenodd"
+}, React.createElement("path", {
+  fill: "#FFF",
+  d: "M0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z",
+  transform: "translate(-990 -2658) translate(0 2650) translate(990 8)"
+}), React.createElement("path", {
+  fill: "#0B0B0A",
+  d: "M13.954 7.08c.458-.59.805-1.427.68-2.28-.75.052-1.625.531-2.135 1.156-.466.565-.849 1.407-.7 2.224.82.026 1.664-.465 2.155-1.1zM18 15.108c-.328.73-.485 1.057-.907 1.704-.59.903-1.42 2.027-2.449 2.035-.914.01-1.15-.599-2.39-.591-1.24.006-1.5.603-2.415.594-1.029-.01-1.815-1.024-2.404-1.927-1.647-2.522-1.82-5.484-.805-7.06.723-1.118 1.862-1.772 2.933-1.772 1.09 0 1.775.602 2.678.602.875 0 1.408-.603 2.668-.603.954 0 1.965.522 2.685 1.424-2.359 1.3-1.977 4.688.406 5.594z",
+  transform: "translate(-990 -2658) translate(0 2650) translate(990 8)"
 })));
 
 const FacebookIcon = ({
@@ -445,6 +486,30 @@ const GoogleIcon = ({
   transform: "translate(-530 -763) translate(370 719) translate(160 44) translate(13 13)"
 })));
 
+const InstagramIcon = ({
+  width: _width = 40,
+  height: _height = 40
+}) => React.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  style: {
+    width: _width,
+    height: _height
+  },
+  viewBox: "0 0 40 40"
+}, React.createElement("g", {
+  fill: "none",
+  fillRule: "evenodd"
+}, React.createElement("g", {
+  fill: "red"
+}, React.createElement("path", {
+  d: "M0 20C0 8.954 8.954 0 20 0s20 8.954 20 20-8.954 20-20 20S0 31.046 0 20z",
+  transform: "translate(-548 -1738) translate(548 1738)"
+})), React.createElement("path", {
+  fill: "#FEFEFE",
+  d: "M22.311 13.636L22.311 20.16 17.706 13.636 12.727 13.636 12.727 26.566 17.69 26.566 17.69 20.043 22.295 26.566 27.273 26.566 27.273 13.636z",
+  transform: "translate(-548 -1738) translate(548 1738)"
+})));
+
 const NaverIcon = ({
   width: _width = 40,
   height: _height = 40
@@ -468,6 +533,79 @@ const NaverIcon = ({
   d: "M22.311 13.636L22.311 20.16 17.706 13.636 12.727 13.636 12.727 26.566 17.69 26.566 17.69 20.043 22.295 26.566 27.273 26.566 27.273 13.636z",
   transform: "translate(-548 -1738) translate(548 1738)"
 })));
+
+const PlayStoreIcon = ({
+  width: _width = 40,
+  height: _height = 40
+}) => React.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  style: {
+    width: _width,
+    height: _height
+  },
+  viewBox: "0 0 40 40"
+}, React.createElement("g", {
+  fill: "none",
+  fillRule: "evenodd"
+}, React.createElement("path", {
+  fill: "#FFF",
+  d: "M0 0H1260V2029H0z",
+  transform: "translate(-492 -1738)"
+}), React.createElement("g", {
+  transform: "translate(-492 -1738) translate(492 1738)"
+}, React.createElement("circle", {
+  cx: "20",
+  cy: "20",
+  r: "20",
+  fill: "#F6F7F8"
+}), React.createElement("path", {
+  fill: "#FFC100",
+  fillRule: "nonzero",
+  d: "M14.444 11.916v16.168c0 .849.93 1.37 1.653.926l13.262-8.14c.693-.426.69-1.434-.006-1.855l-13.261-8.028c-.724-.438-1.648.083-1.648.929z"
+}), React.createElement("path", {
+  fill: "#D8E86D",
+  fillRule: "nonzero",
+  d: "M15.265 29.138L26.33 17.185 16.09 10.987c-.723-.438-1.647.083-1.647.929v16.168c0 .534.368.938.82 1.054z"
+}), React.createElement("path", {
+  fill: "#F52B2B",
+  fillRule: "nonzero",
+  d: "M16.097 29.01l9.104-5.589 1.129-.692-11.07-11.865c-.451.117-.816.52-.816 1.052v16.168c0 .849.93 1.37 1.653.926z"
+}), React.createElement("path", {
+  fill: "#00B7AD",
+  fillRule: "nonzero",
+  d: "M15.265 29.138l8.489-9.17-8.495-9.104c-.45.117-.816.52-.816 1.052v16.168c0 .534.369.938.822 1.054z"
+}))));
+
+const YoutubeIcon = ({
+  width: _width = 40,
+  height: _height = 40
+}) => React.createElement("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  style: {
+    width: _width,
+    height: _height
+  },
+  viewBox: "0 0 40 40"
+}, React.createElement("g", {
+  fill: "none",
+  "fill-rule": "evenodd"
+}, React.createElement("path", {
+  fill: "#FFF",
+  d: "M0 0H1260V2029H0z",
+  transform: "translate(-212 -1738)"
+}), React.createElement("g", null, React.createElement("path", {
+  fill: "#CE1312",
+  d: "M0 20C0 8.954 8.82 0 19.7 0c10.88 0 19.701 8.954 19.701 20s-8.82 20-19.7 20C8.82 40 0 31.046 0 20z",
+  transform: "translate(-212 -1738) translate(212 1738)"
+}), React.createElement("path", {
+  fill: "#FFF",
+  d: "M29.954 15.974s-.205-1.502-.834-2.163c-.798-.87-1.692-.873-2.102-.924-2.937-.22-7.341-.22-7.341-.22h-.01s-4.404 0-7.34.22c-.41.05-1.305.055-2.103.924-.63.661-.834 2.163-.834 2.163s-.21 1.765-.21 3.529v1.654c0 1.764.21 3.528.21 3.528s.205 1.502.834 2.164c.798.868 1.847.841 2.314.932 1.678.167 7.134.219 7.134.219s4.41-.007 7.346-.228c.41-.05 1.304-.055 2.102-.923.629-.662.834-2.164.834-2.164s.21-1.764.21-3.528v-1.654c0-1.764-.21-3.529-.21-3.529z",
+  transform: "translate(-212 -1738) translate(212 1738)"
+}), React.createElement("path", {
+  fill: "#CE1312",
+  d: "M17.506 23.161L17.505 17.036 23.174 20.109z",
+  transform: "translate(-212 -1738) translate(212 1738)"
+}))));
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -1856,7 +1994,7 @@ const Logo = ({
 
 let _$3 = t => t,
     _t$3,
-    _t2$1,
+    _t2$2,
     _t3$1;
 const Menu = ({
   menus: _menus = []
@@ -1880,7 +2018,7 @@ const MenuWrapper = styled.ul(_t$3 || (_t$3 = _$3`
     text-align: center;
   }
 `));
-const MenuItem = styled.a(_t2$1 || (_t2$1 = _$3`
+const MenuItem = styled.a(_t2$2 || (_t2$2 = _$3`
   z-index: 1;
   position: relative;
   font-size: 16px;
@@ -1918,7 +2056,7 @@ const SelectedCircle = styled.span(_t3$1 || (_t3$1 = _$3`
 
 let _$4 = t => t,
     _t$4,
-    _t2$2,
+    _t2$3,
     _t3$2,
     _t4$1;
 const HeaderNav = styled.div(_t$4 || (_t$4 = _$4`
@@ -1941,7 +2079,7 @@ const HeaderNav = styled.div(_t$4 || (_t$4 = _$4`
 }) => theme.colors.primary100, ({
   theme
 }) => theme.colors.grey100);
-const HeaderNavItem = styled.li(_t2$2 || (_t2$2 = _$4`
+const HeaderNavItem = styled.li(_t2$3 || (_t2$3 = _$4`
   width: 80px;
   height: 100%;
   list-style: none;
@@ -2036,9 +2174,140 @@ const Header = styled(({
 
 let _$5 = t => t,
     _t$5,
-    _t2$3,
+    _t2$4,
     _t3$3,
-    _t4$2,
+    _t4$2;
+const Footer = styled(({
+  version,
+  outlinks: _outlinks = "instagram|youtube|facebook|playstore|appstore",
+  ...rest
+}) => {
+  const outlinkProviders = _outlinks.split("|");
+
+  const handleOnClick = providerId => () => {
+    console.log(providerId);
+  };
+
+  return React.createElement("div", Object.assign({}, rest), React.createElement(FooterInfo, null, "\uC0C1\uD638\uBA85 : \uBE44\uB9C8\uC774\uD3AB\u00A9 Copyright 2020, All Rights Reserved \uC8FC\uC18C : \uC11C\uC6B8\uC2DC \uC11C\uCD08\uAD6C \uC11C\uCD08\uC911\uC559\uB85C 24\uAE38 55, 401\uD638 \uB300\uD45C\uC790 : \uC131\uD604\uC9C4 \uBB38\uC758: 050-7724-6399, business@bemypet.kr", version ? React.createElement("span", null, "version: ", version) : null), React.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC81C\uD734\uBB38\uC758"), React.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC804\uCCB4\uBCF4\uAE30"), React.createElement(FooterIconButtons, null, outlinkProviders.map(providerId => {
+    switch (providerId) {
+      case "instagram":
+        return React.createElement(IconButton, {
+          key: `provider-${providerId}`,
+          icon: React.createElement(InstagramIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "youtube":
+        return React.createElement(IconButton, {
+          key: `provider-${providerId}`,
+          icon: React.createElement(YoutubeIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "facebook":
+        return React.createElement(IconButton, {
+          key: `provider-${providerId}`,
+          icon: React.createElement(FacebookIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "playstore":
+        return React.createElement(IconButton, {
+          key: `provider-${providerId}`,
+          icon: React.createElement(PlayStoreIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "appstore":
+        return React.createElement(IconButton, {
+          key: `provider-${providerId}`,
+          icon: React.createElement(AppStoreIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      default:
+        return null;
+    }
+  })));
+})(_t$5 || (_t$5 = _$5`
+  display: flex;
+  width: 100%;
+  height: 40px;
+  font-size: 11px;
+  color: ${0};
+  background-color: ${0};
+  border-top: 1px solid ${0};
+
+  > button,
+  > div {
+    border-right: 1px solid ${0};
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+    :last-child {
+      border: none;
+    }
+  }
+`), ({
+  theme
+}) => theme.colors.grey500, ({
+  theme
+}) => theme.colors.grey100, ({
+  theme
+}) => theme.colors.grey300, ({
+  theme
+}) => theme.colors.grey300);
+const FooterInfo = styled.div(_t2$4 || (_t2$4 = _$5`
+  font-size: 11px;
+  padding: 0px 10px;
+`));
+const FooterButton = styled.button(_t3$3 || (_t3$3 = _$5`
+  outline: none;
+  border: none;
+  white-space: nowrap;
+  padding: 0px 10px;
+  color: ${0};
+  background-color: ${0};
+`), ({
+  theme
+}) => theme.colors.grey500, ({
+  theme
+}) => theme.colors.grey100);
+const FooterIconButtons = styled.div(_t4$2 || (_t4$2 = _$5`
+  white-space: nowrap;
+  padding: 0 10px;
+
+  button {
+    margin-right: 16px;
+
+    :last-child {
+      margin-right: 0px;
+    }
+  }
+`));
+
+let _$6 = t => t,
+    _t$6,
+    _t2$5,
+    _t3$4,
+    _t4$3,
     _t5;
 const Layout = ({
   helmetProps,
@@ -2049,15 +2318,15 @@ const Layout = ({
 }) => {
   return React.createElement(Wrapper, null, React.createElement(HelmetComponent, Object.assign({}, helmetProps)), !!header ? header : null, React.createElement(Main, null, !!loading ? loading : children), !!footer ? footer : null);
 };
-const Wrapper = styled.div(_t$5 || (_t$5 = _$5`
+const Wrapper = styled.div(_t$6 || (_t$6 = _$6`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 `));
-const Main = styled.main(_t2$3 || (_t2$3 = _$5`
+const Main = styled.main(_t2$5 || (_t2$5 = _$6`
   flex: 1;
 `));
-const PageBody = styled.div(_t3$3 || (_t3$3 = _$5`
+const PageBody = styled.div(_t3$4 || (_t3$4 = _$6`
   width: 700px;
   max-width: 100%;
   margin: 0 auto;
@@ -2066,7 +2335,7 @@ const PageBody = styled.div(_t3$3 || (_t3$3 = _$5`
 const HelmetComponent = ({ ...props
 }) => React.createElement(x$1, null, React.createElement(N, Object.assign({}, props)));
 
-const Column = styled.div(_t4$2 || (_t4$2 = _$5`
+const Column = styled.div(_t4$3 || (_t4$3 = _$6`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -2089,7 +2358,7 @@ const Column = styled.div(_t4$2 || (_t4$2 = _$5`
 }) => getPixel(_marginLeft), ({
   marginRight: _marginRight = 0
 }) => getPixel(_marginRight));
-const Row = styled.div(_t5 || (_t5 = _$5`
+const Row = styled.div(_t5 || (_t5 = _$6`
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -2113,14 +2382,14 @@ const Row = styled.div(_t5 || (_t5 = _$5`
   marginRight: _marginRight2 = 0
 }) => getPixel(_marginRight2));
 
-let _$6 = t => t,
-    _t$6;
+let _$7 = t => t,
+    _t$7;
 const Typography = styled(({
   color,
   variant,
   textAlign,
   ...rest
-}) => React.createElement("p", Object.assign({}, rest)))(_t$6 || (_t$6 = _$6`
+}) => React.createElement("p", Object.assign({}, rest)))(_t$7 || (_t$7 = _$7`
   width: ${0};
 
   ${0}
@@ -2140,5 +2409,5 @@ const Typography = styled(({
   textAlign: _textAlign = "inherit"
 }) => _textAlign);
 
-export { AppleBlackIcon, Button, Column, FacebookIcon, GoogleIcon, Header, Input, Layout, NaverIcon, PageBody, Row, ThemeProvider, Typography };
+export { AppleIcon, Button, Column, FacebookIcon, Footer, GoogleIcon, Header, Input, Layout, NaverIcon, PageBody, Row, ThemeProvider, Typography };
 //# sourceMappingURL=index.modern.js.map

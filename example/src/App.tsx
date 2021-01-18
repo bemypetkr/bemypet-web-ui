@@ -10,6 +10,7 @@ import {
   PageBody,
   Input,
   GoogleIcon,
+  Footer,
 } from "bemypet-web-ui";
 
 const App = () => {
@@ -143,6 +144,7 @@ const App = () => {
             </Row>
           </Column>
         </PageBody>
+        <Footer />
       </Layout>
     </ThemeProvider>
   );

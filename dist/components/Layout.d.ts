@@ -20,3 +20,4 @@ interface GridProps {
 export declare const Column: import("styled-components").StyledComponent<"div", any, GridProps, never>;
 export declare const Row: import("styled-components").StyledComponent<"div", any, GridProps, never>;
 export { Header } from "./Layouts/Header";
+export { Footer } from "./Layouts/Footer";

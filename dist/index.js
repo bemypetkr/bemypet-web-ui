@@ -162,6 +162,16 @@ var ThemeProvider = function ThemeProvider(_ref3) {
   }, React__default.createElement(BemypetTheme, null), children);
 };
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n  outline: none;\n  border: none;\n  background: none;\n  padding: 0;\n  margin: 0;\n\n  :hover {\n    cursor: pointer;\n  }\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject$1() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  white-space: nowrap;\n  outline: none;\n  border: none;\n  border-radius: 50px;\n\n  font-size: 13px;\n  font-weight: bold;\n  line-height: 20px;\n\n  ", "\n\n  // positive will be green colored text\n  ", ";\n\n  // negative will be red colored text\n  ", ";\n\n  ", "\n"]);
 
@@ -197,6 +207,14 @@ var Button = styled__default(function (_ref) {
       size = _ref6$size === void 0 ? "medium" : _ref6$size;
   return "\n    " + theme.buttonSizes[size] + ";\n  ";
 });
+var IconButton = styled__default(function (_ref7) {
+  var icon = _ref7.icon,
+      rest = _objectWithoutPropertiesLoose(_ref7, ["icon", "type"]);
+
+  return React__default.createElement("button", Object.assign({}, rest, {
+    children: icon
+  }));
+})(_templateObject2());
 
 function _templateObject4() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  white-space: nowrap;\n  outline: none;\n  padding: 14px 16px;\n  border-radius: 6px;\n  border: solid 1px ", ";\n  background-color: ", ";\n  font-size: 13px;\n  line-height: 20px;\n  box-sizing: border-box;\n\n  ::placeholder {\n    color: ", ";\n  }\n\n  :read-only {\n    color: ", ";\n  }\n\n  :focus {\n    border-width: 2px;\n    border-color: ", ";\n    padding: 13px 15px;\n  }\n\n  :disabled {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", ";\n"]);
@@ -218,10 +236,10 @@ function _templateObject3() {
   return data;
 }
 
-function _templateObject2() {
+function _templateObject2$1() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  margin-bottom: 8px;\n  font-size: 13px;\n  line-height: 1.54;\n"]);
 
-  _templateObject2 = function _templateObject2() {
+  _templateObject2$1 = function _templateObject2() {
     return data;
   };
 
@@ -238,7 +256,7 @@ function _templateObject$2() {
   return data;
 }
 var InputWrapper = styled__default.div(_templateObject$2());
-var InputLabel = styled__default.label(_templateObject2(), function (_ref) {
+var InputLabel = styled__default.label(_templateObject2$1(), function (_ref) {
   var theme = _ref.theme;
   return theme.colors.grey600;
 });
@@ -285,7 +303,7 @@ var Input = styled__default(function (_ref3) {
   return error ? "\n      color: " + theme.colors.red + ";\n      border-color:  " + theme.colors.red + ";\n\n      :focus {\n        border-color:  " + theme.colors.red + ";\n      }\n      " : "";
 });
 
-var AppleBlackIcon = function AppleBlackIcon(_ref) {
+var AppleIcon = function AppleIcon(_ref) {
   var _ref$width = _ref.width,
       width = _ref$width === void 0 ? 40 : _ref$width,
       _ref$height = _ref.height,
@@ -308,6 +326,32 @@ var AppleBlackIcon = function AppleBlackIcon(_ref) {
     fill: "#FFF",
     d: "M27.797 23.895c-.052.144-.103.298-.161.45-.483 1.272-1.217 2.401-2.107 3.437-.172.201-.372.384-.579.553-.409.336-.879.539-1.423.558-.408.012-.8-.06-1.178-.21-.274-.108-.544-.23-.821-.328-.901-.318-1.797-.276-2.684.065-.32.123-.635.258-.96.365-.378.123-.77.173-1.168.1-.348-.063-.653-.221-.935-.424-.35-.253-.645-.56-.92-.886-1.305-1.546-2.18-3.294-2.603-5.253-.182-.842-.27-1.691-.216-2.552.063-1.032.31-2.014.876-2.9.712-1.113 1.716-1.842 3.037-2.143.795-.182 1.568-.108 2.326.176.398.149.798.296 1.199.441.368.135.735.135 1.105-.002.408-.152.817-.303 1.228-.451.42-.149.848-.271 1.294-.305.668-.053 1.319.031 1.953.238.898.292 1.629.809 2.18 1.562.016.02.032.043.043.06-1.392.943-2.185 2.19-2.07 3.877.117 1.688 1.052 2.83 2.584 3.572zm-7.808-9.518c.41.01.806-.067 1.186-.214 1.734-.669 2.64-2.452 2.613-3.816-.002-.11-.01-.22-.015-.347-.178.026-.34.038-.496.076-1.266.302-2.24.989-2.881 2.1-.375.652-.583 1.344-.52 2.1.005.08.035.1.113.1z",
     transform: "translate(-436 -1738) translate(436 1738)"
+  })));
+};
+
+var AppStoreIcon = function AppStoreIcon(_ref) {
+  var _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 40 : _ref$width,
+      _ref$height = _ref.height,
+      height = _ref$height === void 0 ? 40 : _ref$height;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    style: {
+      width: width,
+      height: height
+    },
+    viewBox: "0 0 24 24"
+  }, React__default.createElement("g", {
+    fill: "none",
+    "fill-rule": "evenodd"
+  }, React__default.createElement("path", {
+    fill: "#FFF",
+    d: "M0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z",
+    transform: "translate(-990 -2658) translate(0 2650) translate(990 8)"
+  }), React__default.createElement("path", {
+    fill: "#0B0B0A",
+    d: "M13.954 7.08c.458-.59.805-1.427.68-2.28-.75.052-1.625.531-2.135 1.156-.466.565-.849 1.407-.7 2.224.82.026 1.664-.465 2.155-1.1zM18 15.108c-.328.73-.485 1.057-.907 1.704-.59.903-1.42 2.027-2.449 2.035-.914.01-1.15-.599-2.39-.591-1.24.006-1.5.603-2.415.594-1.029-.01-1.815-1.024-2.404-1.927-1.647-2.522-1.82-5.484-.805-7.06.723-1.118 1.862-1.772 2.933-1.772 1.09 0 1.775.602 2.678.602.875 0 1.408-.603 2.668-.603.954 0 1.965.522 2.685 1.424-2.359 1.3-1.977 4.688.406 5.594z",
+    transform: "translate(-990 -2658) translate(0 2650) translate(990 8)"
   })));
 };
 
@@ -378,6 +422,33 @@ var GoogleIcon = function GoogleIcon(_ref) {
   })));
 };
 
+var InstagramIcon = function InstagramIcon(_ref) {
+  var _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 40 : _ref$width,
+      _ref$height = _ref.height,
+      height = _ref$height === void 0 ? 40 : _ref$height;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    style: {
+      width: width,
+      height: height
+    },
+    viewBox: "0 0 40 40"
+  }, React__default.createElement("g", {
+    fill: "none",
+    fillRule: "evenodd"
+  }, React__default.createElement("g", {
+    fill: "red"
+  }, React__default.createElement("path", {
+    d: "M0 20C0 8.954 8.954 0 20 0s20 8.954 20 20-8.954 20-20 20S0 31.046 0 20z",
+    transform: "translate(-548 -1738) translate(548 1738)"
+  })), React__default.createElement("path", {
+    fill: "#FEFEFE",
+    d: "M22.311 13.636L22.311 20.16 17.706 13.636 12.727 13.636 12.727 26.566 17.69 26.566 17.69 20.043 22.295 26.566 27.273 26.566 27.273 13.636z",
+    transform: "translate(-548 -1738) translate(548 1738)"
+  })));
+};
+
 var NaverIcon = function NaverIcon(_ref) {
   var _ref$width = _ref.width,
       width = _ref$width === void 0 ? 40 : _ref$width,
@@ -403,6 +474,85 @@ var NaverIcon = function NaverIcon(_ref) {
     d: "M22.311 13.636L22.311 20.16 17.706 13.636 12.727 13.636 12.727 26.566 17.69 26.566 17.69 20.043 22.295 26.566 27.273 26.566 27.273 13.636z",
     transform: "translate(-548 -1738) translate(548 1738)"
   })));
+};
+
+var PlayStoreIcon = function PlayStoreIcon(_ref) {
+  var _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 40 : _ref$width,
+      _ref$height = _ref.height,
+      height = _ref$height === void 0 ? 40 : _ref$height;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    style: {
+      width: width,
+      height: height
+    },
+    viewBox: "0 0 40 40"
+  }, React__default.createElement("g", {
+    fill: "none",
+    fillRule: "evenodd"
+  }, React__default.createElement("path", {
+    fill: "#FFF",
+    d: "M0 0H1260V2029H0z",
+    transform: "translate(-492 -1738)"
+  }), React__default.createElement("g", {
+    transform: "translate(-492 -1738) translate(492 1738)"
+  }, React__default.createElement("circle", {
+    cx: "20",
+    cy: "20",
+    r: "20",
+    fill: "#F6F7F8"
+  }), React__default.createElement("path", {
+    fill: "#FFC100",
+    fillRule: "nonzero",
+    d: "M14.444 11.916v16.168c0 .849.93 1.37 1.653.926l13.262-8.14c.693-.426.69-1.434-.006-1.855l-13.261-8.028c-.724-.438-1.648.083-1.648.929z"
+  }), React__default.createElement("path", {
+    fill: "#D8E86D",
+    fillRule: "nonzero",
+    d: "M15.265 29.138L26.33 17.185 16.09 10.987c-.723-.438-1.647.083-1.647.929v16.168c0 .534.368.938.82 1.054z"
+  }), React__default.createElement("path", {
+    fill: "#F52B2B",
+    fillRule: "nonzero",
+    d: "M16.097 29.01l9.104-5.589 1.129-.692-11.07-11.865c-.451.117-.816.52-.816 1.052v16.168c0 .849.93 1.37 1.653.926z"
+  }), React__default.createElement("path", {
+    fill: "#00B7AD",
+    fillRule: "nonzero",
+    d: "M15.265 29.138l8.489-9.17-8.495-9.104c-.45.117-.816.52-.816 1.052v16.168c0 .534.369.938.822 1.054z"
+  }))));
+};
+
+var YoutubeIcon = function YoutubeIcon(_ref) {
+  var _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 40 : _ref$width,
+      _ref$height = _ref.height,
+      height = _ref$height === void 0 ? 40 : _ref$height;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    style: {
+      width: width,
+      height: height
+    },
+    viewBox: "0 0 40 40"
+  }, React__default.createElement("g", {
+    fill: "none",
+    "fill-rule": "evenodd"
+  }, React__default.createElement("path", {
+    fill: "#FFF",
+    d: "M0 0H1260V2029H0z",
+    transform: "translate(-212 -1738)"
+  }), React__default.createElement("g", null, React__default.createElement("path", {
+    fill: "#CE1312",
+    d: "M0 20C0 8.954 8.82 0 19.7 0c10.88 0 19.701 8.954 19.701 20s-8.82 20-19.7 20C8.82 40 0 31.046 0 20z",
+    transform: "translate(-212 -1738) translate(212 1738)"
+  }), React__default.createElement("path", {
+    fill: "#FFF",
+    d: "M29.954 15.974s-.205-1.502-.834-2.163c-.798-.87-1.692-.873-2.102-.924-2.937-.22-7.341-.22-7.341-.22h-.01s-4.404 0-7.34.22c-.41.05-1.305.055-2.103.924-.63.661-.834 2.163-.834 2.163s-.21 1.765-.21 3.529v1.654c0 1.764.21 3.528.21 3.528s.205 1.502.834 2.164c.798.868 1.847.841 2.314.932 1.678.167 7.134.219 7.134.219s4.41-.007 7.346-.228c.41-.05 1.304-.055 2.102-.923.629-.662.834-2.164.834-2.164s.21-1.764.21-3.528v-1.654c0-1.764-.21-3.529-.21-3.529z",
+    transform: "translate(-212 -1738) translate(212 1738)"
+  }), React__default.createElement("path", {
+    fill: "#CE1312",
+    d: "M17.506 23.161L17.505 17.036 23.174 20.109z",
+    transform: "translate(-212 -1738) translate(212 1738)"
+  }))));
 };
 
 function createCommonjsModule(fn, module) {
@@ -1804,10 +1954,10 @@ function _templateObject3$1() {
   return data;
 }
 
-function _templateObject2$1() {
+function _templateObject2$2() {
   var data = _taggedTemplateLiteralLoose(["\n  z-index: 1;\n  position: relative;\n  font-size: 16px;\n  text-decoration: none;\n  color: ", ";\n\n  :hover {\n    color: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject2$1 = function _templateObject2() {
+  _templateObject2$2 = function _templateObject2() {
     return data;
   };
 
@@ -1839,7 +1989,7 @@ var Menu = function Menu(_ref) {
   }));
 };
 var MenuWrapper = styled__default.ul(_templateObject$3());
-var MenuItem = styled__default.a(_templateObject2$1(), function (_ref3) {
+var MenuItem = styled__default.a(_templateObject2$2(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.colors.grey500;
 }, function (_ref4) {
@@ -1875,10 +2025,10 @@ function _templateObject3$2() {
   return data;
 }
 
-function _templateObject2$2() {
+function _templateObject2$3() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 80px;\n  height: 100%;\n  list-style: none;\n  text-align: center;\n  box-sizing: border-box;\n\n  a {\n    font-size: 13px;\n    height: 100%;\n    padding: 12px 0;\n    display: block;\n    text-decoration: none;\n    color: ", ";\n\n    :hover {\n      color: ", ";\n      cursor: pointer;\n      background-color: ", ";\n    }\n  }\n\n  ", "\n"]);
 
-  _templateObject2$2 = function _templateObject2() {
+  _templateObject2$3 = function _templateObject2() {
     return data;
   };
 
@@ -1901,7 +2051,7 @@ var HeaderNav = styled__default.div(_templateObject$4(), function (_ref) {
   var theme = _ref2.theme;
   return theme.colors.grey100;
 });
-var HeaderNavItem = styled__default.li(_templateObject2$2(), function (_ref3) {
+var HeaderNavItem = styled__default.li(_templateObject2$3(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.colors.grey100;
 }, function (_ref4) {
@@ -1960,6 +2110,138 @@ var Header = styled__default(function (_ref7) {
   })));
 })(_templateObject4$1());
 
+function _templateObject4$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  white-space: nowrap;\n  padding: 0 10px;\n\n  button {\n    margin-right: 16px;\n\n    :last-child {\n      margin-right: 0px;\n    }\n  }\n"]);
+
+  _templateObject4$2 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  outline: none;\n  border: none;\n  white-space: nowrap;\n  padding: 0px 10px;\n  color: ", ";\n  background-color: ", ";\n"]);
+
+  _templateObject3$3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$4() {
+  var data = _taggedTemplateLiteralLoose(["\n  font-size: 11px;\n  padding: 0px 10px;\n"]);
+
+  _templateObject2$4 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  width: 100%;\n  height: 40px;\n  font-size: 11px;\n  color: ", ";\n  background-color: ", ";\n  border-top: 1px solid ", ";\n\n  > button,\n  > div {\n    border-right: 1px solid ", ";\n    height: 100%;\n    box-sizing: border-box;\n    display: flex;\n    align-items: center;\n\n    :last-child {\n      border: none;\n    }\n  }\n"]);
+
+  _templateObject$5 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Footer = styled__default(function (_ref) {
+  var version = _ref.version,
+      _ref$outlinks = _ref.outlinks,
+      outlinks = _ref$outlinks === void 0 ? "instagram|youtube|facebook|playstore|appstore" : _ref$outlinks,
+      rest = _objectWithoutPropertiesLoose(_ref, ["version", "outlinks"]);
+
+  var outlinkProviders = outlinks.split("|");
+
+  var handleOnClick = function handleOnClick(providerId) {
+    return function () {
+      console.log(providerId);
+    };
+  };
+
+  return React__default.createElement("div", Object.assign({}, rest), React__default.createElement(FooterInfo, null, "\uC0C1\uD638\uBA85 : \uBE44\uB9C8\uC774\uD3AB\xA9 Copyright 2020, All Rights Reserved \uC8FC\uC18C : \uC11C\uC6B8\uC2DC \uC11C\uCD08\uAD6C \uC11C\uCD08\uC911\uC559\uB85C 24\uAE38 55, 401\uD638 \uB300\uD45C\uC790 : \uC131\uD604\uC9C4 \uBB38\uC758: 050-7724-6399, business@bemypet.kr", version ? React__default.createElement("span", null, "version: ", version) : null), React__default.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC81C\uD734\uBB38\uC758"), React__default.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC804\uCCB4\uBCF4\uAE30"), React__default.createElement(FooterIconButtons, null, outlinkProviders.map(function (providerId) {
+    switch (providerId) {
+      case "instagram":
+        return React__default.createElement(IconButton, {
+          key: "provider-" + providerId,
+          icon: React__default.createElement(InstagramIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "youtube":
+        return React__default.createElement(IconButton, {
+          key: "provider-" + providerId,
+          icon: React__default.createElement(YoutubeIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "facebook":
+        return React__default.createElement(IconButton, {
+          key: "provider-" + providerId,
+          icon: React__default.createElement(FacebookIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "playstore":
+        return React__default.createElement(IconButton, {
+          key: "provider-" + providerId,
+          icon: React__default.createElement(PlayStoreIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      case "appstore":
+        return React__default.createElement(IconButton, {
+          key: "provider-" + providerId,
+          icon: React__default.createElement(AppStoreIcon, {
+            width: 24,
+            height: 24
+          }),
+          onClick: handleOnClick(providerId)
+        });
+
+      default:
+        return null;
+    }
+  })));
+})(_templateObject$5(), function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.colors.grey500;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.colors.grey100;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.colors.grey300;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.colors.grey300;
+});
+var FooterInfo = styled__default.div(_templateObject2$4());
+var FooterButton = styled__default.button(_templateObject3$3(), function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.colors.grey500;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.colors.grey100;
+});
+var FooterIconButtons = styled__default.div(_templateObject4$2());
+
 function _templateObject5() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
 
@@ -1970,40 +2252,40 @@ function _templateObject5() {
   return data;
 }
 
-function _templateObject4$2() {
+function _templateObject4$3() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
 
-  _templateObject4$2 = function _templateObject4() {
+  _templateObject4$3 = function _templateObject4() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject3$3() {
+function _templateObject3$4() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 700px;\n  max-width: 100%;\n  margin: 0 auto;\n"]);
 
-  _templateObject3$3 = function _templateObject3() {
+  _templateObject3$4 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$3() {
+function _templateObject2$5() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n"]);
 
-  _templateObject2$3 = function _templateObject2() {
+  _templateObject2$5 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$5() {
+function _templateObject$6() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n"]);
 
-  _templateObject$5 = function _templateObject() {
+  _templateObject$6 = function _templateObject() {
     return data;
   };
 
@@ -2017,9 +2299,9 @@ var Layout = function Layout(_ref) {
       footer = _ref.footer;
   return React__default.createElement(Wrapper, null, React__default.createElement(HelmetComponent, Object.assign({}, helmetProps)), !!header ? header : null, React__default.createElement(Main, null, !!loading ? loading : children), !!footer ? footer : null);
 };
-var Wrapper = styled__default.div(_templateObject$5());
-var Main = styled__default.main(_templateObject2$3());
-var PageBody = styled__default.div(_templateObject3$3());
+var Wrapper = styled__default.div(_templateObject$6());
+var Main = styled__default.main(_templateObject2$5());
+var PageBody = styled__default.div(_templateObject3$4());
 
 var HelmetComponent = function HelmetComponent(_ref2) {
   var props = _extends({}, _ref2);
@@ -2027,7 +2309,7 @@ var HelmetComponent = function HelmetComponent(_ref2) {
   return React__default.createElement(x$1, null, React__default.createElement(N, Object.assign({}, props)));
 };
 
-var Column = styled__default.div(_templateObject4$2(), function (_ref3) {
+var Column = styled__default.div(_templateObject4$3(), function (_ref3) {
   var _ref3$justifyContent = _ref3.justifyContent,
       justifyContent = _ref3$justifyContent === void 0 ? "flex-start" : _ref3$justifyContent;
   return justifyContent;
@@ -2078,10 +2360,10 @@ var Row = styled__default.div(_templateObject5(), function (_ref9) {
   return getPixel(marginRight);
 });
 
-function _templateObject$6() {
+function _templateObject$7() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n\n  ", "\n\n  color: ", ";\n\n  text-align: ", ";\n"]);
 
-  _templateObject$6 = function _templateObject() {
+  _templateObject$7 = function _templateObject() {
     return data;
   };
 
@@ -2091,7 +2373,7 @@ var Typography = styled__default(function (_ref) {
   var rest = _objectWithoutPropertiesLoose(_ref, ["color", "variant", "textAlign"]);
 
   return React__default.createElement("p", Object.assign({}, rest));
-})(_templateObject$6(), function (_ref2) {
+})(_templateObject$7(), function (_ref2) {
   var width = _ref2.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 }, function (_ref3) {
@@ -2110,10 +2392,11 @@ var Typography = styled__default(function (_ref) {
   return textAlign;
 });
 
-exports.AppleBlackIcon = AppleBlackIcon;
+exports.AppleIcon = AppleIcon;
 exports.Button = Button;
 exports.Column = Column;
 exports.FacebookIcon = FacebookIcon;
+exports.Footer = Footer;
 exports.GoogleIcon = GoogleIcon;
 exports.Header = Header;
 exports.Input = Input;

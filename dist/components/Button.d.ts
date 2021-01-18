@@ -26,3 +26,7 @@ export declare type ButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, "colo
     negative?: boolean;
 };
 export declare const Button: import("styled-components").StyledComponent<({ color, size, type, positive, negative, ...rest }: ButtonProps) => JSX.Element, any, {}, never>;
+export declare type IconButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, "icon"> & {
+    icon: React.ReactNode;
+};
+export declare const IconButton: import("styled-components").StyledComponent<({ icon, type, ...rest }: IconButtonProps) => JSX.Element, any, {}, never>;

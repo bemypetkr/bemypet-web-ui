@@ -6,7 +6,7 @@ interface IconProps {
   height?: number;
 }
 
-export const AppleBlackIcon = ({ width = 40, height = 40 }: IconProps) => (
+export const AppleIcon = ({ width = 40, height = 40 }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     style={{ width, height }}

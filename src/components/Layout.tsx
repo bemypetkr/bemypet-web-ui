@@ -1,7 +1,7 @@
-import { getPixel } from "lib/helpers";
 import React from "react";
 import { Helmet, HelmetProvider, HelmetProps } from "react-helmet-async";
 import styled from "styled-components";
+import { getPixel } from "lib/helpers";
 
 interface LayoutProps {
   helmetProps?: HelmetProps;
@@ -91,3 +91,4 @@ export const Row = styled.div<GridProps>`
 `;
 
 export { Header } from "./Layouts/Header";
+export { Footer } from "./Layouts/Footer";

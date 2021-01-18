@@ -78,3 +78,26 @@ export const Button = styled(
     ${theme.buttonSizes[size]};
   `}
 `;
+
+export type IconButtonProps = Omit<
+  React.HTMLProps<HTMLButtonElement>,
+  "icon"
+> & {
+  icon: React.ReactNode;
+};
+
+export const IconButton = styled(
+  ({ icon, type = "button", ...rest }: IconButtonProps) => (
+    <button {...rest} children={icon} />
+  ),
+)`
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
