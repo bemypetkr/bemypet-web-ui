@@ -8,6 +8,8 @@ import {
   Column,
   Header,
   PageBody,
+  Input,
+  GoogleIcon,
 } from "bemypet-web-ui";
 
 const App = () => {
@@ -89,6 +91,49 @@ const App = () => {
               <Button color="primary" size="large">
                 Large
               </Button>
+            </Row>
+          </Column>
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              Input
+            </Typography>
+            <Typography variant="heading3" as="h3">
+              Variation
+            </Typography>
+            <Row>
+              <Input placeholder="Default" />
+              <Input value="Read Only" readOnly />
+              <Input value="Error" error />
+              <Input value="Disabled" disabled />
+              <Input
+                placeholder="With Icon"
+                disabled
+                trailing={<GoogleIcon width={24} height={24} />}
+              />
+            </Row>
+            <Typography variant="heading3" as="h3">
+              With Label
+            </Typography>
+            <Row>
+              <Input placeholder="Default" label="Default Label" />
+              <Input
+                placeholder="Default"
+                label="Default Label"
+                helperText="Helper message is here"
+              />
+              <Input
+                placeholder="Default"
+                label={<label style={{ color: "red" }}>Custom Label</label>}
+              />
+              <Input
+                placeholder="Default"
+                label="Default Label"
+                helperText={
+                  <p style={{ color: "red" }}>
+                    {"Custom Helper message is here"}
+                  </p>
+                }
+              />
             </Row>
           </Column>
         </PageBody>
