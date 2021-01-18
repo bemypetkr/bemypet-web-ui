@@ -3,14 +3,15 @@ import styled from "styled-components";
 import Logo from "components/Icons/Logo";
 import { Menu } from "./Menu";
 
-interface HeaderMenuItemProps {
+interface MenuItemProps {
   label: string;
   to: string;
   target?: string;
 }
 
 interface HeaderProps {
-  menus: HeaderMenuItemProps[];
+  menus: MenuItemProps[];
+  locationPath?: string;
 }
 
 const HeaderNav = styled.div`
@@ -28,16 +29,16 @@ const HeaderNav = styled.div`
   ul {
     display: flex;
   }
+`;
 
-  li {
-    width: 80px;
-    height: 100%;
-    list-style: none;
-    text-align: center;
-    box-sizing: border-box;
-  }
+const HeaderNavItem = styled.li<{ selected?: boolean }>`
+  width: 80px;
+  height: 100%;
+  list-style: none;
+  text-align: center;
+  box-sizing: border-box;
 
-  li a {
+  a {
     font-size: 13px;
     height: 100%;
     padding: 12px 0;
@@ -52,11 +53,16 @@ const HeaderNav = styled.div`
     }
   }
 
-  li.selected a {
-    font-weight: bold;
-    color: ${({ theme }) => theme.colors.grey600};
-    background-color: ${({ theme }) => theme.colors.grey100};
-  }
+  ${({ theme, selected }) =>
+    selected
+      ? `
+      a {
+      font-weight: bold;
+      color: ${theme.colors.grey600};
+      background-color: ${theme.colors.grey100};
+    }  
+  `
+      : ""}
 `;
 
 const HeaderMenu = styled.div`
@@ -70,27 +76,56 @@ const HeaderMenu = styled.div`
   overflow: hidden;
 `;
 
-export const Header = styled(({ menus }: HeaderProps) => (
+const leftMenus: MenuItemProps[] = [
+  {
+    label: "라이프",
+    to: "https://mypetlife.co.kr/",
+  },
+  {
+    label: "크리에이터즈",
+    to: "https://creators.mypetlife.co.kr/",
+  },
+  {
+    label: "툴즈",
+    to: "https://tools.mypetlife.co.kr/",
+  },
+];
+
+const accountBaseUrl = "https://accounts.mypetlife.co.kr";
+
+const rightMenus: MenuItemProps[] = [
+  {
+    label: "로그인",
+    to: `${accountBaseUrl}/login`,
+  },
+  {
+    label: "회원가입",
+    to: `${accountBaseUrl}/registration`,
+  },
+];
+
+export const Header = styled(({ menus, locationPath }: HeaderProps) => (
   <div>
     <HeaderNav>
       <ul>
-        <li className="selected">
-          <a href="https://mypetlife.co.kr/">라이프</a>
-        </li>
-        <li>
-          <a href="https://creators.mypetlife.co.kr/">크리에이터즈</a>
-        </li>
-        <li>
-          <a href="https://tools.mypetlife.co.kr/">툴즈</a>
-        </li>
+        {leftMenus.map(({ label, to }: MenuItemProps) => (
+          <HeaderNavItem
+            key={`header-nav-${label}`}
+            selected={locationPath?.startsWith(to)}
+          >
+            <a href={to}>{label}</a>
+          </HeaderNavItem>
+        ))}
       </ul>
       <ul>
-        <li>
-          <a>로그인</a>
-        </li>
-        <li>
-          <a>회원가입</a>
-        </li>
+        {rightMenus.map(({ label, to }: MenuItemProps) => (
+          <HeaderNavItem
+            key={`header-nav-${label}`}
+            selected={locationPath?.startsWith(to)}
+          >
+            <a href={to}>{label}</a>
+          </HeaderNavItem>
+        ))}
       </ul>
     </HeaderNav>
     <HeaderMenu>

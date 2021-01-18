@@ -252,7 +252,9 @@ var Input = styled__default(function (_ref3) {
       trailing = _ref3.trailing,
       rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText", "trailing"]);
 
-  return React__default.createElement(InputWrapper, null, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
+  return React__default.createElement(InputWrapper, {
+    className: "bui-input"
+  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
 })(_templateObject4(), function (_ref4) {
   var width = _ref4.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
@@ -1853,8 +1855,18 @@ var SelectedCircle = styled__default.span(_templateObject3$1(), function (_ref6)
   return theme.colors.primary100;
 });
 
-function _templateObject3$2() {
+function _templateObject4$1() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 140px;\n"]);
+
+  _templateObject4$1 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 42px;\n  width: 100%;\n  height: 100px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  box-sizing: border-box;\n  overflow: hidden;\n"]);
 
   _templateObject3$2 = function _templateObject3() {
     return data;
@@ -1864,7 +1876,7 @@ function _templateObject3$2() {
 }
 
 function _templateObject2$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 42px;\n  width: 100%;\n  height: 100px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  box-sizing: border-box;\n  overflow: hidden;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 80px;\n  height: 100%;\n  list-style: none;\n  text-align: center;\n  box-sizing: border-box;\n\n  a {\n    font-size: 13px;\n    height: 100%;\n    padding: 12px 0;\n    display: block;\n    text-decoration: none;\n    color: ", ";\n\n    :hover {\n      color: ", ";\n      cursor: pointer;\n      background-color: ", ";\n    }\n  }\n\n  ", "\n"]);
 
   _templateObject2$2 = function _templateObject2() {
     return data;
@@ -1874,7 +1886,7 @@ function _templateObject2$2() {
 }
 
 function _templateObject$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 30px;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: ", ";\n  color: ", ";\n  box-sizing: border-box;\n  overflow: hidden;\n\n  ul {\n    display: flex;\n  }\n\n  li {\n    width: 80px;\n    height: 100%;\n    list-style: none;\n    text-align: center;\n    box-sizing: border-box;\n  }\n\n  li a {\n    font-size: 13px;\n    height: 100%;\n    padding: 12px 0;\n    display: block;\n    text-decoration: none;\n    color: ", ";\n\n    :hover {\n      color: ", ";\n      cursor: pointer;\n      background-color: ", ";\n    }\n  }\n\n  li.selected a {\n    font-weight: bold;\n    color: ", ";\n    background-color: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 30px;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: ", ";\n  color: ", ";\n  box-sizing: border-box;\n  overflow: hidden;\n\n  ul {\n    display: flex;\n  }\n"]);
 
   _templateObject$4 = function _templateObject() {
     return data;
@@ -1888,7 +1900,8 @@ var HeaderNav = styled__default.div(_templateObject$4(), function (_ref) {
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.colors.grey100;
-}, function (_ref3) {
+});
+var HeaderNavItem = styled__default.li(_templateObject2$2(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.colors.grey100;
 }, function (_ref4) {
@@ -1898,27 +1911,54 @@ var HeaderNav = styled__default.div(_templateObject$4(), function (_ref) {
   var theme = _ref5.theme;
   return theme.colors.primary200;
 }, function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.colors.grey600;
-}, function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.colors.grey100;
+  var theme = _ref6.theme,
+      selected = _ref6.selected;
+  return selected ? "\n      a {\n      font-weight: bold;\n      color: " + theme.colors.grey600 + ";\n      background-color: " + theme.colors.grey100 + ";\n    }  \n  " : "";
 });
-var HeaderMenu = styled__default.div(_templateObject2$2());
-var Header = styled__default(function (_ref8) {
-  var menus = _ref8.menus;
-  return React__default.createElement("div", null, React__default.createElement(HeaderNav, null, React__default.createElement("ul", null, React__default.createElement("li", {
-    className: "selected"
-  }, React__default.createElement("a", {
-    href: "https://mypetlife.co.kr/"
-  }, "\uB77C\uC774\uD504")), React__default.createElement("li", null, React__default.createElement("a", {
-    href: "https://creators.mypetlife.co.kr/"
-  }, "\uD06C\uB9AC\uC5D0\uC774\uD130\uC988")), React__default.createElement("li", null, React__default.createElement("a", {
-    href: "https://tools.mypetlife.co.kr/"
-  }, "\uD234\uC988"))), React__default.createElement("ul", null, React__default.createElement("li", null, React__default.createElement("a", null, "\uB85C\uADF8\uC778")), React__default.createElement("li", null, React__default.createElement("a", null, "\uD68C\uC6D0\uAC00\uC785")))), React__default.createElement(HeaderMenu, null, React__default.createElement(Logo, null), React__default.createElement(Menu, {
+var HeaderMenu = styled__default.div(_templateObject3$2());
+var leftMenus = [{
+  label: "라이프",
+  to: "https://mypetlife.co.kr/"
+}, {
+  label: "크리에이터즈",
+  to: "https://creators.mypetlife.co.kr/"
+}, {
+  label: "툴즈",
+  to: "https://tools.mypetlife.co.kr/"
+}];
+var accountBaseUrl = "https://accounts.mypetlife.co.kr";
+var rightMenus = [{
+  label: "로그인",
+  to: accountBaseUrl + "/login"
+}, {
+  label: "회원가입",
+  to: accountBaseUrl + "/registration"
+}];
+var Header = styled__default(function (_ref7) {
+  var menus = _ref7.menus,
+      locationPath = _ref7.locationPath;
+  return React__default.createElement("div", null, React__default.createElement(HeaderNav, null, React__default.createElement("ul", null, leftMenus.map(function (_ref8) {
+    var label = _ref8.label,
+        to = _ref8.to;
+    return React__default.createElement(HeaderNavItem, {
+      key: "header-nav-" + label,
+      selected: locationPath === null || locationPath === void 0 ? void 0 : locationPath.startsWith(to)
+    }, React__default.createElement("a", {
+      href: to
+    }, label));
+  })), React__default.createElement("ul", null, rightMenus.map(function (_ref9) {
+    var label = _ref9.label,
+        to = _ref9.to;
+    return React__default.createElement(HeaderNavItem, {
+      key: "header-nav-" + label,
+      selected: locationPath === null || locationPath === void 0 ? void 0 : locationPath.startsWith(to)
+    }, React__default.createElement("a", {
+      href: to
+    }, label));
+  }))), React__default.createElement(HeaderMenu, null, React__default.createElement(Logo, null), React__default.createElement(Menu, {
     menus: menus
   })));
-})(_templateObject3$2());
+})(_templateObject4$1());
 
 function _templateObject5() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
@@ -1930,10 +1970,10 @@ function _templateObject5() {
   return data;
 }
 
-function _templateObject4$1() {
+function _templateObject4$2() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
 
-  _templateObject4$1 = function _templateObject4() {
+  _templateObject4$2 = function _templateObject4() {
     return data;
   };
 
@@ -1987,7 +2027,7 @@ var HelmetComponent = function HelmetComponent(_ref2) {
   return React__default.createElement(x$1, null, React__default.createElement(N, Object.assign({}, props)));
 };
 
-var Column = styled__default.div(_templateObject4$1(), function (_ref3) {
+var Column = styled__default.div(_templateObject4$2(), function (_ref3) {
   var _ref3$justifyContent = _ref3.justifyContent,
       justifyContent = _ref3$justifyContent === void 0 ? "flex-start" : _ref3$justifyContent;
   return justifyContent;

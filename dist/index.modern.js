@@ -299,7 +299,9 @@ const Input = styled(({
   helperText,
   trailing,
   ...rest
-}) => React.createElement(InputWrapper, null, label ? typeof label === "string" ? React.createElement(InputLabel, null, label) : label : null, React.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React.createElement(InputHelperText, null, helperText) : helperText : null))(_t4 || (_t4 = _$2`
+}) => React.createElement(InputWrapper, {
+  className: "bui-input"
+}, label ? typeof label === "string" ? React.createElement(InputLabel, null, label) : label : null, React.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React.createElement(InputHelperText, null, helperText) : helperText : null))(_t4 || (_t4 = _$2`
   width: ${0};
   white-space: nowrap;
   outline: none;
@@ -1917,7 +1919,8 @@ const SelectedCircle = styled.span(_t3$1 || (_t3$1 = _$3`
 let _$4 = t => t,
     _t$4,
     _t2$2,
-    _t3$2;
+    _t3$2,
+    _t4$1;
 const HeaderNav = styled.div(_t$4 || (_t$4 = _$4`
   padding: 0 30px;
   width: 100%;
@@ -1933,16 +1936,19 @@ const HeaderNav = styled.div(_t$4 || (_t$4 = _$4`
   ul {
     display: flex;
   }
+`), ({
+  theme
+}) => theme.colors.primary100, ({
+  theme
+}) => theme.colors.grey100);
+const HeaderNavItem = styled.li(_t2$2 || (_t2$2 = _$4`
+  width: 80px;
+  height: 100%;
+  list-style: none;
+  text-align: center;
+  box-sizing: border-box;
 
-  li {
-    width: 80px;
-    height: 100%;
-    list-style: none;
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-  li a {
+  a {
     font-size: 13px;
     height: 100%;
     padding: 12px 0;
@@ -1957,27 +1963,24 @@ const HeaderNav = styled.div(_t$4 || (_t$4 = _$4`
     }
   }
 
-  li.selected a {
-    font-weight: bold;
-    color: ${0};
-    background-color: ${0};
-  }
+  ${0}
 `), ({
-  theme
-}) => theme.colors.primary100, ({
-  theme
-}) => theme.colors.grey100, ({
   theme
 }) => theme.colors.grey100, ({
   theme
 }) => theme.colors.grey500, ({
   theme
 }) => theme.colors.primary200, ({
-  theme
-}) => theme.colors.grey600, ({
-  theme
-}) => theme.colors.grey100);
-const HeaderMenu = styled.div(_t2$2 || (_t2$2 = _$4`
+  theme,
+  selected
+}) => selected ? `
+      a {
+      font-weight: bold;
+      color: ${theme.colors.grey600};
+      background-color: ${theme.colors.grey100};
+    }  
+  ` : "");
+const HeaderMenu = styled.div(_t3$2 || (_t3$2 = _$4`
   padding: 0 42px;
   width: 100%;
   height: 100px;
@@ -1987,19 +1990,46 @@ const HeaderMenu = styled.div(_t2$2 || (_t2$2 = _$4`
   box-sizing: border-box;
   overflow: hidden;
 `));
+const leftMenus = [{
+  label: "라이프",
+  to: "https://mypetlife.co.kr/"
+}, {
+  label: "크리에이터즈",
+  to: "https://creators.mypetlife.co.kr/"
+}, {
+  label: "툴즈",
+  to: "https://tools.mypetlife.co.kr/"
+}];
+const accountBaseUrl = "https://accounts.mypetlife.co.kr";
+const rightMenus = [{
+  label: "로그인",
+  to: `${accountBaseUrl}/login`
+}, {
+  label: "회원가입",
+  to: `${accountBaseUrl}/registration`
+}];
 const Header = styled(({
-  menus
-}) => React.createElement("div", null, React.createElement(HeaderNav, null, React.createElement("ul", null, React.createElement("li", {
-  className: "selected"
+  menus,
+  locationPath
+}) => React.createElement("div", null, React.createElement(HeaderNav, null, React.createElement("ul", null, leftMenus.map(({
+  label,
+  to
+}) => React.createElement(HeaderNavItem, {
+  key: `header-nav-${label}`,
+  selected: locationPath === null || locationPath === void 0 ? void 0 : locationPath.startsWith(to)
 }, React.createElement("a", {
-  href: "https://mypetlife.co.kr/"
-}, "\uB77C\uC774\uD504")), React.createElement("li", null, React.createElement("a", {
-  href: "https://creators.mypetlife.co.kr/"
-}, "\uD06C\uB9AC\uC5D0\uC774\uD130\uC988")), React.createElement("li", null, React.createElement("a", {
-  href: "https://tools.mypetlife.co.kr/"
-}, "\uD234\uC988"))), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", null, "\uB85C\uADF8\uC778")), React.createElement("li", null, React.createElement("a", null, "\uD68C\uC6D0\uAC00\uC785")))), React.createElement(HeaderMenu, null, React.createElement(Logo, null), React.createElement(Menu, {
+  href: to
+}, label)))), React.createElement("ul", null, rightMenus.map(({
+  label,
+  to
+}) => React.createElement(HeaderNavItem, {
+  key: `header-nav-${label}`,
+  selected: locationPath === null || locationPath === void 0 ? void 0 : locationPath.startsWith(to)
+}, React.createElement("a", {
+  href: to
+}, label))))), React.createElement(HeaderMenu, null, React.createElement(Logo, null), React.createElement(Menu, {
   menus: menus
-}))))(_t3$2 || (_t3$2 = _$4`
+}))))(_t4$1 || (_t4$1 = _$4`
   width: 100%;
   height: 140px;
 `));
@@ -2008,7 +2038,7 @@ let _$5 = t => t,
     _t$5,
     _t2$3,
     _t3$3,
-    _t4$1,
+    _t4$2,
     _t5;
 const Layout = ({
   helmetProps,
@@ -2036,7 +2066,7 @@ const PageBody = styled.div(_t3$3 || (_t3$3 = _$5`
 const HelmetComponent = ({ ...props
 }) => React.createElement(x$1, null, React.createElement(N, Object.assign({}, props)));
 
-const Column = styled.div(_t4$1 || (_t4$1 = _$5`
+const Column = styled.div(_t4$2 || (_t4$2 = _$5`
   width: 100%;
   display: flex;
   flex-direction: column;

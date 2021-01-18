@@ -76,7 +76,7 @@ export const Input = styled(
     trailing,
     ...rest
   }: InputProps) => (
-    <InputWrapper>
+    <InputWrapper className={"bui-input"}>
       {label ? (
         typeof label === "string" ? (
           <InputLabel>{label}</InputLabel>
