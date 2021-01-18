@@ -16,7 +16,12 @@ const App = () => {
   return (
     <ThemeProvider>
       <Layout helmetProps={{ title: "Bemypet UI" }}>
-        <Header>
+        <Header
+          menus={[
+            { label: "홈", to: "/" },
+            { label: "스토리", to: "/", selected: true },
+          ]}
+        >
           <Typography variant="heading2">Bemypet UI</Typography>
         </Header>
         <PageBody>

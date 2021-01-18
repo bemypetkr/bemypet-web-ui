@@ -1712,38 +1712,88 @@ var shallowequal = function shallowEqual(objA, objB, compare, compareContext) {
 
 function a(){return (a=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n]);}return e}).apply(this,arguments)}function s(e,t){e.prototype=Object.create(t.prototype),e.prototype.constructor=e,e.__proto__=t;}function c$1(e,t){if(null==e)return {};var r,n,i={},o=Object.keys(e);for(n=0;n<o.length;n++)t.indexOf(r=o[n])>=0||(i[r]=e[r]);return i}var u={BASE:"base",BODY:"body",HEAD:"head",HTML:"html",LINK:"link",META:"meta",NOSCRIPT:"noscript",SCRIPT:"script",STYLE:"style",TITLE:"title",FRAGMENT:"Symbol(react.fragment)"},l$1=Object.keys(u).map(function(e){return u[e]}),p$1={accesskey:"accessKey",charset:"charSet",class:"className",contenteditable:"contentEditable",contextmenu:"contextMenu","http-equiv":"httpEquiv",itemprop:"itemProp",tabindex:"tabIndex"},f$1=Object.keys(p$1).reduce(function(e,t){return e[p$1[t]]=t,e},{}),d$1=function(e,t){for(var r=e.length-1;r>=0;r-=1){var n=e[r];if(Object.prototype.hasOwnProperty.call(n,t))return n[t]}return null},h$1=function(e){var t=d$1(e,u.TITLE),r=d$1(e,"titleTemplate");if(Array.isArray(t)&&(t=t.join("")),r&&t)return r.replace(/%s/g,function(){return t});var n=d$1(e,"defaultTitle");return t||n||void 0},m$1=function(e){return d$1(e,"onChangeClientState")||function(){}},y$1=function(e,t){return t.filter(function(t){return void 0!==t[e]}).map(function(t){return t[e]}).reduce(function(e,t){return a({},e,t)},{})},T=function(e,t){return t.filter(function(e){return void 0!==e[u.BASE]}).map(function(e){return e[u.BASE]}).reverse().reduce(function(t,r){if(!t.length)for(var n=Object.keys(r),i=0;i<n.length;i+=1){var o=n[i].toLowerCase();if(-1!==e.indexOf(o)&&r[o])return t.concat(r)}return t},[])},b$1=function(e,t,r){var n={};return r.filter(function(t){return !!Array.isArray(t[e])||(void 0!==t[e]&&console&&"function"==typeof console.warn&&console.warn("Helmet: "+e+' should be of type "Array". Instead found type "'+typeof t[e]+'"'),!1)}).map(function(t){return t[e]}).reverse().reduce(function(e,r){var i={};r.filter(function(e){for(var r,o=Object.keys(e),a=0;a<o.length;a+=1){var s=o[a],c=s.toLowerCase();-1===t.indexOf(c)||"rel"===r&&"canonical"===e[r].toLowerCase()||"rel"===c&&"stylesheet"===e[c].toLowerCase()||(r=c),-1===t.indexOf(s)||"innerHTML"!==s&&"cssText"!==s&&"itemprop"!==s||(r=s);}if(!r||!e[r])return !1;var u=e[r].toLowerCase();return n[r]||(n[r]={}),i[r]||(i[r]={}),!n[r][u]&&(i[r][u]=!0,!0)}).reverse().forEach(function(t){return e.push(t)});for(var o=Object.keys(i),s=0;s<o.length;s+=1){var c=o[s],u=a({},n[c],i[c]);n[c]=u;}return e},[]).reverse()},g$1=function(e){return Array.isArray(e)?e.join(""):e},v$1=[u.NOSCRIPT,u.SCRIPT,u.STYLE],A$1=function(e,t){return void 0===t&&(t=!0),!1===t?String(e):String(e).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#x27;")},C=function(e){return Object.keys(e).reduce(function(t,r){var n=void 0!==e[r]?r+'="'+e[r]+'"':""+r;return t?t+" "+n:n},"")},O=function(e,t){return void 0===t&&(t={}),Object.keys(e).reduce(function(t,r){return t[p$1[r]||r]=e[r],t},t)},E=function(t,r,n){switch(t){case u.TITLE:return {toComponent:function(){return n=r.titleAttributes,(i={key:t=r.title})["data-rh"]=!0,o=O(n,i),[React__default.createElement(u.TITLE,o,t)];var t,n,i,o;},toString:function(){return function(e,t,r,n){var i=C(r),o=g$1(t);return i?"<"+e+' data-rh="true" '+i+">"+A$1(o,n)+"</"+e+">":"<"+e+' data-rh="true">'+A$1(o,n)+"</"+e+">"}(t,r.title,r.titleAttributes,n)}};case"bodyAttributes":case"htmlAttributes":return {toComponent:function(){return O(r)},toString:function(){return C(r)}};default:return {toComponent:function(){return function(t,r){return r.map(function(r,n){var i,o=((i={key:n})["data-rh"]=!0,i);return Object.keys(r).forEach(function(e){var t=p$1[e]||e;"innerHTML"===t||"cssText"===t?o.dangerouslySetInnerHTML={__html:r.innerHTML||r.cssText}:o[t]=r[e];}),React__default.createElement(t,o)})}(t,r)},toString:function(){return function(e,t,r){return t.reduce(function(t,n){var i=Object.keys(n).filter(function(e){return !("innerHTML"===e||"cssText"===e)}).reduce(function(e,t){var i=void 0===n[t]?t:t+'="'+A$1(n[t],r)+'"';return e?e+" "+i:i},""),o=n.innerHTML||n.cssText||"",a=-1===v$1.indexOf(e);return t+"<"+e+' data-rh="true" '+i+(a?"/>":">"+o+"</"+e+">")},"")}(t,r,n)}}}},S=function(e){var t=e.bodyAttributes,r=e.encode,n=e.htmlAttributes,i=e.linkTags,o=e.metaTags,a=e.noscriptTags,s=e.scriptTags,c=e.styleTags,l=e.title,p=void 0===l?"":l,f=e.titleAttributes;return {base:E(u.BASE,e.baseTag,r),bodyAttributes:E("bodyAttributes",t,r),htmlAttributes:E("htmlAttributes",n,r),link:E(u.LINK,i,r),meta:E(u.META,o,r),noscript:E(u.NOSCRIPT,a,r),script:E(u.SCRIPT,s,r),style:E(u.STYLE,c,r),title:E(u.TITLE,{title:p,titleAttributes:f},r)}},I=React__default.createContext({}),P=propTypes.shape({setHelmet:propTypes.func,helmetInstances:propTypes.shape({get:propTypes.func,add:propTypes.func,remove:propTypes.func})}),L="undefined"!=typeof document,x$1=function(t){function r(e){var n;return (n=t.call(this,e)||this).instances=[],n.value={setHelmet:function(e){n.props.context.helmet=e;},helmetInstances:{get:function(){return n.instances},add:function(e){n.instances.push(e);},remove:function(e){var t=n.instances.indexOf(e);n.instances.splice(t,1);}}},r.canUseDOM||(e.context.helmet=S({baseTag:[],bodyAttributes:{},encodeSpecialCharacters:!0,htmlAttributes:{},linkTags:[],metaTags:[],noscriptTags:[],scriptTags:[],styleTags:[],title:"",titleAttributes:{}})),n}return s(r,t),r.prototype.render=function(){return React__default.createElement(I.Provider,{value:this.value},this.props.children)},r}(React.Component);x$1.canUseDOM=L,x$1.propTypes={context:propTypes.shape({helmet:propTypes.shape()}),children:propTypes.node.isRequired},x$1.defaultProps={context:{}},x$1.displayName="HelmetProvider";var j=function(e,t){var r,n=document.head||document.querySelector(u.HEAD),i=n.querySelectorAll(e+"[data-rh]"),o=[].slice.call(i),a=[];return t&&t.length&&t.forEach(function(t){var n=document.createElement(e);for(var i in t)Object.prototype.hasOwnProperty.call(t,i)&&("innerHTML"===i?n.innerHTML=t.innerHTML:"cssText"===i?n.styleSheet?n.styleSheet.cssText=t.cssText:n.appendChild(document.createTextNode(t.cssText)):n.setAttribute(i,void 0===t[i]?"":t[i]));n.setAttribute("data-rh","true"),o.some(function(e,t){return r=t,n.isEqualNode(e)})?o.splice(r,1):a.push(n);}),o.forEach(function(e){return e.parentNode.removeChild(e)}),a.forEach(function(e){return n.appendChild(e)}),{oldTags:o,newTags:a}},w$1=function(e,t){var r=document.getElementsByTagName(e)[0];if(r){for(var n=r.getAttribute("data-rh"),i=n?n.split(","):[],o=[].concat(i),a=Object.keys(t),s=0;s<a.length;s+=1){var c=a[s],u=t[c]||"";r.getAttribute(c)!==u&&r.setAttribute(c,u),-1===i.indexOf(c)&&i.push(c);var l=o.indexOf(c);-1!==l&&o.splice(l,1);}for(var p=o.length-1;p>=0;p-=1)r.removeAttribute(o[p]);i.length===o.length?r.removeAttribute("data-rh"):r.getAttribute("data-rh")!==a.join(",")&&r.setAttribute("data-rh",a.join(","));}},H=function(e,t){var r=e.baseTag,n=e.htmlAttributes,i=e.linkTags,o=e.metaTags,a=e.noscriptTags,s=e.onChangeClientState,c=e.scriptTags,l=e.styleTags,p=e.title,f=e.titleAttributes;w$1(u.BODY,e.bodyAttributes),w$1(u.HTML,n),function(e,t){void 0!==e&&document.title!==e&&(document.title=g$1(e)),w$1(u.TITLE,t);}(p,f);var d={baseTag:j(u.BASE,r),linkTags:j(u.LINK,i),metaTags:j(u.META,o),noscriptTags:j(u.NOSCRIPT,a),scriptTags:j(u.SCRIPT,c),styleTags:j(u.STYLE,l)},h={},m={};Object.keys(d).forEach(function(e){var t=d[e],r=t.newTags,n=t.oldTags;r.length&&(h[e]=r),n.length&&(m[e]=d[e].oldTags);}),t&&t(),s(e,h,m);},k$1=null,M=function(e){function t(){for(var t,r=arguments.length,n=new Array(r),i=0;i<r;i++)n[i]=arguments[i];return (t=e.call.apply(e,[this].concat(n))||this).rendered=!1,t}s(t,e);var r=t.prototype;return r.shouldComponentUpdate=function(e){return !shallowequal(e,this.props)},r.componentDidUpdate=function(){this.emitChange();},r.componentWillUnmount=function(){this.props.context.helmetInstances.remove(this),this.emitChange();},r.emitChange=function(){var e,t,r=this.props.context,n=r.setHelmet,i=null,o=(e=r.helmetInstances.get().map(function(e){var t=a({},e.props);return delete t.context,t}),{baseTag:T(["href"],e),bodyAttributes:y$1("bodyAttributes",e),defer:d$1(e,"defer"),encode:d$1(e,"encodeSpecialCharacters"),htmlAttributes:y$1("htmlAttributes",e),linkTags:b$1(u.LINK,["rel","href"],e),metaTags:b$1(u.META,["name","charset","http-equiv","property","itemprop"],e),noscriptTags:b$1(u.NOSCRIPT,["innerHTML"],e),onChangeClientState:m$1(e),scriptTags:b$1(u.SCRIPT,["src","innerHTML"],e),styleTags:b$1(u.STYLE,["cssText"],e),title:h$1(e),titleAttributes:y$1("titleAttributes",e)});x$1.canUseDOM?(t=o,k$1&&cancelAnimationFrame(k$1),t.defer?k$1=requestAnimationFrame(function(){H(t,function(){k$1=null;});}):(H(t),k$1=null)):S&&(i=S(o)),n(i);},r.init=function(){this.rendered||(this.rendered=!0,this.props.context.helmetInstances.add(this),this.emitChange());},r.render=function(){return this.init(),null},t}(React.Component);M.propTypes={context:P.isRequired},M.displayName="HelmetDispatcher";var N=function(t){function r(){return t.apply(this,arguments)||this}s(r,t);var o=r.prototype;return o.shouldComponentUpdate=function(e){return !reactFastCompare(this.props,e)},o.mapNestedChildrenToProps=function(e,t){if(!t)return null;switch(e.type){case u.SCRIPT:case u.NOSCRIPT:return {innerHTML:t};case u.STYLE:return {cssText:t};default:throw new Error("<"+e.type+" /> elements are self-closing and can not contain children. Refer to our API for more information.")}},o.flattenArrayTypeChildren=function(e){var t,r=e.child,n=e.arrayTypeChildren;return a({},n,((t={})[r.type]=[].concat(n[r.type]||[],[a({},e.newChildProps,this.mapNestedChildrenToProps(r,e.nestedChildren))]),t))},o.mapObjectTypeChildren=function(e){var t,r,n=e.child,i=e.newProps,o=e.newChildProps,s=e.nestedChildren;switch(n.type){case u.TITLE:return a({},i,((t={})[n.type]=s,t.titleAttributes=a({},o),t));case u.BODY:return a({},i,{bodyAttributes:a({},o)});case u.HTML:return a({},i,{htmlAttributes:a({},o)});default:return a({},i,((r={})[n.type]=a({},o),r))}},o.mapArrayTypeChildrenToProps=function(e,t){var r=a({},t);return Object.keys(e).forEach(function(t){var n;r=a({},r,((n={})[t]=e[t],n));}),r},o.warnOnInvalidChildren=function(e,t){return browser(l$1.some(function(t){return e.type===t}),"function"==typeof e.type?"You may be attempting to nest <Helmet> components within each other, which is not allowed. Refer to our API for more information.":"Only elements types "+l$1.join(", ")+" are allowed. Helmet does not support rendering <"+e.type+"> elements. Refer to our API for more information."),browser(!t||"string"==typeof t||Array.isArray(t)&&!t.some(function(e){return "string"!=typeof e}),"Helmet expects a string as a child of <"+e.type+">. Did you forget to wrap your children in braces? ( <"+e.type+">{``}</"+e.type+"> ) Refer to our API for more information."),!0},o.mapChildrenToProps=function(t,r){var n=this,i={};return React__default.Children.forEach(t,function(e){if(e&&e.props){var t=e.props,o=t.children,a=c$1(t,["children"]),s=Object.keys(a).reduce(function(e,t){return e[f$1[t]||t]=a[t],e},{}),l=e.type;switch("symbol"==typeof l?l=l.toString():n.warnOnInvalidChildren(e,o),l){case u.FRAGMENT:r=n.mapChildrenToProps(o,r);break;case u.LINK:case u.META:case u.NOSCRIPT:case u.SCRIPT:case u.STYLE:i=n.flattenArrayTypeChildren({child:e,arrayTypeChildren:i,newChildProps:s,nestedChildren:o});break;default:r=n.mapObjectTypeChildren({child:e,newProps:r,newChildProps:s,nestedChildren:o});}}}),this.mapArrayTypeChildrenToProps(i,r)},o.render=function(){var t=this.props,r=t.children,n=a({},c$1(t,["children"]));return r&&(n=this.mapChildrenToProps(r,n)),React__default.createElement(I.Consumer,null,function(t){return React__default.createElement(M,a({},n,{context:t}))})},r}(React.Component);N.propTypes={base:propTypes.object,bodyAttributes:propTypes.object,children:propTypes.oneOfType([propTypes.arrayOf(propTypes.node),propTypes.node]),defaultTitle:propTypes.string,defer:propTypes.bool,encodeSpecialCharacters:propTypes.bool,htmlAttributes:propTypes.object,link:propTypes.arrayOf(propTypes.object),meta:propTypes.arrayOf(propTypes.object),noscript:propTypes.arrayOf(propTypes.object),onChangeClientState:propTypes.func,script:propTypes.arrayOf(propTypes.object),style:propTypes.arrayOf(propTypes.object),title:propTypes.string,titleAttributes:propTypes.object,titleTemplate:propTypes.string},N.defaultProps={defer:!0,encodeSpecialCharacters:!0},N.displayName="Helmet";//# sourceMappingURL=index.module.js.map
 
-function _templateObject6() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
-
-  _templateObject6 = function _templateObject6() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject5() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
-
-  _templateObject5 = function _templateObject5() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject4$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 30px;\n  width: 100%;\n  height: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: ", ";\n  color: ", ";\n  box-sizing: border-box;\n"]);
-
-  _templateObject4$1 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
+var Logo = function Logo(_ref) {
+  var _ref$color = _ref.color,
+      color = _ref$color === void 0 ? "#080405" : _ref$color,
+      _ref$width = _ref.width,
+      width = _ref$width === void 0 ? 80 : _ref$width,
+      _ref$height = _ref.height,
+      height = _ref$height === void 0 ? 120 : _ref$height;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 2929.35 1662.66",
+    style: {
+      width: width,
+      height: height
+    }
+  }, React__default.createElement("path", {
+    d: "M966,1184.71c49.9-32.84,98.21-85.24,126.06-136.74,20.86-38.53,28.94-70,26.45-103-1.7-22.06,1.72-159.59-252.62-151.61-99.71,4-213.59,27.65-301.62,62.48-39.72,15.67-81.44,39.12-107.79,60.58-23.66,19.26-44.52,43.72-55.3,65.08a138.77,138.77,0,0,0-13.47,79.24c1.4,11.78,3.49,19.17,7.79,28.45,8.18,17.27,31.86,34,51.1,16.77,5.29-5,19.73-21.78,9-52.6-5.19-16.37-6.49-24.95-6.49-42.52-.1-13.77,0-14.77,2.7-20.36,4-8.68,10.38-17,20.86-27.25,10.88-10.68,17.06-15.77,31.54-26,45.21-31.74,113.38-62.08,154.2-68.77,5.89-.89,11-1.49,11.28-1.09s-.4,2.69-1.6,5.39c-6.69,14.77-7,20.56-6,100.3,1.2,90.53,1.2,300,0,345.14-1.49,57.19-2.3,50.85-8.08,107.59s102.47,108.71,244.63,81.25c29.34-5.69,61.38-15.85,91.69-28.84,23.15-11.08,43.85-26.06,59-41.83,53.57-62.1,14.6-144.38-36-181-23.66-17.37-50.8-31-82.14-41.62l-13.08-4.39,4.49-1.7C932.47,1204,954.73,1192.19,966,1184.71Zm-40.64,81.35c47.64,30.31,69.24,70.29,56.3,108.26-7.54,26.61-24.13,58.08-121.25,69.29-42.74,5.19-66.08-3.1-75.46-12.38-11.08-11.18-17.47-25.65-20.66-47.31-1.4-9.68-1.6-16.86-1.1-51.2.9-52.4,3.19-85.73,6.29-88.83,3-2.89,13-8.14,52-8.14C873.41,1235.75,910.2,1256,925.37,1266.06Zm-102.59-97.52c-17.16,3.49-51.1,2.39-56.89-1.9l-2.49-1.8-.6-129.65c-.6-135-.6-134.64-5-151.9-2.7-10.58-6-17.37-11.48-23.16-3.19-3.39-4.19-5.09-3.29-5.49,7.28-2.59,143.36-30.29,234.3,8.69,52,21.65,53.24,52.89,53.24,75.65-.1,26.35-6.88,50.7-22.35,79.85-13.18,24.65-28.65,44.91-52.7,68.86C912.81,1130.51,864.2,1160.15,822.78,1168.54Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M3307.12,993.24c-17.32-21.65-156.7-19-155.9-26,.1-3.1,3.5-42.37,6.49-78.9q2.1-25.53,4.08-51.08c.8-10.46,5-25.07-5.43-31.77-12.71-8.19-27.4-12.91-42.12-15.94-7.5-1.54-15.1-2.63-22.72-3.42-5.91-.61-14.29-2.8-19.69.47-2.84,1.73-4.82,4.76-5.85,9.08-4.06,17.09-6.53,173.39-10,175.89-1.09.8-14.21-.89-33.28-.79-62,.3-81.44,3.1-87,12.38-4.19,6.78-1.86,29,7.72,31.71,30.32,8.66,108.26,13,108.26,13s-1.3,49.82-5.19,132.66c-2,42.41-2.92,85.83-2.76,120.52a14.28,14.28,0,0,0-9.59,3.58c-4.29,3.79-6.48,10.08-10.48,29.94-7.58,37.73-15.27,60.78-26.84,81.14-14.83,26-38.05,45.78-67.59,52.52-30.2,6.89-62.43-.15-84-23-19-20.1-27.39-46.63-28.27-75.37-.31-10.07.2-18.36.4-18.36s3.49.79,7.29,1.69c10.58,2.6,33.23,2.3,44.51-.5,34.24-8.48,66.17-38.42,87-81.54,14.08-29.14,22.86-61.08,25.06-90.82.79-11.28-1.7-34.24-5.19-47.41-10.09-38.83-43.32-71-79.85-77.35-10.28-1.8-26.15-1.8-35.93,0-23.16,4.19-40.92,14.07-60.78,33.93-21.26,21.16-34.84,43.12-48.91,79.35-13.67,35.13-22.26,71.06-27.15,114.18-2.59,23.25-2.39,68.77.5,90.22,4.29,31.74,10.18,52.5,21.16,74.56,20.76,41.92,55.49,68.77,99.91,77.45,29.94,5.79,67,3.89,90.92-4.69,51.88-18.59,90.32-63.22,109.62-113.88q2.72-7.15,5-14.47c12.33,68.86,37.74,114.35,75,134,33.31,17.54,68.1,9.09,94.79-16.08s44.53-58.61,57.12-92.86a487.16,487.16,0,0,0,15.88-53.19c4.4-18.13,9.54-37.23,9.24-56a59,59,0,0,0-2.06-15.41c-2.65-9.18-14-15.9-23.3-13.22-7,2-11,8.85-13.76,15.07-6.26,14.28-6.71,29.94-10.37,44.88-3.09,12.57-5.9,25.34-9.76,37.71-8.32,26.69-17.19,57.56-40.44,75.43-7.87,6.06-18.29,9.64-27.88,7.05-14-3.79-21.12-18.59-25-31.38-9.3-30.51-9.32-62.22-9.54-93.8-.2-29.94.13-59.89.68-89.83,1.05-56.88,7.14-171.53,7.17-171.89,1.6-17,3-20.53,3-20.53s60.63,0,147.81,3.5c7.51,1.88,12.56,3.48,15.88-4.71S3313.35,999,3307.12,993.24Zm-473.65,215c11.28-45.11,24.65-74.15,42-91.72,9.68-9.78,16.17-12.68,27.25-12.38,6.68.3,8,.6,12.27,3.7a23.48,23.48,0,0,1,7.49,9c2.69,5.49,2.69,5.79,2.59,25.05,0,16.87-.4,21.56-2.79,34.93-6.49,35.93-17.27,63.38-33.24,84.54-11.87,15.77-24,23.56-39.72,25.35-11.18,1.3-18.07.4-21.06-2.59C2822.09,1278,2824.39,1244.41,2833.47,1208.28Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M2642,1058.07c-13.67-14.27-27.34-22.85-43.41-27-11.88-3.19-30-3.19-41.22,0-32.24,9-54.4,36.13-72.17,88.43-2.39,7.09-7.28,22.86-10.78,34.94-10.28,35.63-9.28,41.82-9.68-60.39-.4-79-.6-90.12-2.09-96.11-3.11-12.43-11.56-23.91-23.58-28.94-8.89-3.72-19-2.52-28.29-.19-1.75.43-3.46.91-5.13,1.41-8.45,2.48-21.76,5.26-25.24,14.54-.3.8.59,5.89,2.09,11.18s3.3,13.78,4.29,18.77c1.7,8.48,1.8,28.44,2.3,353.32q.14,87.45.32,174.9.13,53.53.38,107.08c.1,17.54.17,35.08.49,52.61.17,9.3.44,15.86,9.66,20.39,20.27,9.94,47.52,7.37,69.26,5.29,14.24-1.36,39.66-6.88,39.66-25.12,0-5.79-1.5-7.88-9.18-12.67l-5.59-3.5-2.2-9.28a573,573,0,0,1-12.67-76.65c-3.11-30.29-1.78-61.2-1.79-91.58,0-42.64-.59-85.36.92-128,.63-17.74,2-35.44,3.56-53.12,7.49-84,22.56-156.9,40.22-194.62,9.28-19.86,21.06-34.83,31.74-40.32,34.11-17.55,51.61,28.37,56.21,53.25,9.3,50.23,9.45,101.73,6,152.55-1.77,25.88-2.63,52.46-7.44,78.22-4.2,22.46-11.07,51.07-29.35,66.56a31.67,31.67,0,0,1-17.49,7.71c-13.52,1.25-22.92-8.54-29.95-18.85-7.28-10.58-10.18-13-16.76-14.07-14.55-2.3-26,14-26.36,26.68-1.5,53.83,71.66,60.94,109.22,47.54,58.79-21,83.19-88.75,93.54-145,9.84-53.48,9.64-109.15,2.61-163C2688.28,1140.93,2673.72,1091.19,2642,1058.07Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M2309.88,1419.37l-8.49-1.3-.3-167.08-.2-167.08,3.5-3.19c4-3.59,4.49-7.39,1.89-12.88-3.69-7.78-21.06-15.17-44.31-19-9.28-1.4-37-3.79-37.63-3.09-.4.29-2.69,14.57-10.28,63-17.07,109-35.23,188.84-52.5,231.26-15.67,38.63-32.54,58.69-49.2,58.69s-24.76-17.37-29.55-62.48c-6.91-65.14-4.08-131.12-.3-196.38,1.85-32-.1-87.08,26.35-111.23,2.3-2.1,5.29-4.69,6.79-5.89,3.29-2.7,3.49-8.68.6-14.77-6.89-14.17-35.43-28.05-68.07-32.94-13.57-2.09-17.57-1.89-22.06.8-22.75,13.77-34.73,94.12-35.53,236.74-.2,42.52-.2,43-2.5,48.91a99.44,99.44,0,0,0-4.09,14.47c-13,66-26.15,99.91-46.41,119.17-10.48,10-26,15-36.53,11.58-11.18-3.59-19.56-19.16-24.85-46.31-4-20.46-5-35.33-4.89-74.46,0-48.3,2.2-76,9-112.59,2.39-13.2,5.63-25.95,11.48-38.09,3-6.27,9.59-14.23,8.58-21.68-1.19-11.08-11.87-25.36-28-37.43-10.08-7.49-31.54-18.07-41.92-20.76-12.78-3.2-38-2.4-45.71,1.59-2.5,1.3-4.4,4.4-10.28,16.67-9.79,20.46-35.34,85-47.41,120-13.38,38.53-42.32,117.08-45.22,122.77-1.79,3.49-2.09,3.79-2.79,2-.4-1.1-.8-46.61-.8-101.2-.1-98.32-.1-99.31-2.2-103.6-3.79-7.79-16.86-15.38-34.33-19.77-13.57-3.49-30.54-3-45.81,1.2-9.58,2.7-18.47,13.18-28.45,33.74-14.37,29.44-25.35,62.88-43.91,133.24-4.49,16.77-8.49,31.74-9,33.44-.6,1.89-1-47.91-1-132.45l-.1-135.54-3.7-1.6c-5.78-2.39-32.53-9-46.21-11.27-15.47-2.6-29.14-2.8-33.83-.3a16.64,16.64,0,0,0-5.39,4.39c-3.74,5.09-.84,15-.85,20.59-.06,62.27-2.33,119-3.44,178.52l-.7,29.25H1414c-10.38,0-13.38,5.19-19.36,34.13-6.54,31.6-14.69,65.38-34.19,91.94-12.4,16.87-29.35,30.5-49.21,37.47-28,9.84-61.82,7-85.65-11.62a96.23,96.23,0,0,1-25.47-30.81,103.69,103.69,0,0,1-9-23.46,122.3,122.3,0,0,1-3.12-29.48c0-10,.3-18.27.8-18.27s3.39.7,6.69,1.5c10.28,2.5,26.65,2.89,37.43,1.1,12.57-2.2,17.66-3.89,28.94-9.78,17.37-8.89,32-21.76,45.31-39.73,23.86-31.94,41-78,44.62-119.37,2.65-30.52-3.46-62.81-21.36-88.13-13.48-19.06-34.34-33.93-56.09-40.12-9.29-2.6-28.45-3.59-39.43-2-44.71,6.59-83.34,43-108.59,102.41-25,59.08-38,136.43-33.13,197.72,6.38,79.24,34.43,131.14,84.83,157.09,36.53,18.67,90.63,22,130.65,7.79,25.35-9,49.9-25.75,68.77-46.91,14-15.67,30.34-42.82,38.23-63.18a65.77,65.77,0,0,1,3.09-7c.4-.5.8,3.3.8,8.29,0,23.15,3.49,63.78,7.08,81.54,2.7,13.48,4.79,17.67,9.89,21,9.48,6,28.84,11.38,50.1,14,22.06,2.7,44.51-.4,50.6-6.88,3.2-3.4,4.09-7.79,4.09-21.06,0-22.26,5.49-74.76,11.58-110.79,6.29-37.43,16.17-82.14,22.56-102.2,6.09-19.17,12.17-31.14,14.77-29.55,2.89,1.8,3.29,9.79,4,88.83.8,84.74,1.2,92.92,5.59,110.09,6,23.86,18.37,36.73,40.13,41.82,15,3.45,38.82,4.87,53-1.82,12-5.66,10.14-18.27,11.85-29.38,2.42-15.75,6-31.37,9.71-46.85,4.59-19.16,19.26-70.66,24.45-86.13,7.39-22.06,30.35-77,40.13-96.12,4.39-8.78,5.29-10,5.59-7.68.2,1.49-1.1,22-2.8,45.41-4.24,56.17-6.13,117.14,12,171.27,14,41.82,39,68.37,72.16,76.65,46.7,11.68,82.67-13.54,106.59-52,5.49-8.78,17.07-32.44,23-46.61,1.9-4.59,3.59-8.28,3.89-8.28s1.3,3.49,2.3,7.69c4.25,17.39,13.6,37.18,23.54,52.48,31.71,48.85,100.91,64,137.51,12.8,17.71-24.8,26.63-55.06,35.5-83.82,2.68-8.66,5.21-17.36,7.66-26.08l5-17.47v70.87l.1,70.86-5.39,3.79c-27.85,19.27-59.89,51.9-85.54,87-52.9,72.36-84.84,157.79-88.33,236.84-2,45.14,5,94.3,43.13,123.83,52.83,41,127.2,16,164.09-33.95,41.32-55.89,51.1-129.46,57.64-196.79q3.87-39.88,3.92-80c.1-65.87.5-121.17.8-122.86.7-3.9,3-4.89,14-6.39,5.14-.7,11-1.59,15.26-4.86,7.07-5.46,7.11-18,2.5-25C2329.44,1425.16,2321.25,1421.16,2309.88,1419.37Zm-1101.19-260.7c5.89-20.46,9.29-29.44,16.37-44.12,7.69-15.77,15.47-26.94,24.65-35.43,9.55-8.81,25.31-13,36-5.94a21.7,21.7,0,0,1,6.87,7.48c6.94,12.17,5.27,26.83,3.91,40.16-3.61,35.26-16,71.62-32,99.87-6.2,11-16.45,21.56-28.1,27-11.08,5.19-29.84,6.68-36,2.79C1192.12,1245.3,1196,1202.58,1208.69,1158.67Zm1001.38,496.54c-1.9,53.3-8.59,98.91-19,130-7.58,22.76-19.66,42.12-31,49.91-15.77,10.88-38.22,8.08-49.4-6-10-12.68-14.07-25.65-15.37-49.11-5-88.83,47.11-222.07,107.29-274.67l8-7,.3,63.77C2211.07,1597.13,2210.67,1639,2210.07,1655.21Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M1838.74,260.47c-12.4,4.4-23.2,12.3-32.9,24.2-12.2,14.9-21.8,34.4-25.6,52-2.2,10.1-1.6,26.9,1.4,37.1,9.2,31.3,35.9,54.6,62.6,54.7,16.6.1,31.3-6.4,44.7-19.6,18.4-18.1,26.3-42.3,23.7-73s-15.5-56.2-34.8-69c-8.6-5.7-14.8-7.8-24.6-8.3C1846.74,258.27,1844,258.67,1838.74,260.47Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M1682.74,311c-12.7,2.4-28.1,16.1-36.7,32.8-15.7,30.5-18.2,66.9-6.2,90.6,8.7,17.3,22.1,30.9,38,38.4,10,4.6,17.8,6.6,27.4,6.7,27.3.3,51.2-21,59.6-53,3-11.4,2.8-28.6-.4-41.2-10-38.6-32.7-66.3-60.3-73.4A61.89,61.89,0,0,0,1682.74,311Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M2004.84,327.37c-18.6,3.6-39,15.2-55.5,31.6-19.4,19.1-27.6,38.9-26.3,63.3,1.7,32.8,20.6,58.7,46.7,64.1,9.4,2,25.1.7,35.2-2.8,24-8.3,41.3-26.1,51.9-53.1,6.1-15.7,8.2-26.2,8.2-42.2.1-15-1.3-22-6.3-32.9-8.9-18.9-24-29.3-42.4-29A83.4,83.4,0,0,0,2004.84,327.37Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M1836.24,454.87c-42.7,4.5-84.8,21.5-116.6,47.1-10.2,8.3-25.3,24.2-31.7,33.6-19.5,28.3-24.4,59.9-14.1,91.7,5.2,16,16.9,34.6,31.1,49.6,28,29.5,72.8,51.7,116.7,57.8,14.6,2.1,46.4,2.1,63.6.1,33.7-4,60.9-14.6,79.6-31.3,10.4-9.2,21.2-26.7,25.7-41.2,3.5-11.7,4.7-20.9,4.6-38-.2-45.8-17.4-92.2-45.9-124-20.6-22.9-43.5-36.7-71.5-43.1C1869.34,455.27,1845.34,454,1836.24,454.87Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }), React__default.createElement("path", {
+    d: "M2071.74,481.37c-10.6,2.3-25,7.6-32.5,12.1-29.9,18.1-43.6,58.7-29.7,88.1,13.5,28.5,54.4,37.9,87.2,20,17.5-9.5,33.8-27.1,42.9-46.4,6-12.5,7.4-19.2,6.9-32.9-.4-10.5-.7-12.1-3.7-18.4-5.7-11.8-14.9-18.8-29.7-22.6C2102.74,478.57,2084.84,478.67,2071.74,481.37Z",
+    transform: "translate(-386.65 -258.48)",
+    style: {
+      fill: color,
+      fillRule: "evenodd"
+    }
+  }));
+};
 
 function _templateObject3$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 700px;\n  max-width: 100%;\n  margin: 0 auto;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  z-index: -1;\n  position: absolute;\n  top: -3px;\n  right: -5px;\n  width: 12px;\n  height: 12px;\n  background-color: ", ";\n  border-radius: 50%;\n"]);
 
   _templateObject3$1 = function _templateObject3() {
     return data;
@@ -1753,7 +1803,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  z-index: 1;\n  position: relative;\n  font-size: 16px;\n  text-decoration: none;\n  color: ", ";\n\n  :hover {\n    color: ", ";\n  }\n\n  ", "\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -1763,9 +1813,157 @@ function _templateObject2$1() {
 }
 
 function _templateObject$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  li {\n    list-style: none;\n    min-width: 60px;\n    margin-left: 30px;\n    text-align: center;\n  }\n"]);
 
   _templateObject$3 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Menu = function Menu(_ref) {
+  var _ref$menus = _ref.menus,
+      menus = _ref$menus === void 0 ? [] : _ref$menus;
+  return React__default.createElement(MenuWrapper, null, menus.map(function (_ref2) {
+    var label = _ref2.label,
+        to = _ref2.to,
+        selected = _ref2.selected;
+    return React__default.createElement("li", {
+      key: label
+    }, React__default.createElement(MenuItem, {
+      href: to,
+      selected: selected
+    }, label, selected ? React__default.createElement(SelectedCircle, null) : null));
+  }));
+};
+var MenuWrapper = styled__default.ul(_templateObject$3());
+var MenuItem = styled__default.a(_templateObject2$1(), function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.colors.grey500;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.colors.grey600;
+}, function (_ref5) {
+  var theme = _ref5.theme,
+      selected = _ref5.selected;
+  return !!selected && "\n    color: " + theme.colors.grey600 + ";\n    font-weight: bold;\n  ";
+});
+var SelectedCircle = styled__default.span(_templateObject3$1(), function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.colors.primary100;
+});
+
+function _templateObject3$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 140px;\n"]);
+
+  _templateObject3$2 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 42px;\n  width: 100%;\n  height: 100px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  box-sizing: border-box;\n  overflow: hidden;\n"]);
+
+  _templateObject2$2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$4() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding: 0 30px;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: ", ";\n  color: ", ";\n  box-sizing: border-box;\n  overflow: hidden;\n\n  ul {\n    display: flex;\n  }\n\n  li {\n    width: 80px;\n    height: 100%;\n    list-style: none;\n    text-align: center;\n    box-sizing: border-box;\n  }\n\n  li a {\n    font-size: 13px;\n    height: 100%;\n    padding: 12px 0;\n    display: block;\n    text-decoration: none;\n    color: ", ";\n\n    :hover {\n      color: ", ";\n      cursor: pointer;\n      background-color: ", ";\n    }\n  }\n\n  li.selected a {\n    font-weight: bold;\n    color: ", ";\n    background-color: ", ";\n  }\n"]);
+
+  _templateObject$4 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var HeaderNav = styled__default.div(_templateObject$4(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.colors.primary100;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.colors.grey100;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.colors.grey100;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.colors.grey500;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.colors.primary200;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.colors.grey600;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.colors.grey100;
+});
+var HeaderMenu = styled__default.div(_templateObject2$2());
+var Header = styled__default(function (_ref8) {
+  var menus = _ref8.menus;
+  return React__default.createElement("div", null, React__default.createElement(HeaderNav, null, React__default.createElement("ul", null, React__default.createElement("li", {
+    className: "selected"
+  }, React__default.createElement("a", {
+    href: "https://mypetlife.co.kr/"
+  }, "\uB77C\uC774\uD504")), React__default.createElement("li", null, React__default.createElement("a", {
+    href: "https://creators.mypetlife.co.kr/"
+  }, "\uD06C\uB9AC\uC5D0\uC774\uD130\uC988")), React__default.createElement("li", null, React__default.createElement("a", {
+    href: "https://tools.mypetlife.co.kr/"
+  }, "\uD234\uC988"))), React__default.createElement("ul", null, React__default.createElement("li", null, React__default.createElement("a", null, "\uB85C\uADF8\uC778")), React__default.createElement("li", null, React__default.createElement("a", null, "\uD68C\uC6D0\uAC00\uC785")))), React__default.createElement(HeaderMenu, null, React__default.createElement(Logo, null), React__default.createElement(Menu, {
+    menus: menus
+  })));
+})(_templateObject3$2());
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: ", ";\n  align-items: ", ";\n  margin-top: ", ";\n  margin-bottom: ", ";\n  margin-left: ", ";\n  margin-right: ", ";\n"]);
+
+  _templateObject4$1 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 700px;\n  max-width: 100%;\n  margin: 0 auto;\n"]);
+
+  _templateObject3$3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n"]);
+
+  _templateObject2$3 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n"]);
+
+  _templateObject$5 = function _templateObject() {
     return data;
   };
 
@@ -1779,9 +1977,9 @@ var Layout = function Layout(_ref) {
       footer = _ref.footer;
   return React__default.createElement(Wrapper, null, React__default.createElement(HelmetComponent, Object.assign({}, helmetProps)), !!header ? header : null, React__default.createElement(Main, null, !!loading ? loading : children), !!footer ? footer : null);
 };
-var Wrapper = styled__default.div(_templateObject$3());
-var Main = styled__default.main(_templateObject2$1());
-var PageBody = styled__default.div(_templateObject3$1());
+var Wrapper = styled__default.div(_templateObject$5());
+var Main = styled__default.main(_templateObject2$3());
+var PageBody = styled__default.div(_templateObject3$3());
 
 var HelmetComponent = function HelmetComponent(_ref2) {
   var props = _extends({}, _ref2);
@@ -1789,68 +1987,61 @@ var HelmetComponent = function HelmetComponent(_ref2) {
   return React__default.createElement(x$1, null, React__default.createElement(N, Object.assign({}, props)));
 };
 
-var Header = styled__default.div(_templateObject4$1(), function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.colors.primary100;
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.colors.grey100;
-});
-var Column = styled__default.div(_templateObject5(), function (_ref5) {
-  var _ref5$justifyContent = _ref5.justifyContent,
-      justifyContent = _ref5$justifyContent === void 0 ? "flex-start" : _ref5$justifyContent;
+var Column = styled__default.div(_templateObject4$1(), function (_ref3) {
+  var _ref3$justifyContent = _ref3.justifyContent,
+      justifyContent = _ref3$justifyContent === void 0 ? "flex-start" : _ref3$justifyContent;
   return justifyContent;
-}, function (_ref6) {
-  var _ref6$alignItems = _ref6.alignItems,
-      alignItems = _ref6$alignItems === void 0 ? "flex-start" : _ref6$alignItems;
+}, function (_ref4) {
+  var _ref4$alignItems = _ref4.alignItems,
+      alignItems = _ref4$alignItems === void 0 ? "flex-start" : _ref4$alignItems;
   return alignItems;
-}, function (_ref7) {
-  var _ref7$marginTop = _ref7.marginTop,
-      marginTop = _ref7$marginTop === void 0 ? 0 : _ref7$marginTop;
+}, function (_ref5) {
+  var _ref5$marginTop = _ref5.marginTop,
+      marginTop = _ref5$marginTop === void 0 ? 0 : _ref5$marginTop;
   return getPixel(marginTop);
-}, function (_ref8) {
-  var _ref8$marginBottom = _ref8.marginBottom,
-      marginBottom = _ref8$marginBottom === void 0 ? 0 : _ref8$marginBottom;
+}, function (_ref6) {
+  var _ref6$marginBottom = _ref6.marginBottom,
+      marginBottom = _ref6$marginBottom === void 0 ? 0 : _ref6$marginBottom;
   return getPixel(marginBottom);
-}, function (_ref9) {
-  var _ref9$marginLeft = _ref9.marginLeft,
-      marginLeft = _ref9$marginLeft === void 0 ? 0 : _ref9$marginLeft;
+}, function (_ref7) {
+  var _ref7$marginLeft = _ref7.marginLeft,
+      marginLeft = _ref7$marginLeft === void 0 ? 0 : _ref7$marginLeft;
   return getPixel(marginLeft);
-}, function (_ref10) {
-  var _ref10$marginRight = _ref10.marginRight,
-      marginRight = _ref10$marginRight === void 0 ? 0 : _ref10$marginRight;
+}, function (_ref8) {
+  var _ref8$marginRight = _ref8.marginRight,
+      marginRight = _ref8$marginRight === void 0 ? 0 : _ref8$marginRight;
   return getPixel(marginRight);
 });
-var Row = styled__default.div(_templateObject6(), function (_ref11) {
-  var _ref11$justifyContent = _ref11.justifyContent,
-      justifyContent = _ref11$justifyContent === void 0 ? "flex-start" : _ref11$justifyContent;
+var Row = styled__default.div(_templateObject5(), function (_ref9) {
+  var _ref9$justifyContent = _ref9.justifyContent,
+      justifyContent = _ref9$justifyContent === void 0 ? "flex-start" : _ref9$justifyContent;
   return justifyContent;
-}, function (_ref12) {
-  var _ref12$alignItems = _ref12.alignItems,
-      alignItems = _ref12$alignItems === void 0 ? "flex-start" : _ref12$alignItems;
+}, function (_ref10) {
+  var _ref10$alignItems = _ref10.alignItems,
+      alignItems = _ref10$alignItems === void 0 ? "flex-start" : _ref10$alignItems;
   return alignItems;
-}, function (_ref13) {
-  var _ref13$marginTop = _ref13.marginTop,
-      marginTop = _ref13$marginTop === void 0 ? 0 : _ref13$marginTop;
+}, function (_ref11) {
+  var _ref11$marginTop = _ref11.marginTop,
+      marginTop = _ref11$marginTop === void 0 ? 0 : _ref11$marginTop;
   return getPixel(marginTop);
-}, function (_ref14) {
-  var _ref14$marginBottom = _ref14.marginBottom,
-      marginBottom = _ref14$marginBottom === void 0 ? 0 : _ref14$marginBottom;
+}, function (_ref12) {
+  var _ref12$marginBottom = _ref12.marginBottom,
+      marginBottom = _ref12$marginBottom === void 0 ? 0 : _ref12$marginBottom;
   return getPixel(marginBottom);
-}, function (_ref15) {
-  var _ref15$marginLeft = _ref15.marginLeft,
-      marginLeft = _ref15$marginLeft === void 0 ? 0 : _ref15$marginLeft;
+}, function (_ref13) {
+  var _ref13$marginLeft = _ref13.marginLeft,
+      marginLeft = _ref13$marginLeft === void 0 ? 0 : _ref13$marginLeft;
   return getPixel(marginLeft);
-}, function (_ref16) {
-  var _ref16$marginRight = _ref16.marginRight,
-      marginRight = _ref16$marginRight === void 0 ? 0 : _ref16$marginRight;
+}, function (_ref14) {
+  var _ref14$marginRight = _ref14.marginRight,
+      marginRight = _ref14$marginRight === void 0 ? 0 : _ref14$marginRight;
   return getPixel(marginRight);
 });
 
-function _templateObject$4() {
+function _templateObject$6() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n\n  ", "\n\n  color: ", ";\n"]);
 
-  _templateObject$4 = function _templateObject() {
+  _templateObject$6 = function _templateObject() {
     return data;
   };
 
@@ -1860,7 +2051,7 @@ var Typography = styled__default(function (_ref) {
   var rest = _objectWithoutPropertiesLoose(_ref, ["color", "variant"]);
 
   return React__default.createElement("p", Object.assign({}, rest));
-})(_templateObject$4(), function (_ref2) {
+})(_templateObject$6(), function (_ref2) {
   var width = _ref2.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 }, function (_ref3) {

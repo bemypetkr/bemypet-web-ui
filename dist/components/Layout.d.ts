@@ -9,7 +9,6 @@ interface LayoutProps {
 }
 export declare const Layout: ({ helmetProps, children, loading, header, footer, }: LayoutProps) => JSX.Element;
 export declare const PageBody: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const Header: import("styled-components").StyledComponent<"div", any, {}, never>;
 interface GridProps {
     justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-evenly" | "space-around" | "stretch";
     alignItems?: "flex-start" | "flex-end" | "center";
@@ -20,4 +19,4 @@ interface GridProps {
 }
 export declare const Column: import("styled-components").StyledComponent<"div", any, GridProps, never>;
 export declare const Row: import("styled-components").StyledComponent<"div", any, GridProps, never>;
-export {};
+export { Header } from "./Layouts/Header";

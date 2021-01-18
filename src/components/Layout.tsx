@@ -50,18 +50,6 @@ const HelmetComponent = ({ ...props }: HelmetProps) => (
   </HelmetProvider>
 );
 
-export const Header = styled.div`
-  padding: 0 30px;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.primary100};
-  color: ${({ theme }) => theme.colors.grey100};
-  box-sizing: border-box;
-`;
-
 interface GridProps {
   justifyContent?:
     | "flex-start"
@@ -101,3 +89,5 @@ export const Row = styled.div<GridProps>`
   margin-left: ${({ marginLeft = 0 }) => getPixel(marginLeft)};
   margin-right: ${({ marginRight = 0 }) => getPixel(marginRight)};
 `;
+
+export { Header } from "./Layouts/Header";
