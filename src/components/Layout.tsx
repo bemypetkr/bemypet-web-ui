@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet, HelmetProvider, HelmetProps } from "react-helmet-async";
 import styled from "styled-components";
 import { getPixel } from "lib/helpers";
+import { Footer } from "./Layouts/Footer";
 
 interface LayoutProps {
   helmetProps?: HelmetProps;
@@ -11,19 +12,12 @@ interface LayoutProps {
   footer?: React.ReactNode;
 }
 
-export const Layout = ({
-  helmetProps,
-  children,
-  loading,
-  header,
-  footer,
-}: LayoutProps) => {
+export const Layout = ({ helmetProps, children, loading }: LayoutProps) => {
   return (
     <Wrapper>
       <HelmetComponent {...helmetProps} />
-      {!!header ? header : null}
       <Main>{!!loading ? loading : children}</Main>
-      {!!footer ? footer : null}
+      <Footer />
     </Wrapper>
   );
 };
@@ -91,4 +85,4 @@ export const Row = styled.div<GridProps>`
 `;
 
 export { Header } from "./Layouts/Header";
-export { Footer } from "./Layouts/Footer";
+export { Footer };

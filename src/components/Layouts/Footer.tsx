@@ -35,7 +35,7 @@ export const Footer = styled(
     };
 
     return (
-      <div {...rest}>
+      <footer {...rest}>
         <FooterInfo>
           상호명 : 비마이펫© Copyright 2020, All Rights Reserved 주소 : 서울시
           서초구 서초중앙로 24길 55, 401호 대표자 : 성현진 문의: 050-7724-6399,
@@ -95,7 +95,7 @@ export const Footer = styled(
             }
           })}
         </FooterIconButtons>
-      </div>
+      </footer>
     );
   },
 )`
