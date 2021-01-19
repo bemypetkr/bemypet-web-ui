@@ -2,15 +2,16 @@ import React from "react";
 import {
   ThemeProvider,
   Layout,
+  Row,
+  Column,
   Avatar,
   Button,
-  Column,
+  Checkbox,
   Header,
   Input,
   List,
   ListItem,
   PageBody,
-  Row,
   Typography,
 
   // Common Icons
@@ -30,6 +31,13 @@ import {
   Profile,
   Search,
   Share,
+  Show,
+  Hide,
+  Plus,
+  StarFilled,
+  StarHalf,
+  StarOutline,
+  Check,
 
   // Social Provider Icons
   AppleIcon,
@@ -74,6 +82,15 @@ const App = () => {
           <Typography variant="heading2">Bemypet UI</Typography>
         </Header>
         <PageBody>
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              Checkbox
+            </Typography>
+            <Row>
+              <Checkbox />
+            </Row>
+          </Column>
+
           <Column marginTop={50}>
             <Typography variant="heading1" as="h1">
               List
@@ -237,6 +254,7 @@ const App = () => {
               <Blockquote />
               <Calendar />
               <Camera />
+              <Check />
               <Clear />
               <ClearCircle />
               <Comment />
@@ -246,9 +264,15 @@ const App = () => {
               <Menu />
               <More />
               <Pencil />
+              <Plus />
               <Profile />
               <Search />
               <Share />
+              <Hide />
+              <Show />
+              <StarFilled />
+              <StarHalf />
+              <StarOutline />
             </Row>
             <Typography variant="heading3" as="h3">
               Social Icons (Default size 40px)

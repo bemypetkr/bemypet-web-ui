@@ -1,6 +1,6 @@
 import React from "react";
-
 import { IconProps } from "./interface";
+
 export const AppleIcon = ({ width = 40, height = 40 }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
