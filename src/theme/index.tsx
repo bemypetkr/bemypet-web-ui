@@ -74,6 +74,15 @@ const BemypetTheme = createGlobalStyle`
       theme.colors.primary100}; /* Gecko Browsers */
     color: inherit;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const ThemeProvider = ({ children }: any) => {

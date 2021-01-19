@@ -1,12 +1,31 @@
 import React from "react";
 import styled from "styled-components";
 
+interface ButtonBaseProps extends React.HTMLProps<HTMLButtonElement> {}
+
+export const buttonBaseStyles = `
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :disabled {
+    cursor: not-allowed;
+  }
+`;
+
 export type ButtonColor = "primary" | "default";
 
 export type ButtonSize = "small" | "medium" | "large";
 
 export type ButtonProps = Omit<
-  React.HTMLProps<HTMLButtonElement>,
+  ButtonBaseProps,
   "color" | "size" | "positive" | "negative"
 > & {
   /**
@@ -43,11 +62,10 @@ export const Button = styled(
     ...rest
   }: ButtonProps) => <button {...rest} />,
 )`
+  ${buttonBaseStyles}
+
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
-  white-space: nowrap;
-  outline: none;
-  border: none;
   border-radius: 50px;
 
   font-size: 13px;
@@ -57,14 +75,9 @@ export const Button = styled(
   ${({ theme, color = "default" }) => `
     ${theme.buttonColors[color]}
 
-    :hover {
-      cursor: pointer;
-    }
-
     :disabled {
       color: ${theme.colors.grey400};
       background-color: ${theme.colors.grey200};
-      cursor: not-allowed;
     }
   `}
 
@@ -79,10 +92,7 @@ export const Button = styled(
   `}
 `;
 
-export type IconButtonProps = Omit<
-  React.HTMLProps<HTMLButtonElement>,
-  "icon"
-> & {
+export type IconButtonProps = Omit<ButtonBaseProps, "icon"> & {
   icon: React.ReactNode;
 };
 
@@ -91,13 +101,5 @@ export const IconButton = styled(
     <button {...rest} children={icon} />
   ),
 )`
-  outline: none;
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-
-  :hover {
-    cursor: pointer;
-  }
+  ${buttonBaseStyles}
 `;

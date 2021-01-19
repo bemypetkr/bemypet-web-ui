@@ -189,6 +189,15 @@ const BemypetTheme = createGlobalStyle(_t || (_t = _`
     background: ${0}; /* Gecko Browsers */
     color: inherit;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
 `), ({
   theme
 }) => theme.colors.primary100, ({
@@ -205,6 +214,22 @@ const ThemeProvider = ({
 let _$1 = t => t,
     _t$1,
     _t2;
+const buttonBaseStyles = `
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+
+  :hover {
+    cursor: pointer;
+  }
+
+  :disabled {
+    cursor: not-allowed;
+  }
+`;
 const Button = styled(({
   color,
   size,
@@ -213,10 +238,9 @@ const Button = styled(({
   negative,
   ...rest
 }) => React.createElement("button", Object.assign({}, rest)))(_t$1 || (_t$1 = _$1`
+  ${0}
+
   width: ${0};
-  white-space: nowrap;
-  outline: none;
-  border: none;
   border-radius: 50px;
 
   font-size: 13px;
@@ -232,7 +256,7 @@ const Button = styled(({
   ${0};
 
   ${0}
-`), ({
+`), buttonBaseStyles, ({
   width
 }) => width ? typeof width === "string" ? width : `${width}px` : "100%", ({
   theme,
@@ -240,14 +264,9 @@ const Button = styled(({
 }) => `
     ${theme.buttonColors[_color]}
 
-    :hover {
-      cursor: pointer;
-    }
-
     :disabled {
       color: ${theme.colors.grey400};
       background-color: ${theme.colors.grey200};
-      cursor: not-allowed;
     }
   `, ({
   theme,
@@ -268,16 +287,8 @@ const IconButton = styled(({
 }) => React.createElement("button", Object.assign({}, rest, {
   children: icon
 })))(_t2 || (_t2 = _$1`
-  outline: none;
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-
-  :hover {
-    cursor: pointer;
-  }
-`));
+  ${0}
+`), buttonBaseStyles);
 
 let _$2 = t => t,
     _t$2,
@@ -1993,15 +2004,26 @@ let _$3 = t => t,
 const Footer = styled(({
   version,
   outlinks: _outlinks = "instagram|youtube|facebook|playStore|appStore",
+  buttons: _buttons = [],
   ...rest
 }) => {
   const outlinkProviders = _outlinks.split("|");
 
-  const handleOnClick = providerId => () => {
-    console.log(providerId, Urls[providerId], Urls.facebook);
+  const handleOnOutlinkClick = providerId => () => {
+    window.open(Urls[providerId], "_blank");
   };
 
-  return React.createElement("footer", Object.assign({}, rest), React.createElement(FooterInfo, null, "\uC0C1\uD638\uBA85 : \uBE44\uB9C8\uC774\uD3AB\u00A9 Copyright 2020, All Rights Reserved \uC8FC\uC18C : \uC11C\uC6B8\uC2DC \uC11C\uCD08\uAD6C \uC11C\uCD08\uC911\uC559\uB85C 24\uAE38 55, 401\uD638 \uB300\uD45C\uC790 : \uC131\uD604\uC9C4 \uBB38\uC758: 050-7724-6399, business@bemypet.kr", version ? React.createElement("span", null, "version: ", version) : null), React.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC81C\uD734\uBB38\uC758"), React.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC804\uCCB4\uBCF4\uAE30"), React.createElement(FooterIconButtons, null, outlinkProviders.map(providerId => {
+  return React.createElement("footer", Object.assign({}, rest), React.createElement(FooterInfo, null, "\uC0C1\uD638\uBA85 : \uBE44\uB9C8\uC774\uD3AB\u00A9 Copyright 2020, All Rights Reserved \uC8FC\uC18C : \uC11C\uC6B8\uC2DC \uC11C\uCD08\uAD6C \uC11C\uCD08\uC911\uC559\uB85C 24\uAE38 55, 401\uD638 \uB300\uD45C\uC790 : \uC131\uD604\uC9C4 \uBB38\uC758:", " ", React.createElement("a", {
+    href: "tel:050-7724-6399"
+  }, "050-7724-6399"), ",", " ", React.createElement("a", {
+    href: "mailto:business@bemypet.kr"
+  }, "business@bemypet.kr"), version ? React.createElement("span", null, "version: ", version) : null), _buttons.map(({
+    label,
+    onClick
+  }) => React.createElement(FooterButton, {
+    key: `footer-button-${label}`,
+    onClick: onClick
+  }, label)), React.createElement(FooterIconButtons, null, outlinkProviders.map(providerId => {
     switch (providerId) {
       case "instagram":
         return React.createElement(IconButton, {
@@ -2010,7 +2032,7 @@ const Footer = styled(({
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "youtube":
@@ -2020,7 +2042,7 @@ const Footer = styled(({
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "facebook":
@@ -2030,7 +2052,7 @@ const Footer = styled(({
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "playStore":
@@ -2040,7 +2062,7 @@ const Footer = styled(({
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "appStore":
@@ -2050,7 +2072,7 @@ const Footer = styled(({
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       default:
@@ -2059,24 +2081,20 @@ const Footer = styled(({
   })));
 })(_t$3 || (_t$3 = _$3`
   display: flex;
+  align-items: center;
   width: 100%;
-  height: 40px;
+  min-height: 40px;
   font-size: 11px;
   color: ${0};
   background-color: ${0};
   border-top: 1px solid ${0};
 
-  > button,
-  > div {
+  > button {
     border-right: 1px solid ${0};
     height: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-
-    :last-child {
-      border: none;
-    }
   }
 `), ({
   theme
@@ -2088,17 +2106,20 @@ const Footer = styled(({
   theme
 }) => theme.colors.grey300);
 const FooterInfo = styled.div(_t2$2 || (_t2$2 = _$3`
+  border-right: 1px solid ${0};
+  height: 100%;
+  box-sizing: border-box;
   font-size: 11px;
   padding: 0px 10px;
-`));
+`), ({
+  theme
+}) => theme.colors.grey300);
 const FooterButton = styled.button(_t3$1 || (_t3$1 = _$3`
-  outline: none;
-  border: none;
-  white-space: nowrap;
-  padding: 0px 10px;
+  ${0}
+  padding: 12px 10px;
   color: ${0};
   background-color: ${0};
-`), ({
+`), buttonBaseStyles, ({
   theme
 }) => theme.colors.grey500, ({
   theme
@@ -2380,10 +2401,11 @@ let _$6 = t => t,
     _t5;
 const Layout = ({
   helmetProps,
+  footerProps,
   children,
   loading
 }) => {
-  return React.createElement(Wrapper, null, React.createElement(HelmetComponent, Object.assign({}, helmetProps)), React.createElement(Main, null, !!loading ? loading : children), React.createElement(Footer, null));
+  return React.createElement(Wrapper, null, React.createElement(HelmetComponent, Object.assign({}, helmetProps)), React.createElement(Main, null, !!loading ? loading : children), React.createElement(Footer, Object.assign({}, footerProps)));
 };
 const Wrapper = styled.div(_t$6 || (_t$6 = _$6`
   display: flex;

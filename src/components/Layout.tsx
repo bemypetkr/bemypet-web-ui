@@ -2,22 +2,26 @@ import React from "react";
 import { Helmet, HelmetProvider, HelmetProps } from "react-helmet-async";
 import styled from "styled-components";
 import { getPixel } from "lib/helpers";
-import { Footer } from "./Layouts/Footer";
+import { Footer, FooterProps } from "./Layouts/Footer";
 
 interface LayoutProps {
   helmetProps?: HelmetProps;
   children?: React.ReactNode;
   loading?: React.ReactNode;
-  header?: React.ReactNode;
-  footer?: React.ReactNode;
+  footerProps?: FooterProps;
 }
 
-export const Layout = ({ helmetProps, children, loading }: LayoutProps) => {
+export const Layout = ({
+  helmetProps,
+  footerProps,
+  children,
+  loading,
+}: LayoutProps) => {
   return (
     <Wrapper>
       <HelmetComponent {...helmetProps} />
       <Main>{!!loading ? loading : children}</Main>
-      <Footer />
+      <Footer {...footerProps} />
     </Wrapper>
   );
 };

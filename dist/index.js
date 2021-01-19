@@ -144,7 +144,7 @@ var typography$1 = {
 };
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Regular\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Regular.svg\") format(\"svg\");\n    font-weight: normal;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Bold\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Bold.svg\") format(\"svg\");\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  body {\n    margin: 0;\n    padding: 0;\n    font-family: \"Apple SD Gothic Neo\", sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1, h2, h3, h4, h5, h6, p, ul {\n    margin: 0;\n    padding: 0;\n  }\n\n  ::selection {\n    background: ", "; /* WebKit/Blink Browsers */\n    color: inherit;\n  }\n\n  ::-moz-selection {\n    background: ", "; /* Gecko Browsers */\n    color: inherit;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Regular\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Regular.svg\") format(\"svg\");\n    font-weight: normal;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Bold\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Bold.svg\") format(\"svg\");\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  body {\n    margin: 0;\n    padding: 0;\n    font-family: \"Apple SD Gothic Neo\", sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1, h2, h3, h4, h5, h6, p, ul {\n    margin: 0;\n    padding: 0;\n  }\n\n  ::selection {\n    background: ", "; /* WebKit/Blink Browsers */\n    color: inherit;\n  }\n\n  ::-moz-selection {\n    background: ", "; /* Gecko Browsers */\n    color: inherit;\n  }\n\n  a {\n    color: inherit;\n    text-decoration: none;\n\n    :hover {\n      text-decoration: underline;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -179,7 +179,7 @@ var ThemeProvider = function ThemeProvider(_ref3) {
 };
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n  outline: none;\n  border: none;\n  background: none;\n  padding: 0;\n  margin: 0;\n\n  :hover {\n    cursor: pointer;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -189,7 +189,7 @@ function _templateObject2() {
 }
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  white-space: nowrap;\n  outline: none;\n  border: none;\n  border-radius: 50px;\n\n  font-size: 13px;\n  font-weight: bold;\n  line-height: 20px;\n\n  ", "\n\n  // positive will be green colored text\n  ", ";\n\n  // negative will be red colored text\n  ", ";\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  width: ", ";\n  border-radius: 50px;\n\n  font-size: 13px;\n  font-weight: bold;\n  line-height: 20px;\n\n  ", "\n\n  // positive will be green colored text\n  ", ";\n\n  // negative will be red colored text\n  ", ";\n\n  ", "\n"]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -197,18 +197,19 @@ function _templateObject$1() {
 
   return data;
 }
+var buttonBaseStyles = "\n  outline: none;\n  border: none;\n  background: none;\n  padding: 0;\n  margin: 0;\n  white-space: nowrap;\n\n  :hover {\n    cursor: pointer;\n  }\n\n  :disabled {\n    cursor: not-allowed;\n  }\n";
 var Button = styled__default(function (_ref) {
   var rest = _objectWithoutPropertiesLoose(_ref, ["color", "size", "type", "positive", "negative"]);
 
   return React__default.createElement("button", Object.assign({}, rest));
-})(_templateObject$1(), function (_ref2) {
+})(_templateObject$1(), buttonBaseStyles, function (_ref2) {
   var width = _ref2.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 }, function (_ref3) {
   var theme = _ref3.theme,
       _ref3$color = _ref3.color,
       color = _ref3$color === void 0 ? "default" : _ref3$color;
-  return "\n    " + theme.buttonColors[color] + "\n\n    :hover {\n      cursor: pointer;\n    }\n\n    :disabled {\n      color: " + theme.colors.grey400 + ";\n      background-color: " + theme.colors.grey200 + ";\n      cursor: not-allowed;\n    }\n  ";
+  return "\n    " + theme.buttonColors[color] + "\n\n    :disabled {\n      color: " + theme.colors.grey400 + ";\n      background-color: " + theme.colors.grey200 + ";\n    }\n  ";
 }, function (_ref4) {
   var theme = _ref4.theme,
       positive = _ref4.positive;
@@ -230,7 +231,7 @@ var IconButton = styled__default(function (_ref7) {
   return React__default.createElement("button", Object.assign({}, rest, {
     children: icon
   }));
-})(_templateObject2());
+})(_templateObject2(), buttonBaseStyles);
 
 function _templateObject4() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  white-space: nowrap;\n  outline: none;\n  padding: 14px 16px;\n  border-radius: 6px;\n  border: solid 1px ", ";\n  background-color: ", ";\n  font-size: 13px;\n  line-height: 20px;\n  box-sizing: border-box;\n\n  ::placeholder {\n    color: ", ";\n  }\n\n  :read-only {\n    color: ", ";\n  }\n\n  :focus {\n    border-width: 2px;\n    border-color: ", ";\n    padding: 13px 15px;\n  }\n\n  :disabled {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", ";\n"]);
@@ -1973,7 +1974,7 @@ function _templateObject4$1() {
 }
 
 function _templateObject3$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  outline: none;\n  border: none;\n  white-space: nowrap;\n  padding: 0px 10px;\n  color: ", ";\n  background-color: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  padding: 12px 10px;\n  color: ", ";\n  background-color: ", ";\n"]);
 
   _templateObject3$1 = function _templateObject3() {
     return data;
@@ -1983,7 +1984,7 @@ function _templateObject3$1() {
 }
 
 function _templateObject2$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  font-size: 11px;\n  padding: 0px 10px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  border-right: 1px solid ", ";\n  height: 100%;\n  box-sizing: border-box;\n  font-size: 11px;\n  padding: 0px 10px;\n"]);
 
   _templateObject2$2 = function _templateObject2() {
     return data;
@@ -1993,7 +1994,7 @@ function _templateObject2$2() {
 }
 
 function _templateObject$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  width: 100%;\n  height: 40px;\n  font-size: 11px;\n  color: ", ";\n  background-color: ", ";\n  border-top: 1px solid ", ";\n\n  > button,\n  > div {\n    border-right: 1px solid ", ";\n    height: 100%;\n    box-sizing: border-box;\n    display: flex;\n    align-items: center;\n\n    :last-child {\n      border: none;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  min-height: 40px;\n  font-size: 11px;\n  color: ", ";\n  background-color: ", ";\n  border-top: 1px solid ", ";\n\n  > button {\n    border-right: 1px solid ", ";\n    height: 100%;\n    box-sizing: border-box;\n    display: flex;\n    align-items: center;\n  }\n"]);
 
   _templateObject$3 = function _templateObject() {
     return data;
@@ -2005,17 +2006,30 @@ var Footer = styled__default(function (_ref) {
   var version = _ref.version,
       _ref$outlinks = _ref.outlinks,
       outlinks = _ref$outlinks === void 0 ? "instagram|youtube|facebook|playStore|appStore" : _ref$outlinks,
-      rest = _objectWithoutPropertiesLoose(_ref, ["version", "outlinks"]);
+      _ref$buttons = _ref.buttons,
+      buttons = _ref$buttons === void 0 ? [] : _ref$buttons,
+      rest = _objectWithoutPropertiesLoose(_ref, ["version", "outlinks", "buttons"]);
 
   var outlinkProviders = outlinks.split("|");
 
-  var handleOnClick = function handleOnClick(providerId) {
+  var handleOnOutlinkClick = function handleOnOutlinkClick(providerId) {
     return function () {
-      console.log(providerId, Urls[providerId], Urls.facebook);
+      window.open(Urls[providerId], "_blank");
     };
   };
 
-  return React__default.createElement("footer", Object.assign({}, rest), React__default.createElement(FooterInfo, null, "\uC0C1\uD638\uBA85 : \uBE44\uB9C8\uC774\uD3AB\xA9 Copyright 2020, All Rights Reserved \uC8FC\uC18C : \uC11C\uC6B8\uC2DC \uC11C\uCD08\uAD6C \uC11C\uCD08\uC911\uC559\uB85C 24\uAE38 55, 401\uD638 \uB300\uD45C\uC790 : \uC131\uD604\uC9C4 \uBB38\uC758: 050-7724-6399, business@bemypet.kr", version ? React__default.createElement("span", null, "version: ", version) : null), React__default.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC81C\uD734\uBB38\uC758"), React__default.createElement(FooterButton, null, "\uD06C\uB9AC\uC5D0\uC774\uD130 \uC804\uCCB4\uBCF4\uAE30"), React__default.createElement(FooterIconButtons, null, outlinkProviders.map(function (providerId) {
+  return React__default.createElement("footer", Object.assign({}, rest), React__default.createElement(FooterInfo, null, "\uC0C1\uD638\uBA85 : \uBE44\uB9C8\uC774\uD3AB\xA9 Copyright 2020, All Rights Reserved \uC8FC\uC18C : \uC11C\uC6B8\uC2DC \uC11C\uCD08\uAD6C \uC11C\uCD08\uC911\uC559\uB85C 24\uAE38 55, 401\uD638 \uB300\uD45C\uC790 : \uC131\uD604\uC9C4 \uBB38\uC758:", " ", React__default.createElement("a", {
+    href: "tel:050-7724-6399"
+  }, "050-7724-6399"), ",", " ", React__default.createElement("a", {
+    href: "mailto:business@bemypet.kr"
+  }, "business@bemypet.kr"), version ? React__default.createElement("span", null, "version: ", version) : null), buttons.map(function (_ref2) {
+    var label = _ref2.label,
+        onClick = _ref2.onClick;
+    return React__default.createElement(FooterButton, {
+      key: "footer-button-" + label,
+      onClick: onClick
+    }, label);
+  }), React__default.createElement(FooterIconButtons, null, outlinkProviders.map(function (providerId) {
     switch (providerId) {
       case "instagram":
         return React__default.createElement(IconButton, {
@@ -2024,7 +2038,7 @@ var Footer = styled__default(function (_ref) {
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "youtube":
@@ -2034,7 +2048,7 @@ var Footer = styled__default(function (_ref) {
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "facebook":
@@ -2044,7 +2058,7 @@ var Footer = styled__default(function (_ref) {
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "playStore":
@@ -2054,7 +2068,7 @@ var Footer = styled__default(function (_ref) {
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       case "appStore":
@@ -2064,32 +2078,35 @@ var Footer = styled__default(function (_ref) {
             width: 24,
             height: 24
           }),
-          onClick: handleOnClick(providerId)
+          onClick: handleOnOutlinkClick(providerId)
         });
 
       default:
         return null;
     }
   })));
-})(_templateObject$3(), function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.colors.grey500;
-}, function (_ref3) {
+})(_templateObject$3(), function (_ref3) {
   var theme = _ref3.theme;
-  return theme.colors.grey100;
+  return theme.colors.grey500;
 }, function (_ref4) {
   var theme = _ref4.theme;
-  return theme.colors.grey300;
+  return theme.colors.grey100;
 }, function (_ref5) {
   var theme = _ref5.theme;
   return theme.colors.grey300;
-});
-var FooterInfo = styled__default.div(_templateObject2$2());
-var FooterButton = styled__default.button(_templateObject3$1(), function (_ref6) {
+}, function (_ref6) {
   var theme = _ref6.theme;
-  return theme.colors.grey500;
-}, function (_ref7) {
+  return theme.colors.grey300;
+});
+var FooterInfo = styled__default.div(_templateObject2$2(), function (_ref7) {
   var theme = _ref7.theme;
+  return theme.colors.grey300;
+});
+var FooterButton = styled__default.button(_templateObject3$1(), buttonBaseStyles, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.colors.grey500;
+}, function (_ref9) {
+  var theme = _ref9.theme;
   return theme.colors.grey100;
 });
 var FooterIconButtons = styled__default.div(_templateObject4$1());
@@ -2391,9 +2408,10 @@ function _templateObject$6() {
 }
 var Layout = function Layout(_ref) {
   var helmetProps = _ref.helmetProps,
+      footerProps = _ref.footerProps,
       children = _ref.children,
       loading = _ref.loading;
-  return React__default.createElement(Wrapper, null, React__default.createElement(HelmetComponent, Object.assign({}, helmetProps)), React__default.createElement(Main, null, !!loading ? loading : children), React__default.createElement(Footer, null));
+  return React__default.createElement(Wrapper, null, React__default.createElement(HelmetComponent, Object.assign({}, helmetProps)), React__default.createElement(Main, null, !!loading ? loading : children), React__default.createElement(Footer, Object.assign({}, footerProps)));
 };
 var Wrapper = styled__default.div(_templateObject$6());
 var Main = styled__default.main(_templateObject2$5());

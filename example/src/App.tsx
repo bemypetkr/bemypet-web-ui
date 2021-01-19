@@ -15,7 +15,25 @@ import {
 const App = () => {
   return (
     <ThemeProvider>
-      <Layout helmetProps={{ title: "Bemypet UI" }}>
+      <Layout
+        helmetProps={{ title: "Bemypet UI" }}
+        footerProps={{
+          buttons: [
+            {
+              label: "크리에이터 제휴문의",
+              onClick: () => {
+                // todo
+              },
+            },
+            {
+              label: "크리에이터 전체보기",
+              onClick: () => {
+                // todo
+              },
+            },
+          ],
+        }}
+      >
         <Header
           menus={[
             { label: "홈", to: "/" },

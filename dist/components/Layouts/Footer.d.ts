@@ -1,14 +1,13 @@
 import React from "react";
-interface LinkInterface {
-    to: string;
+interface FooterButtonProps {
     label?: string;
     icon?: React.ReactNode;
-    target?: string;
+    onClick: () => void;
 }
-interface FooterProps {
+export interface FooterProps {
     version?: string;
-    buttons?: LinkInterface[];
+    buttons?: FooterButtonProps[];
     outlinks?: string;
 }
-export declare const Footer: import("styled-components").StyledComponent<({ version, outlinks, ...rest }: FooterProps) => JSX.Element, any, {}, never>;
+export declare const Footer: import("styled-components").StyledComponent<({ version, outlinks, buttons, ...rest }: FooterProps) => JSX.Element, any, {}, never>;
 export {};

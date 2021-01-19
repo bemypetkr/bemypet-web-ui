@@ -1,7 +1,10 @@
 import React from "react";
+interface ButtonBaseProps extends React.HTMLProps<HTMLButtonElement> {
+}
+export declare const buttonBaseStyles = "\n  outline: none;\n  border: none;\n  background: none;\n  padding: 0;\n  margin: 0;\n  white-space: nowrap;\n\n  :hover {\n    cursor: pointer;\n  }\n\n  :disabled {\n    cursor: not-allowed;\n  }\n";
 export declare type ButtonColor = "primary" | "default";
 export declare type ButtonSize = "small" | "medium" | "large";
-export declare type ButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, "color" | "size" | "positive" | "negative"> & {
+export declare type ButtonProps = Omit<ButtonBaseProps, "color" | "size" | "positive" | "negative"> & {
     /**
      * Width in pixel.
      * Default is 100%
@@ -26,7 +29,8 @@ export declare type ButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, "colo
     negative?: boolean;
 };
 export declare const Button: import("styled-components").StyledComponent<({ color, size, type, positive, negative, ...rest }: ButtonProps) => JSX.Element, any, {}, never>;
-export declare type IconButtonProps = Omit<React.HTMLProps<HTMLButtonElement>, "icon"> & {
+export declare type IconButtonProps = Omit<ButtonBaseProps, "icon"> & {
     icon: React.ReactNode;
 };
 export declare const IconButton: import("styled-components").StyledComponent<({ icon, type, ...rest }: IconButtonProps) => JSX.Element, any, {}, never>;
+export {};
