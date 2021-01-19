@@ -7,4 +7,5 @@ export default class Urls {
     static get instagram(): string;
     static get playStore(): string;
     static get appStore(): string;
+    static get placeholderImgSrc(): string;
 }

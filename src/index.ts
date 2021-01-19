@@ -1,4 +1,5 @@
 export { ThemeProvider } from "theme";
+export { Avatar } from "components/Avatar";
 export { Button } from "components/Button";
 export { Input } from "components/Input";
 export {

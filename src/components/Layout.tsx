@@ -19,7 +19,11 @@ export const Layout = ({
 }: LayoutProps) => {
   return (
     <Wrapper>
-      <HelmetComponent {...helmetProps} />
+      <HelmetComponent
+        titleTemplate="%s :: 비마이펫"
+        defaultTitle="비마이펫"
+        {...helmetProps}
+      />
       <Main>{!!loading ? loading : children}</Main>
       <Footer {...footerProps} />
     </Wrapper>

@@ -31,4 +31,8 @@ export default class Urls {
   public static get appStore(): string {
     return "https://apps.apple.com/app/id1506523332";
   }
+
+  public static get placeholderImgSrc(): string {
+    return "https://dev-bff-images.mypetlife.co.kr/common/userpic.png";
+  }
 }
