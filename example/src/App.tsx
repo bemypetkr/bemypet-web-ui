@@ -82,48 +82,15 @@ const App = () => {
               <List>
                 <ListItem primary="Primary Text" />
                 <ListItem primary="Primary Text" secondary="Secondary Text" />
+                <ListItem
+                  primary="Primary Text w/ trailing icon"
+                  trailing={<ArrowRight />}
+                />
+                <ListItem primary="Primary Text (Hoverable)" button />
               </List>
             </Row>
           </Column>
-          <Column marginTop={50}>
-            <Typography variant="heading1" as="h1">
-              Icons
-            </Typography>
-            <Typography variant="heading3" as="h3">
-              Common (Default size 24px)
-            </Typography>
-            <Row>
-              <ArrowRight />
-              <Blockquote />
-              <Calendar />
-              <Camera />
-              <Clear />
-              <ClearCircle />
-              <Comment />
-              <HeartFilled />
-              <HeartOutline />
-              <Image />
-              <Menu />
-              <More />
-              <Pencil />
-              <Profile />
-              <Search />
-              <Share />
-            </Row>
-            <Typography variant="heading3" as="h3">
-              Social Icons (Default size 40px)
-            </Typography>
-            <Row>
-              <AppleIcon />
-              <AppStoreIcon />
-              <FacebookIcon />
-              <GoogleIcon />
-              <InstagramIcon />
-              <NaverIcon />
-              <PlayStoreIcon />
-              <YoutubeIcon />
-            </Row>
-          </Column>
+
           <Column marginTop={50} justifyContent="space-evenly">
             <Typography variant="heading1" as="h1">
               Typography
@@ -258,7 +225,45 @@ const App = () => {
               />
             </Row>
           </Column>
-
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              Icons
+            </Typography>
+            <Typography variant="heading3" as="h3">
+              Common (Default size 24px)
+            </Typography>
+            <Row>
+              <ArrowRight />
+              <Blockquote />
+              <Calendar />
+              <Camera />
+              <Clear />
+              <ClearCircle />
+              <Comment />
+              <HeartFilled />
+              <HeartOutline />
+              <Image />
+              <Menu />
+              <More />
+              <Pencil />
+              <Profile />
+              <Search />
+              <Share />
+            </Row>
+            <Typography variant="heading3" as="h3">
+              Social Icons (Default size 40px)
+            </Typography>
+            <Row>
+              <AppleIcon />
+              <AppStoreIcon />
+              <FacebookIcon />
+              <GoogleIcon />
+              <InstagramIcon />
+              <NaverIcon />
+              <PlayStoreIcon />
+              <YoutubeIcon />
+            </Row>
+          </Column>
           <Column marginTop={50}></Column>
         </PageBody>
       </Layout>

@@ -28,23 +28,26 @@ interface ListItemProps {
 }
 
 export const ListItem = styled(
-  ({ primary, secondary, ...rest }: ListItemProps) => {
+  ({ primary, secondary, trailing, ...rest }: ListItemProps) => {
     return (
       <li {...rest}>
         <Typography variant="body1">{primary}</Typography>
         <Typography variant="caption" color="grey500">
           {secondary}
         </Typography>
+        {trailing ? trailing : null}
       </li>
     );
   },
 )`
+  position: relative;
   list-style: none;
   padding: 16px 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.grey300};
+  box-sizing: border-box;
 
-  :first-child {
-    border-top: 1px solid ${({ theme }) => theme.colors.grey300};
+  :last-child {
+    border-bottom: none;
   }
 
   ${({ theme, button = false }) =>
@@ -56,5 +59,18 @@ export const ListItem = styled(
     }
   
   `
+      : ""}
+
+  ${({ trailing }) =>
+    !!trailing
+      ? `
+      svg {
+        position: absolute;
+        right: 0;
+        top: 16px;
+      }
+      
+    
+    `
       : ""}
 `;

@@ -16,5 +16,5 @@ interface ListItemProps {
      */
     button?: boolean;
 }
-export declare const ListItem: import("styled-components").StyledComponent<({ primary, secondary, ...rest }: ListItemProps) => JSX.Element, any, {}, never>;
+export declare const ListItem: import("styled-components").StyledComponent<({ primary, secondary, trailing, ...rest }: ListItemProps) => JSX.Element, any, {}, never>;
 export {};
