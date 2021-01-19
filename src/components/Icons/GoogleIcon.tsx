@@ -1,10 +1,5 @@
 import React from "react";
-
-interface IconProps {
-  color?: string;
-  width?: number;
-  height?: number;
-}
+import { IconProps } from "./interface";
 
 export const GoogleIcon = ({ width = 40, height = 40 }: IconProps) => (
   <svg

@@ -1,11 +1,6 @@
 import React from "react";
 
-interface IconProps {
-  color?: string;
-  width?: number;
-  height?: number;
-}
-
+import { IconProps } from "./interface";
 const Logo = ({ color = "#080405", width = 80, height = 120 }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

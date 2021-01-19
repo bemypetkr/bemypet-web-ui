@@ -1,16 +1,45 @@
 import React from "react";
 import {
-  Typography,
   ThemeProvider,
-  Button,
   Layout,
-  Row,
+  Avatar,
+  Button,
   Column,
   Header,
-  PageBody,
   Input,
+  List,
+  ListItem,
+  PageBody,
+  Row,
+  Typography,
+
+  // Common Icons
+  ArrowRight,
+  Blockquote,
+  Calendar,
+  Camera,
+  Clear,
+  ClearCircle,
+  Comment,
+  HeartFilled,
+  HeartOutline,
+  Image,
+  Menu,
+  More,
+  Pencil,
+  Profile,
+  Search,
+  Share,
+
+  // Social Provider Icons
+  AppleIcon,
+  AppStoreIcon,
+  FacebookIcon,
   GoogleIcon,
-  Avatar,
+  InstagramIcon,
+  NaverIcon,
+  PlayStoreIcon,
+  YoutubeIcon,
 } from "bemypet-web-ui";
 
 const App = () => {
@@ -45,6 +74,56 @@ const App = () => {
           <Typography variant="heading2">Bemypet UI</Typography>
         </Header>
         <PageBody>
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              List
+            </Typography>
+            <Row>
+              <List>
+                <ListItem primary="Primary Text" />
+                <ListItem primary="Primary Text" secondary="Secondary Text" />
+              </List>
+            </Row>
+          </Column>
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              Icons
+            </Typography>
+            <Typography variant="heading3" as="h3">
+              Common (Default size 24px)
+            </Typography>
+            <Row>
+              <ArrowRight />
+              <Blockquote />
+              <Calendar />
+              <Camera />
+              <Clear />
+              <ClearCircle />
+              <Comment />
+              <HeartFilled />
+              <HeartOutline />
+              <Image />
+              <Menu />
+              <More />
+              <Pencil />
+              <Profile />
+              <Search />
+              <Share />
+            </Row>
+            <Typography variant="heading3" as="h3">
+              Social Icons (Default size 40px)
+            </Typography>
+            <Row>
+              <AppleIcon />
+              <AppStoreIcon />
+              <FacebookIcon />
+              <GoogleIcon />
+              <InstagramIcon />
+              <NaverIcon />
+              <PlayStoreIcon />
+              <YoutubeIcon />
+            </Row>
+          </Column>
           <Column marginTop={50} justifyContent="space-evenly">
             <Typography variant="heading1" as="h1">
               Typography
@@ -179,6 +258,7 @@ const App = () => {
               />
             </Row>
           </Column>
+
           <Column marginTop={50}></Column>
         </PageBody>
       </Layout>
