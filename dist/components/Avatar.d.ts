@@ -1,3 +1,6 @@
+import React from "react";
+import { TypographyPropss } from "./Typography";
+export declare type AvatarAxis = "vertical" | "horizontal";
 export declare type AvatarProps = {
     /**
      * Image source url
@@ -12,5 +15,13 @@ export declare type AvatarProps = {
      * @type {number}
      */
     size?: number;
+    label?: React.ReactNode | string;
+    /**
+     * Default is vertical
+     *
+     * @type {AvatarAxis}
+     */
+    axis?: AvatarAxis;
+    typographyProps?: TypographyPropss;
 };
-export declare const Avatar: import("styled-components").StyledComponent<({ size, src, ...rest }: AvatarProps) => JSX.Element, any, {}, never>;
+export declare const Avatar: import("styled-components").StyledComponent<({ size, label, axis, src, typographyProps, ...rest }: AvatarProps) => JSX.Element, any, {}, never>;

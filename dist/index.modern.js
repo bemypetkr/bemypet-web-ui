@@ -140,7 +140,7 @@ var typography$1 = {
 };
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Regular\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Regular.svg\") format(\"svg\");\n    font-weight: normal;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Bold\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Bold.svg\") format(\"svg\");\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  body {\n    margin: 0;\n    padding: 0;\n    font-family: \"Apple SD Gothic Neo\", sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1, h2, h3, h4, h5, h6, p, ul {\n    margin: 0;\n    padding: 0;\n  }\n\n  ::selection {\n    background: ", "; /* WebKit/Blink Browsers */\n    color: inherit;\n  }\n\n  ::-moz-selection {\n    background: ", "; /* Gecko Browsers */\n    color: inherit;\n  }\n\n  a {\n    color: inherit;\n    text-decoration: none;\n\n    :hover {\n      text-decoration: underline;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Regular\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Regular.svg\") format(\"svg\");\n    font-weight: normal;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Bold\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Bold.svg\") format(\"svg\");\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  body {\n    margin: 0;\n    padding: 0;\n    font-family: \"Apple SD Gothic Neo\", sans-serif;\n    font-size: 13px;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1, h2, h3, h4, h5, h6, p, ul {\n    margin: 0;\n    padding: 0;\n  }\n\n  ::selection {\n    background: ", "; /* WebKit/Blink Browsers */\n    color: inherit;\n  }\n\n  ::-moz-selection {\n    background: ", "; /* Gecko Browsers */\n    color: inherit;\n  }\n\n  a {\n    color: inherit;\n    text-decoration: none;\n\n    :hover {\n      text-decoration: underline;\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -228,9 +228,45 @@ var Urls = /*#__PURE__*/function () {
 }();
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  background-image: url(", ");\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n\n  ", "\n\n  color: ", ";\n\n  text-align: ", ";\n"]);
 
   _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Typography = styled(function (_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      rest = _objectWithoutPropertiesLoose(_ref, ["color", "variant", "textAlign", "className", "children"]);
+
+  return React.createElement("p", Object.assign({
+    className: "bui-typography " + className
+  }, rest), children);
+})(_templateObject$1(), function (_ref2) {
+  var width = _ref2.width;
+  return width ? typeof width === "string" ? width : width + "px" : "100%";
+}, function (_ref3) {
+  var theme = _ref3.theme,
+      _ref3$variant = _ref3.variant,
+      variant = _ref3$variant === void 0 ? "body2" : _ref3$variant;
+  return theme.typography[variant];
+}, function (_ref4) {
+  var theme = _ref4.theme,
+      _ref4$color = _ref4.color,
+      color = _ref4$color === void 0 ? "grey600" : _ref4$color;
+  return theme.colors[color];
+}, function (_ref5) {
+  var _ref5$textAlign = _ref5.textAlign,
+      textAlign = _ref5$textAlign === void 0 ? "inherit" : _ref5$textAlign;
+  return textAlign;
+});
+
+function _templateObject$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  background-repeat: no-repeat;\n  background-position: top left;\n  background-image: url(", ");\n  background-size: ", "px ", "px;\n\n  display: flex;\n  align-items: center;\n\n  // default align is vertical\n  flex-direction: column;\n  min-height: ", "px;\n  height: auto;\n\n  .bui-typography {\n    padding-top: ", "px;\n    white-space: nowrap;\n    text-align: center;\n  }\n\n  // when it displayed horizontally\n  ", "\n\n  img {\n    width: ", "px;\n    height: ", "px;\n  }\n"]);
+
+  _templateObject$2 = function _templateObject() {
     return data;
   };
 
@@ -239,16 +275,17 @@ function _templateObject$1() {
 var Avatar = styled(function (_ref) {
   var _ref$size = _ref.size,
       size = _ref$size === void 0 ? 96 : _ref$size,
-      _ref$src = _ref.src,
-      src = _ref$src === void 0 ? Urls.placeholderImgSrc : _ref$src,
-      rest = _objectWithoutPropertiesLoose(_ref, ["size", "src"]);
+      label = _ref.label,
+      src = _ref.src,
+      typographyProps = _ref.typographyProps,
+      rest = _objectWithoutPropertiesLoose(_ref, ["size", "label", "axis", "src", "typographyProps"]);
 
-  return React.createElement("img", Object.assign({
+  return React.createElement("div", Object.assign({}, rest), src ? React.createElement("img", {
     width: size,
     height: size,
     src: src
-  }, rest));
-})(_templateObject$1(), function (_ref2) {
+  }) : null, label ? typeof label == "string" ? React.createElement(Typography, Object.assign({}, typographyProps), label) : label : null);
+})(_templateObject$2(), function (_ref2) {
   var _ref2$size = _ref2.size,
       size = _ref2$size === void 0 ? 96 : _ref2$size;
   return size;
@@ -256,7 +293,40 @@ var Avatar = styled(function (_ref) {
   var _ref3$size = _ref3.size,
       size = _ref3$size === void 0 ? 96 : _ref3$size;
   return size;
-}, Urls.placeholderImgSrc);
+}, Urls.placeholderImgSrc, function (_ref4) {
+  var _ref4$size = _ref4.size,
+      size = _ref4$size === void 0 ? 96 : _ref4$size;
+  return size;
+}, function (_ref5) {
+  var _ref5$size = _ref5.size,
+      size = _ref5$size === void 0 ? 96 : _ref5$size;
+  return size;
+}, function (_ref6) {
+  var _ref6$size = _ref6.size,
+      size = _ref6$size === void 0 ? 96 : _ref6$size;
+  return size;
+}, function (_ref7) {
+  var _ref7$size = _ref7.size,
+      size = _ref7$size === void 0 ? 96 : _ref7$size;
+  return size + 14;
+}, function (_ref8) {
+  var axis = _ref8.axis,
+      _ref8$size = _ref8.size,
+      size = _ref8$size === void 0 ? 96 : _ref8$size;
+  return axis === "horizontal" ? "\n      flex-direction: row;\n      min-width: " + function (_ref9) {
+    var _ref9$size = _ref9.size,
+        size = _ref9$size === void 0 ? 96 : _ref9$size;
+    return size;
+  } + "px;\n      width: auto;\n      \n      .bui-typography  {\n        padding-top: 0;\n        padding-left: " + (size + 14) + "px;\n        text-align: left;\n      }\n  " : "";
+}, function (_ref10) {
+  var _ref10$size = _ref10.size,
+      size = _ref10$size === void 0 ? 96 : _ref10$size;
+  return size;
+}, function (_ref11) {
+  var _ref11$size = _ref11.size,
+      size = _ref11$size === void 0 ? 96 : _ref11$size;
+  return size;
+});
 
 function _templateObject2() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
@@ -268,10 +338,10 @@ function _templateObject2() {
   return data;
 }
 
-function _templateObject$2() {
+function _templateObject$3() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  width: ", ";\n  border-radius: 50px;\n\n  font-size: 13px;\n  font-weight: bold;\n  line-height: 20px;\n\n  ", "\n\n  // positive will be green colored text\n  ", ";\n\n  // negative will be red colored text\n  ", ";\n\n  ", "\n"]);
 
-  _templateObject$2 = function _templateObject() {
+  _templateObject$3 = function _templateObject() {
     return data;
   };
 
@@ -282,7 +352,7 @@ var Button = styled(function (_ref) {
   var rest = _objectWithoutPropertiesLoose(_ref, ["color", "size", "type", "positive", "negative"]);
 
   return React.createElement("button", Object.assign({}, rest));
-})(_templateObject$2(), buttonBaseStyles, function (_ref2) {
+})(_templateObject$3(), buttonBaseStyles, function (_ref2) {
   var width = _ref2.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 }, function (_ref3) {
@@ -343,16 +413,16 @@ function _templateObject2$1() {
   return data;
 }
 
-function _templateObject$3() {
+function _templateObject$4() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
 
-  _templateObject$3 = function _templateObject() {
+  _templateObject$4 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var InputWrapper = styled.div(_templateObject$3());
+var InputWrapper = styled.div(_templateObject$4());
 var InputLabel = styled.label(_templateObject2$1(), function (_ref) {
   var theme = _ref.theme;
   return theme.colors.grey600;
@@ -2025,10 +2095,10 @@ function _templateObject2$2() {
   return data;
 }
 
-function _templateObject$4() {
+function _templateObject$5() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  min-height: 40px;\n  font-size: 11px;\n  color: ", ";\n  background-color: ", ";\n  border-top: 1px solid ", ";\n\n  > button {\n    border-right: 1px solid ", ";\n    height: 100%;\n    box-sizing: border-box;\n    display: flex;\n    align-items: center;\n  }\n"]);
 
-  _templateObject$4 = function _templateObject() {
+  _templateObject$5 = function _templateObject() {
     return data;
   };
 
@@ -2117,7 +2187,7 @@ var Footer = styled(function (_ref) {
         return null;
     }
   })));
-})(_templateObject$4(), function (_ref3) {
+})(_templateObject$5(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.colors.grey500;
 }, function (_ref4) {
@@ -2243,10 +2313,10 @@ function _templateObject2$3() {
   return data;
 }
 
-function _templateObject$5() {
+function _templateObject$6() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  li {\n    list-style: none;\n    min-width: 60px;\n    margin-left: 30px;\n    text-align: center;\n  }\n"]);
 
-  _templateObject$5 = function _templateObject() {
+  _templateObject$6 = function _templateObject() {
     return data;
   };
 
@@ -2267,7 +2337,7 @@ var Menu = function Menu(_ref) {
     }, label, selected ? React.createElement(SelectedCircle, null) : null));
   }));
 };
-var MenuWrapper = styled.ul(_templateObject$5());
+var MenuWrapper = styled.ul(_templateObject$6());
 var MenuItem = styled.a(_templateObject2$3(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.colors.grey500;
@@ -2314,16 +2384,16 @@ function _templateObject2$4() {
   return data;
 }
 
-function _templateObject$6() {
+function _templateObject$7() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: 0 30px;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: ", ";\n  color: ", ";\n  box-sizing: border-box;\n  overflow: hidden;\n\n  ul {\n    display: flex;\n  }\n"]);
 
-  _templateObject$6 = function _templateObject() {
+  _templateObject$7 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var HeaderNav = styled.div(_templateObject$6(), function (_ref) {
+var HeaderNav = styled.div(_templateObject$7(), function (_ref) {
   var theme = _ref.theme;
   return theme.colors.primary100;
 }, function (_ref2) {
@@ -2429,10 +2499,10 @@ function _templateObject2$5() {
   return data;
 }
 
-function _templateObject$7() {
+function _templateObject$8() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 100vh;\n  flex-direction: column;\n"]);
 
-  _templateObject$7 = function _templateObject() {
+  _templateObject$8 = function _templateObject() {
     return data;
   };
 
@@ -2448,7 +2518,7 @@ var Layout = function Layout(_ref) {
     defaultTitle: "\uBE44\uB9C8\uC774\uD3AB"
   }, helmetProps)), React.createElement(Main, null, !!loading ? loading : children), React.createElement(Footer, Object.assign({}, footerProps)));
 };
-var Wrapper = styled.div(_templateObject$7());
+var Wrapper = styled.div(_templateObject$8());
 var Main = styled.main(_templateObject2$5());
 var PageBody = styled.div(_templateObject3$4());
 
@@ -2507,38 +2577,6 @@ var Row = styled.div(_templateObject5(), function (_ref9) {
   var _ref14$marginRight = _ref14.marginRight,
       marginRight = _ref14$marginRight === void 0 ? 0 : _ref14$marginRight;
   return getPixel(marginRight);
-});
-
-function _templateObject$8() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n\n  ", "\n\n  color: ", ";\n\n  text-align: ", ";\n"]);
-
-  _templateObject$8 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var Typography = styled(function (_ref) {
-  var rest = _objectWithoutPropertiesLoose(_ref, ["color", "variant", "textAlign"]);
-
-  return React.createElement("p", Object.assign({}, rest));
-})(_templateObject$8(), function (_ref2) {
-  var width = _ref2.width;
-  return width ? typeof width === "string" ? width : width + "px" : "100%";
-}, function (_ref3) {
-  var theme = _ref3.theme,
-      _ref3$variant = _ref3.variant,
-      variant = _ref3$variant === void 0 ? "body2" : _ref3$variant;
-  return theme.typography[variant];
-}, function (_ref4) {
-  var theme = _ref4.theme,
-      _ref4$color = _ref4.color,
-      color = _ref4$color === void 0 ? "grey600" : _ref4$color;
-  return theme.colors[color];
-}, function (_ref5) {
-  var _ref5$textAlign = _ref5.textAlign,
-      textAlign = _ref5$textAlign === void 0 ? "inherit" : _ref5$textAlign;
-  return textAlign;
 });
 
 export { AppleIcon, Avatar, Button, Column, FacebookIcon, Footer, GoogleIcon, Header, Input, Layout, NaverIcon, PageBody, Row, ThemeProvider, Typography };

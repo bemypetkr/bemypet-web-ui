@@ -170,8 +170,16 @@ const App = () => {
             </Typography>
             <Row>
               <Avatar />
+              <Avatar label={"with label"} />
+              <Avatar label={"with horizontal label"} axis={"horizontal"} />
+              <Avatar
+                label={"40px avatar with label"}
+                axis={"horizontal"}
+                size={40}
+              />
             </Row>
           </Column>
+          <Column marginTop={50}></Column>
         </PageBody>
       </Layout>
     </ThemeProvider>

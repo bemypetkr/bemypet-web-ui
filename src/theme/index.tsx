@@ -54,6 +54,7 @@ const BemypetTheme = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: "Apple SD Gothic Neo", sans-serif;
+    font-size: 13px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

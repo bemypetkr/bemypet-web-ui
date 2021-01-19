@@ -27,6 +27,8 @@ export type TypographyVariant =
 
 export type TypographyTextAlign = "left" | "center" | "right";
 
+export interface TypographyPropss {}
+
 export type TypographyProps = Omit<
   React.HTMLProps<HTMLParagraphElement>,
   "color" | "variant"
@@ -54,7 +56,18 @@ export type TypographyProps = Omit<
 };
 
 export const Typography = styled(
-  ({ color, variant, textAlign, ...rest }: TypographyProps) => <p {...rest} />,
+  ({
+    color,
+    variant,
+    textAlign,
+    className,
+    children,
+    ...rest
+  }: TypographyProps) => (
+    <p className={`bui-typography ${className}`} {...rest}>
+      {children}
+    </p>
+  ),
 )`
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
