@@ -8,6 +8,7 @@ import {
   PlayStoreIcon,
   AppStoreIcon,
 } from "components/Icons";
+import Urls from "lib/urls";
 
 interface LinkInterface {
   to: string;
@@ -25,12 +26,12 @@ interface FooterProps {
 export const Footer = styled(
   ({
     version,
-    outlinks = "instagram|youtube|facebook|playstore|appstore",
+    outlinks = "instagram|youtube|facebook|playStore|appStore",
     ...rest
   }: FooterProps) => {
     const outlinkProviders = outlinks.split("|");
     const handleOnClick = (providerId: string) => () => {
-      console.log(providerId);
+      console.log(providerId, Urls[providerId], Urls.facebook);
     };
 
     return (
@@ -72,7 +73,7 @@ export const Footer = styled(
                     onClick={handleOnClick(providerId)}
                   />
                 );
-              case "playstore":
+              case "playStore":
                 return (
                   <IconButton
                     key={`provider-${providerId}`}
@@ -81,7 +82,7 @@ export const Footer = styled(
                   />
                 );
 
-              case "appstore":
+              case "appStore":
                 return (
                   <IconButton
                     key={`provider-${providerId}`}

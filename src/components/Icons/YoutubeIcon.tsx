@@ -12,7 +12,7 @@ export const YoutubeIcon = ({ width = 40, height = 40 }: IconProps) => (
     style={{ width, height }}
     viewBox="0 0 40 40"
   >
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
       <path
         fill="#FFF"
         d="M0 0H1260V2029H0z"

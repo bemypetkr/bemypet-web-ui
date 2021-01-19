@@ -12,7 +12,7 @@ export const AppStoreIcon = ({ width = 40, height = 40 }: IconProps) => (
     style={{ width, height }}
     viewBox="0 0 24 24"
   >
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fillRule="evenodd">
       <path
         fill="#FFF"
         d="M0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z"

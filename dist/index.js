@@ -5,6 +5,22 @@ var React__default = _interopDefault(React);
 var styled = require('styled-components');
 var styled__default = _interopDefault(styled);
 
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
 function _extends() {
   _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -343,7 +359,7 @@ var AppStoreIcon = function AppStoreIcon(_ref) {
     viewBox: "0 0 24 24"
   }, React__default.createElement("g", {
     fill: "none",
-    "fill-rule": "evenodd"
+    fillRule: "evenodd"
   }, React__default.createElement("path", {
     fill: "#FFF",
     d: "M0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z",
@@ -434,19 +450,53 @@ var InstagramIcon = function InstagramIcon(_ref) {
       height: height
     },
     viewBox: "0 0 40 40"
-  }, React__default.createElement("g", {
-    fill: "none",
-    fillRule: "evenodd"
-  }, React__default.createElement("g", {
-    fill: "red"
-  }, React__default.createElement("path", {
-    d: "M0 20C0 8.954 8.954 0 20 0s20 8.954 20 20-8.954 20-20 20S0 31.046 0 20z",
-    transform: "translate(-548 -1738) translate(548 1738)"
-  })), React__default.createElement("path", {
-    fill: "#FEFEFE",
-    d: "M22.311 13.636L22.311 20.16 17.706 13.636 12.727 13.636 12.727 26.566 17.69 26.566 17.69 20.043 22.295 26.566 27.273 26.566 27.273 13.636z",
-    transform: "translate(-548 -1738) translate(548 1738)"
-  })));
+  }, React__default.createElement("defs", null, React__default.createElement("radialGradient", {
+    id: "a",
+    cx: 20,
+    cy: 20,
+    fx: 6.800878328840668,
+    fy: 41.02381018910563,
+    r: 24.82,
+    gradientUnits: "userSpaceOnUse"
+  }, React__default.createElement("stop", {
+    offset: 0.1,
+    stopColor: "#f37238"
+  }), React__default.createElement("stop", {
+    offset: 0.39,
+    stopColor: "#d7525f"
+  }), React__default.createElement("stop", {
+    offset: 0.63,
+    stopColor: "#be3583"
+  }), React__default.createElement("stop", {
+    offset: 1,
+    stopColor: "#5466af"
+  }))), React__default.createElement("circle", {
+    cx: 20,
+    cy: 20,
+    r: 20,
+    style: {
+      fill: "url(#a)"
+    }
+  }), React__default.createElement("path", {
+    d: "M683.5,374.82c2.94,0,3.29,0,4.44.06a6.15,6.15,0,0,1,2,.38,3.44,3.44,0,0,1,1.26.82,3.38,3.38,0,0,1,.83,1.27,6.14,6.14,0,0,1,.37,2c.06,1.16.07,1.51.07,4.44s0,3.29-.07,4.45a6.2,6.2,0,0,1-.37,2,3.67,3.67,0,0,1-2.09,2.09,6.15,6.15,0,0,1-2,.38c-1.15,0-1.5.06-4.44.06s-3.29,0-4.44-.06a6.15,6.15,0,0,1-2-.38,3.67,3.67,0,0,1-2.09-2.09,6.2,6.2,0,0,1-.37-2c-.06-1.16-.07-1.51-.07-4.45s0-3.28.07-4.44a6.14,6.14,0,0,1,.37-2,3.38,3.38,0,0,1,.83-1.27,3.44,3.44,0,0,1,1.26-.82,6.15,6.15,0,0,1,2-.38c1.15-.05,1.5-.06,4.44-.06m0-2c-3,0-3.36,0-4.54.07a8,8,0,0,0-2.67.51,5.39,5.39,0,0,0-1.94,1.27,5.21,5.21,0,0,0-1.27,1.95,8,8,0,0,0-.51,2.67c-.06,1.17-.07,1.55-.07,4.53s0,3.37.07,4.54a8,8,0,0,0,.51,2.67,5.29,5.29,0,0,0,1.27,1.95,5.52,5.52,0,0,0,1.94,1.27,8.31,8.31,0,0,0,2.67.51c1.18.05,1.55.06,4.54.06s3.36,0,4.54-.06a8.31,8.31,0,0,0,2.67-.51,5.52,5.52,0,0,0,1.94-1.27,5.29,5.29,0,0,0,1.27-1.95,8,8,0,0,0,.51-2.67c.06-1.17.07-1.55.07-4.54s0-3.36-.07-4.53a8,8,0,0,0-.51-2.67,5.21,5.21,0,0,0-1.27-1.95,5.39,5.39,0,0,0-1.94-1.27,8,8,0,0,0-2.67-.51c-1.18,0-1.55-.07-4.54-.07Z",
+    transform: "translate(-663.5 -363.83)",
+    style: {
+      fill: "#fff"
+    }
+  }), React__default.createElement("path", {
+    d: "M683.5,378.18a5.65,5.65,0,1,0,5.65,5.65A5.65,5.65,0,0,0,683.5,378.18Zm0,9.32a3.67,3.67,0,1,1,3.67-3.67A3.67,3.67,0,0,1,683.5,387.5Z",
+    transform: "translate(-663.5 -363.83)",
+    style: {
+      fill: "#fff"
+    }
+  }), React__default.createElement("circle", {
+    cx: 25.87,
+    cy: 14.13,
+    r: 1.32,
+    style: {
+      fill: "#fff"
+    }
+  }));
 };
 
 var NaverIcon = function NaverIcon(_ref) {
@@ -535,7 +585,7 @@ var YoutubeIcon = function YoutubeIcon(_ref) {
     viewBox: "0 0 40 40"
   }, React__default.createElement("g", {
     fill: "none",
-    "fill-rule": "evenodd"
+    fillRule: "evenodd"
   }, React__default.createElement("path", {
     fill: "#FFF",
     d: "M0 0H1260V2029H0z",
@@ -2110,6 +2160,54 @@ var Header = styled__default(function (_ref7) {
   })));
 })(_templateObject4$1());
 
+var Urls = /*#__PURE__*/function () {
+  function Urls() {}
+
+  _createClass(Urls, null, [{
+    key: "homepage",
+    get: function get() {
+      return "https://localhost:3000";
+    }
+  }, {
+    key: "bemypetlife",
+    get: function get() {
+      return "https://mypetlife.co.kr";
+    }
+  }, {
+    key: "creators",
+    get: function get() {
+      return "https://creators.mypetlife.co.kr";
+    }
+  }, {
+    key: "facebook",
+    get: function get() {
+      return "https://www.facebook.com/bemypetkr";
+    }
+  }, {
+    key: "youtube",
+    get: function get() {
+      return "https://www.youtube.com/channel/UClljZ2pw3YZFVGq6EQgJVyQ";
+    }
+  }, {
+    key: "instagram",
+    get: function get() {
+      return "https://www.instagram.com/bemypet.official/";
+    }
+  }, {
+    key: "playStore",
+    get: function get() {
+      return "https://play.google.com/store/apps/details?id=kr.bemypet.bemypet_main_app";
+    }
+  }, {
+    key: "appStore",
+    get: function get() {
+      return "https://apps.apple.com/app/id1506523332";
+    }
+  }]);
+
+  return Urls;
+}();
+
 function _templateObject4$2() {
   var data = _taggedTemplateLiteralLoose(["\n  white-space: nowrap;\n  padding: 0 10px;\n\n  button {\n    margin-right: 16px;\n\n    :last-child {\n      margin-right: 0px;\n    }\n  }\n"]);
 
@@ -2152,14 +2250,14 @@ function _templateObject$5() {
 var Footer = styled__default(function (_ref) {
   var version = _ref.version,
       _ref$outlinks = _ref.outlinks,
-      outlinks = _ref$outlinks === void 0 ? "instagram|youtube|facebook|playstore|appstore" : _ref$outlinks,
+      outlinks = _ref$outlinks === void 0 ? "instagram|youtube|facebook|playStore|appStore" : _ref$outlinks,
       rest = _objectWithoutPropertiesLoose(_ref, ["version", "outlinks"]);
 
   var outlinkProviders = outlinks.split("|");
 
   var handleOnClick = function handleOnClick(providerId) {
     return function () {
-      console.log(providerId);
+      console.log(providerId, Urls[providerId], Urls.facebook);
     };
   };
 
@@ -2195,7 +2293,7 @@ var Footer = styled__default(function (_ref) {
           onClick: handleOnClick(providerId)
         });
 
-      case "playstore":
+      case "playStore":
         return React__default.createElement(IconButton, {
           key: "provider-" + providerId,
           icon: React__default.createElement(PlayStoreIcon, {
@@ -2205,7 +2303,7 @@ var Footer = styled__default(function (_ref) {
           onClick: handleOnClick(providerId)
         });
 
-      case "appstore":
+      case "appStore":
         return React__default.createElement(IconButton, {
           key: "provider-" + providerId,
           icon: React__default.createElement(AppStoreIcon, {
