@@ -1,4 +1,4 @@
-export interface Color {
+export interface ColorTheme {
     grey100: string;
     grey200: string;
     grey300: string;
@@ -14,8 +14,8 @@ export interface Color {
     opacityBlack10: string;
     opacityBlack50: string;
 }
-export declare type ColorVariant = "primary" | "secondary" | "default";
-export interface TypographyVariant {
+export declare type ColorVariantTheme = "primary" | "secondary" | "default";
+export interface TypographyVariantTheme {
     heading1: string;
     heading2: string;
     heading3: string;
@@ -24,4 +24,27 @@ export interface TypographyVariant {
     caption: string;
     article1: string;
     article2: string;
+}
+export interface DeviceTheme {
+    mobile: string;
+    tablet: string;
+}
+export interface ButtonSizeTheme {
+    small: string;
+    medium: string;
+    large: string;
+}
+export interface ButtonColorTheme {
+    default: string;
+    primary: string;
+    secondary: string;
+}
+export interface ThemeInterface {
+    buttons: {
+        buttonSizes: ButtonSizeTheme;
+        buttonColors: ButtonColorTheme;
+    };
+    colors: ColorTheme;
+    typography: TypographyVariantTheme;
+    devices: DeviceTheme;
 }

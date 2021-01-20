@@ -1,8 +1,8 @@
 import { calcHeight, calcRem } from "lib/helpers";
 
-import { TypographyVariant } from "./interfaces";
+import { TypographyVariantTheme } from "./interfaces";
 
-const fontSizes: TypographyVariant = {
+const fontSizes: TypographyVariantTheme = {
   heading1: calcRem(36),
   heading2: calcRem(26),
   heading3: calcRem(20),
@@ -13,7 +13,7 @@ const fontSizes: TypographyVariant = {
   article2: calcRem(14),
 };
 
-const lineHeights: TypographyVariant = {
+const lineHeights: TypographyVariantTheme = {
   heading1: calcHeight(36, 48),
   heading2: calcHeight(26, 38),
   heading3: calcHeight(20, 32),
@@ -24,7 +24,7 @@ const lineHeights: TypographyVariant = {
   article2: calcHeight(14, 24),
 };
 
-const typography: TypographyVariant = {
+const typography: TypographyVariantTheme = {
   heading1: `
     font-size: ${fontSizes.heading1};
     line-height: ${lineHeights.heading1};

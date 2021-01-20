@@ -1,12 +1,6 @@
+import { ButtonSizeTheme, ButtonColorTheme } from "./interfaces";
 declare const _default: {
-    buttonSizes: {
-        small: string;
-        medium: string;
-        large: string;
-    };
-    buttonColors: {
-        default: string;
-        primary: string;
-    };
+    buttonSizes: ButtonSizeTheme;
+    buttonColors: ButtonColorTheme;
 };
 export default _default;

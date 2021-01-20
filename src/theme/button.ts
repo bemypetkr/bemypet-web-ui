@@ -1,6 +1,7 @@
 import { colors } from "./color";
+import { ButtonSizeTheme, ButtonColorTheme } from "./interfaces";
 
-const buttonSizes = {
+const buttonSizes: ButtonSizeTheme = {
   small: `
     padding: 6px 8px;
   `,
@@ -12,7 +13,7 @@ const buttonSizes = {
   `,
 };
 
-const buttonColors = {
+const buttonColors: ButtonColorTheme = {
   default: `
     color: ${colors.grey500};
     background-color: ${colors.grey200};
@@ -27,6 +28,14 @@ const buttonColors = {
 
     :hover {
       background-color: ${colors.primary200};
+    }
+  `,
+  secondary: `
+    color: ${colors.grey100};
+    background-color: ${colors.secondary100};
+
+    :hover {
+      background-color: ${colors.secondary200};
     }
   `,
 };

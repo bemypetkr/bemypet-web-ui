@@ -86,10 +86,23 @@ const App = () => {
             <Typography variant="heading1" as="h1">
               Checkbox
             </Typography>
-            <Row>
+            <Column>
               <Checkbox />
+              <Checkbox defaultChecked />
               <Checkbox label="w/ label" />
-            </Row>
+              <Checkbox color="primary" label="Primary" />
+              <Checkbox
+                color="primary"
+                label="Primary checked"
+                defaultChecked
+              />
+              <Checkbox color="secondary" label="Secondary" />
+              <Checkbox
+                color="secondary"
+                label="Secondary checked"
+                defaultChecked
+              />
+            </Column>
           </Column>
 
           <Column marginTop={50}>

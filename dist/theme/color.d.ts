@@ -1,7 +1,7 @@
-import { Color } from "./interfaces";
-declare const colors: Color;
+import { ColorTheme } from "./interfaces";
+declare const colors: ColorTheme;
 export { colors };
 declare const _default: {
-    colors: Color;
+    colors: ColorTheme;
 };
 export default _default;

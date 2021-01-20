@@ -1,4 +1,10 @@
 import React from "react";
+import {
+  ThemeProvider as StyledThemeProvider,
+  createGlobalStyle,
+} from "styled-components";
+
+import { DeviceTheme } from "./interfaces";
 import buttons from "./button";
 import colors from "./color";
 import typography from "./typography";
@@ -8,7 +14,7 @@ const deviceSizes = {
   tablet: "768px",
 };
 
-const devices = {
+const devices: DeviceTheme = {
   mobile: `only screen and (max-width: ${deviceSizes.mobile})`,
   tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
 };
@@ -19,11 +25,6 @@ const theme = {
   ...typography,
   devices,
 };
-
-import {
-  ThemeProvider as StyledThemeProvider,
-  createGlobalStyle,
-} from "styled-components";
 
 const BemypetTheme = createGlobalStyle`
   @font-face {
@@ -94,3 +95,5 @@ export const ThemeProvider = ({ children }: any) => {
     </StyledThemeProvider>
   );
 };
+
+export * from "./interfaces";

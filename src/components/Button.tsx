@@ -20,7 +20,7 @@ export const buttonBaseStyles = `
   }
 `;
 
-export type ButtonColor = "primary" | "default";
+export type ButtonColor = "primary" | "secondary" | "default";
 
 export type ButtonSize = "small" | "medium" | "large";
 

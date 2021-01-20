@@ -1,7 +1,7 @@
-import { TypographyVariant } from "./interfaces";
+import { TypographyVariantTheme } from "./interfaces";
 declare const _default: {
-    fontSizes: TypographyVariant;
-    lineHeights: TypographyVariant;
-    typography: TypographyVariant;
+    fontSizes: TypographyVariantTheme;
+    lineHeights: TypographyVariantTheme;
+    typography: TypographyVariantTheme;
 };
 export default _default;

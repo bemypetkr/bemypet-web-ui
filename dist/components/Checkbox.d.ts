@@ -37,4 +37,4 @@ export declare type CheckboxProps = Omit<React.HTMLProps<HTMLInputElement>, "err
      */
     color?: CheckboxColor;
 };
-export declare const Checkbox: import("styled-components").StyledComponent<({ type, label, helperText, ...rest }: CheckboxProps) => JSX.Element, any, {}, never>;
+export declare const Checkbox: import("styled-components").StyledComponent<({ type, label, helperText, color, ...rest }: CheckboxProps) => JSX.Element, any, {}, never>;

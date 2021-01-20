@@ -2,7 +2,7 @@ import React from "react";
 interface ButtonBaseProps extends React.HTMLProps<HTMLButtonElement> {
 }
 export declare const buttonBaseStyles = "\n  outline: none;\n  border: none;\n  background: none;\n  padding: 0;\n  margin: 0;\n  white-space: nowrap;\n\n  :hover {\n    cursor: pointer;\n  }\n\n  :disabled {\n    cursor: not-allowed;\n  }\n";
-export declare type ButtonColor = "primary" | "default";
+export declare type ButtonColor = "primary" | "secondary" | "default";
 export declare type ButtonSize = "small" | "medium" | "large";
 export declare type ButtonProps = Omit<ButtonBaseProps, "color" | "size" | "positive" | "negative"> & {
     /**

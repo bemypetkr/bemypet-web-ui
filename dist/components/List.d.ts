@@ -3,7 +3,7 @@ interface ListProps {
     children?: React.ReactNode;
 }
 export declare const List: import("styled-components").StyledComponent<({ children, ...rest }: ListProps) => JSX.Element, any, {}, never>;
-interface ListItemProps {
+export declare type ListItemProps = Omit<React.HTMLProps<HTMLLIElement>, "primary" | "secondary" | "trailing" | "button"> & {
     primary?: React.ReactNode;
     secondary?: React.ReactNode;
     trailing?: React.ReactNode;
@@ -15,6 +15,6 @@ interface ListItemProps {
      * @memberof ListItemProps
      */
     button?: boolean;
-}
-export declare const ListItem: import("styled-components").StyledComponent<({ primary, secondary, trailing, ...rest }: ListItemProps) => JSX.Element, any, {}, never>;
+};
+export declare const ListItem: import("styled-components").StyledComponent<({ primary, secondary, trailing, button, ...rest }: ListItemProps) => JSX.Element, any, {}, never>;
 export {};

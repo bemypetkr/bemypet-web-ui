@@ -13,7 +13,10 @@ export const List = styled(({ children, ...rest }: ListProps) => {
   width: 100%;
 `;
 
-interface ListItemProps {
+export type ListItemProps = Omit<
+  React.HTMLProps<HTMLLIElement>,
+  "primary" | "secondary" | "trailing" | "button"
+> & {
   primary?: React.ReactNode;
   secondary?: React.ReactNode;
   trailing?: React.ReactNode;
@@ -25,10 +28,10 @@ interface ListItemProps {
    * @memberof ListItemProps
    */
   button?: boolean;
-}
+};
 
 export const ListItem = styled(
-  ({ primary, secondary, trailing, ...rest }: ListItemProps) => {
+  ({ primary, secondary, trailing, button, ...rest }: ListItemProps) => {
     return (
       <li {...rest}>
         <Typography variant="body1">{primary}</Typography>
@@ -57,7 +60,6 @@ export const ListItem = styled(
       background-color: ${theme.colors.grey200};
       cursor: pointer;
     }
-  
   `
       : ""}
 
@@ -69,8 +71,6 @@ export const ListItem = styled(
         right: 0;
         top: 16px;
       }
-      
-    
     `
       : ""}
 `;

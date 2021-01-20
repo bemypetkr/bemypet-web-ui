@@ -1,6 +1,6 @@
-import { Color } from "./interfaces";
+import { ColorTheme } from "./interfaces";
 
-const colors: Color = {
+const colors: ColorTheme = {
   grey100: "#ffffff",
   grey200: "#f6f6f9",
   grey300: "#e4e4e6",
