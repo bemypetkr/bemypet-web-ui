@@ -88,6 +88,7 @@ const App = () => {
             </Typography>
             <Row>
               <Checkbox />
+              <Checkbox label="w/ label" />
             </Row>
           </Column>
 

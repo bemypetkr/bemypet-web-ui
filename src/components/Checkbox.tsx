@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Check } from "./Icons";
+
+export type CheckboxColor = "primary" | "secondary" | "default";
 
 export type CheckboxProps = Omit<
   React.HTMLProps<HTMLInputElement>,
@@ -33,25 +36,83 @@ export type CheckboxProps = Omit<
    * @type {React.ReactNode}
    */
   helperText?: React.ReactNode | string;
+  /**
+   * Checkbox color
+   * "primary" | "secondary" | "default"
+   *
+   * @type {CheckboxColor}
+   */
+  color?: CheckboxColor;
 };
 
-const CheckboxWrapper = styled.div`
+const CheckboxWrapper = styled.div<{ width?: string | number }>`
   position: relative;
+  display: flex;
+  flex-direction: row;
 
-  svg {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 12px;
-    right: 16px;
-  }
+  width: ${({ width }) =>
+    width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
 `;
 
-const CheckboxLabel = styled.label`
+const CheckboxLabel = styled.label<{
+  color?: CheckboxColor;
+  checked?: boolean;
+}>`
   color: ${({ theme }) => theme.colors.grey600};
   margin-bottom: 8px;
   font-size: 13px;
   line-height: 1.54;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    :checked + div {
+      path {
+        fill: ${({ theme }) => theme.colors.grey600};
+      }
+    }
+  }
+
+  div {
+    position: relative;
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid ${({ theme }) => theme.colors.grey300};
+    border-radius: 2px;
+  }
+
+  :hover {
+    svg {
+      path {
+        stroke-dashoffset: 0;
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    path {
+      fill: none;
+      stroke: red;
+      stroke-width: 1px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 71px;
+      stroke-dashoffset: 71px;
+      transition: all 0.6s ease;
+    }
+  }
 `;
 
 const CheckboxHelperText = styled.p`
@@ -62,21 +123,25 @@ const CheckboxHelperText = styled.p`
 
 export const Checkbox = styled(
   ({
-    type = "checkbox",
-    error = false,
+    type = "checkbox", // error = false,
     label,
     helperText,
     ...rest
   }: CheckboxProps) => (
-    <CheckboxWrapper className={"bui-input bui-checkbox"}>
-      {label ? (
-        typeof label === "string" ? (
-          <CheckboxLabel>{label}</CheckboxLabel>
-        ) : (
-          label
-        )
-      ) : null}
-      <input type="checkbox" {...rest} />
+    <CheckboxWrapper className={"bui-checkbox"}>
+      <CheckboxLabel>
+        <input type="checkbox" {...rest} />
+        <div>
+          <Check width={18} height={18} />
+        </div>
+        {label ? (
+          typeof label === "string" ? (
+            <span>{label}</span>
+          ) : (
+            label
+          )
+        ) : null}
+      </CheckboxLabel>
       {helperText ? (
         typeof helperText === "string" ? (
           <CheckboxHelperText>{helperText}</CheckboxHelperText>
@@ -87,31 +152,8 @@ export const Checkbox = styled(
     </CheckboxWrapper>
   ),
 )`
-  width: ${({ width }) =>
-    width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
   white-space: nowrap;
   outline: none;
-  padding: 14px 16px;
-  border-radius: 6px;
-  border: solid 1px ${({ theme }) => theme.colors.grey300};
-  background-color: ${({ theme }) => theme.colors.grey100};
-  font-size: 13px;
-  line-height: 20px;
-  box-sizing: border-box;
-
-  ::placeholder {
-    color: ${({ theme }) => theme.colors.grey400};
-  }
-
-  :read-only {
-    color: ${({ theme }) => theme.colors.grey600};
-  }
-
-  :focus {
-    border-width: 2px;
-    border-color: ${({ theme }) => theme.colors.primary100};
-    padding: 13px 15px;
-  }
 
   :disabled {
     color: ${({ theme }) => theme.colors.grey500};

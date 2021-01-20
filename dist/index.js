@@ -387,231 +387,6 @@ var IconButton = styled__default(function (_ref7) {
   }));
 })(_templateObject2(), buttonBaseStyles);
 
-function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  white-space: nowrap;\n  outline: none;\n  padding: 14px 16px;\n  border-radius: 6px;\n  border: solid 1px ", ";\n  background-color: ", ";\n  font-size: 13px;\n  line-height: 20px;\n  box-sizing: border-box;\n\n  ::placeholder {\n    color: ", ";\n  }\n\n  :read-only {\n    color: ", ";\n  }\n\n  :focus {\n    border-width: 2px;\n    border-color: ", ";\n    padding: 13px 15px;\n  }\n\n  :disabled {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", ";\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\n  margin: 4px 16px 0;\n  font-size: 13px;\n  color: ", ";\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  margin-bottom: 8px;\n  font-size: 13px;\n  line-height: 1.54;\n"]);
-
-  _templateObject2$1 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
-
-  _templateObject$4 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var CheckboxWrapper = styled__default.div(_templateObject$4());
-var CheckboxLabel = styled__default.label(_templateObject2$1(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.colors.grey600;
-});
-var CheckboxHelperText = styled__default.p(_templateObject3(), function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.colors.grey500;
-});
-var Checkbox = styled__default(function (_ref3) {
-  var label = _ref3.label,
-      helperText = _ref3.helperText,
-      rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText"]);
-
-  return React__default.createElement(CheckboxWrapper, {
-    className: "bui-input bui-checkbox"
-  }, label ? typeof label === "string" ? React__default.createElement(CheckboxLabel, null, label) : label : null, React__default.createElement("input", Object.assign({
-    type: "checkbox"
-  }, rest)), helperText ? typeof helperText === "string" ? React__default.createElement(CheckboxHelperText, null, helperText) : helperText : null);
-})(_templateObject4(), function (_ref4) {
-  var width = _ref4.width;
-  return width ? typeof width === "string" ? width : width + "px" : "100%";
-}, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.colors.grey300;
-}, function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.colors.grey100;
-}, function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.colors.grey400;
-}, function (_ref8) {
-  var theme = _ref8.theme;
-  return theme.colors.grey600;
-}, function (_ref9) {
-  var theme = _ref9.theme;
-  return theme.colors.primary100;
-}, function (_ref10) {
-  var theme = _ref10.theme;
-  return theme.colors.grey500;
-}, function (_ref11) {
-  var theme = _ref11.theme;
-  return theme.colors.grey200;
-}, function (_ref12) {
-  var theme = _ref12.theme,
-      error = _ref12.error;
-  return error ? "\n      color: " + theme.colors.red + ";\n      border-color:  " + theme.colors.red + ";\n\n      :focus {\n        border-color:  " + theme.colors.red + ";\n      }\n      " : "";
-});
-
-function _templateObject4$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  white-space: nowrap;\n  outline: none;\n  padding: 14px 16px;\n  border-radius: 6px;\n  border: solid 1px ", ";\n  background-color: ", ";\n  font-size: 13px;\n  line-height: 20px;\n  box-sizing: border-box;\n\n  ::placeholder {\n    color: ", ";\n  }\n\n  :read-only {\n    color: ", ";\n  }\n\n  :focus {\n    border-width: 2px;\n    border-color: ", ";\n    padding: 13px 15px;\n  }\n\n  :disabled {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", ";\n"]);
-
-  _templateObject4$1 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  margin: 4px 16px 0;\n  font-size: 13px;\n  color: ", ";\n"]);
-
-  _templateObject3$1 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  margin-bottom: 8px;\n  font-size: 13px;\n  line-height: 1.54;\n"]);
-
-  _templateObject2$2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$5() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
-
-  _templateObject$5 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var InputWrapper = styled__default.div(_templateObject$5());
-var InputLabel = styled__default.label(_templateObject2$2(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.colors.grey600;
-});
-var InputHelperText = styled__default.p(_templateObject3$1(), function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.colors.grey500;
-});
-var Input = styled__default(function (_ref3) {
-  var label = _ref3.label,
-      helperText = _ref3.helperText,
-      trailing = _ref3.trailing,
-      rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText", "trailing"]);
-
-  return React__default.createElement(InputWrapper, {
-    className: "bui-input"
-  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
-})(_templateObject4$1(), function (_ref4) {
-  var width = _ref4.width;
-  return width ? typeof width === "string" ? width : width + "px" : "100%";
-}, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.colors.grey300;
-}, function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.colors.grey100;
-}, function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.colors.grey400;
-}, function (_ref8) {
-  var theme = _ref8.theme;
-  return theme.colors.grey600;
-}, function (_ref9) {
-  var theme = _ref9.theme;
-  return theme.colors.primary100;
-}, function (_ref10) {
-  var theme = _ref10.theme;
-  return theme.colors.grey500;
-}, function (_ref11) {
-  var theme = _ref11.theme;
-  return theme.colors.grey200;
-}, function (_ref12) {
-  var theme = _ref12.theme,
-      error = _ref12.error;
-  return error ? "\n      color: " + theme.colors.red + ";\n      border-color:  " + theme.colors.red + ";\n\n      :focus {\n        border-color:  " + theme.colors.red + ";\n      }\n      " : "";
-});
-
-function _templateObject2$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  list-style: none;\n  padding: 16px 0;\n  border-bottom: 1px solid ", ";\n  box-sizing: border-box;\n\n  :last-child {\n    border-bottom: none;\n  }\n\n  ", "\n\n  ", "\n"]);
-
-  _templateObject2$3 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$6() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n"]);
-
-  _templateObject$6 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var List = styled__default(function (_ref) {
-  var children = _ref.children,
-      rest = _objectWithoutPropertiesLoose(_ref, ["children"]);
-
-  return React__default.createElement("ul", Object.assign({}, rest), children);
-})(_templateObject$6());
-var ListItem = styled__default(function (_ref2) {
-  var primary = _ref2.primary,
-      secondary = _ref2.secondary,
-      trailing = _ref2.trailing,
-      rest = _objectWithoutPropertiesLoose(_ref2, ["primary", "secondary", "trailing"]);
-
-  return React__default.createElement("li", Object.assign({}, rest), React__default.createElement(Typography, {
-    variant: "body1"
-  }, primary), React__default.createElement(Typography, {
-    variant: "caption",
-    color: "grey500"
-  }, secondary), trailing ? trailing : null);
-})(_templateObject2$3(), function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.colors.grey300;
-}, function (_ref4) {
-  var theme = _ref4.theme,
-      _ref4$button = _ref4.button,
-      button = _ref4$button === void 0 ? false : _ref4$button;
-  return button ? "\n    :hover {\n      background-color: " + theme.colors.grey200 + ";\n      cursor: pointer;\n    }\n  \n  " : "";
-}, function (_ref5) {
-  var trailing = _ref5.trailing;
-  return !!trailing ? "\n      svg {\n        position: absolute;\n        right: 0;\n        top: 16px;\n      }\n      \n    \n    " : "";
-});
-
 var Logo = function Logo(_ref) {
   var _ref$color = _ref.color,
       color = _ref$color === void 0 ? "#080405" : _ref$color,
@@ -1507,6 +1282,225 @@ var YoutubeIcon = function YoutubeIcon(_ref) {
     transform: "translate(-212 -1738) translate(212 1738)"
   })));
 };
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteralLoose(["\n  white-space: nowrap;\n  outline: none;\n\n  :disabled {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", ";\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteralLoose(["\n  margin: 4px 16px 0;\n  font-size: 13px;\n  color: ", ";\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  margin-bottom: 8px;\n  font-size: 13px;\n  line-height: 1.54;\n\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  cursor: pointer;\n\n  input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n\n    :checked + div {\n      path {\n        fill: ", ";\n      }\n    }\n  }\n\n  div {\n    position: relative;\n    margin-right: 8px;\n    width: 18px;\n    height: 18px;\n    border: 1px solid ", ";\n    border-radius: 2px;\n  }\n\n  :hover {\n    svg {\n      path {\n        stroke-dashoffset: 0;\n      }\n    }\n  }\n\n  svg {\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    path {\n      fill: none;\n      stroke: red;\n      stroke-width: 1px;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n      stroke-dasharray: 71px;\n      stroke-dashoffset: 71px;\n      transition: all 0.6s ease;\n    }\n  }\n"]);
+
+  _templateObject2$1 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$4() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  flex-direction: row;\n\n  width: ", ";\n"]);
+
+  _templateObject$4 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var CheckboxWrapper = styled__default.div(_templateObject$4(), function (_ref) {
+  var width = _ref.width;
+  return width ? typeof width === "string" ? width : width + "px" : "100%";
+});
+var CheckboxLabel = styled__default.label(_templateObject2$1(), function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.colors.grey600;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.colors.grey600;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.colors.grey300;
+});
+var CheckboxHelperText = styled__default.p(_templateObject3(), function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.colors.grey500;
+});
+var Checkbox = styled__default(function (_ref6) {
+  var label = _ref6.label,
+      helperText = _ref6.helperText,
+      rest = _objectWithoutPropertiesLoose(_ref6, ["type", "label", "helperText"]);
+
+  return React__default.createElement(CheckboxWrapper, {
+    className: "bui-checkbox"
+  }, React__default.createElement(CheckboxLabel, null, React__default.createElement("input", Object.assign({
+    type: "checkbox"
+  }, rest)), React__default.createElement("div", null, React__default.createElement(Check, {
+    width: 18,
+    height: 18
+  })), label ? typeof label === "string" ? React__default.createElement("span", null, label) : label : null), helperText ? typeof helperText === "string" ? React__default.createElement(CheckboxHelperText, null, helperText) : helperText : null);
+})(_templateObject4(), function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.colors.grey500;
+}, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.colors.grey200;
+}, function (_ref9) {
+  var theme = _ref9.theme,
+      error = _ref9.error;
+  return error ? "\n      color: " + theme.colors.red + ";\n      border-color:  " + theme.colors.red + ";\n\n      :focus {\n        border-color:  " + theme.colors.red + ";\n      }\n      " : "";
+});
+
+function _templateObject4$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  white-space: nowrap;\n  outline: none;\n  padding: 14px 16px;\n  border-radius: 6px;\n  border: solid 1px ", ";\n  background-color: ", ";\n  font-size: 13px;\n  line-height: 20px;\n  box-sizing: border-box;\n\n  ::placeholder {\n    color: ", ";\n  }\n\n  :read-only {\n    color: ", ";\n  }\n\n  :focus {\n    border-width: 2px;\n    border-color: ", ";\n    padding: 13px 15px;\n  }\n\n  :disabled {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", ";\n"]);
+
+  _templateObject4$1 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  margin: 4px 16px 0;\n  font-size: 13px;\n  color: ", ";\n"]);
+
+  _templateObject3$1 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  margin-bottom: 8px;\n  font-size: 13px;\n  line-height: 1.54;\n"]);
+
+  _templateObject2$2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
+
+  _templateObject$5 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var InputWrapper = styled__default.div(_templateObject$5());
+var InputLabel = styled__default.label(_templateObject2$2(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.colors.grey600;
+});
+var InputHelperText = styled__default.p(_templateObject3$1(), function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.colors.grey500;
+});
+var Input = styled__default(function (_ref3) {
+  var label = _ref3.label,
+      helperText = _ref3.helperText,
+      trailing = _ref3.trailing,
+      rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText", "trailing"]);
+
+  return React__default.createElement(InputWrapper, {
+    className: "bui-input"
+  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
+})(_templateObject4$1(), function (_ref4) {
+  var width = _ref4.width;
+  return width ? typeof width === "string" ? width : width + "px" : "100%";
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.colors.grey300;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.colors.grey100;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.colors.grey400;
+}, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.colors.grey600;
+}, function (_ref9) {
+  var theme = _ref9.theme;
+  return theme.colors.primary100;
+}, function (_ref10) {
+  var theme = _ref10.theme;
+  return theme.colors.grey500;
+}, function (_ref11) {
+  var theme = _ref11.theme;
+  return theme.colors.grey200;
+}, function (_ref12) {
+  var theme = _ref12.theme,
+      error = _ref12.error;
+  return error ? "\n      color: " + theme.colors.red + ";\n      border-color:  " + theme.colors.red + ";\n\n      :focus {\n        border-color:  " + theme.colors.red + ";\n      }\n      " : "";
+});
+
+function _templateObject2$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  list-style: none;\n  padding: 16px 0;\n  border-bottom: 1px solid ", ";\n  box-sizing: border-box;\n\n  :last-child {\n    border-bottom: none;\n  }\n\n  ", "\n\n  ", "\n"]);
+
+  _templateObject2$3 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$6() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n"]);
+
+  _templateObject$6 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var List = styled__default(function (_ref) {
+  var children = _ref.children,
+      rest = _objectWithoutPropertiesLoose(_ref, ["children"]);
+
+  return React__default.createElement("ul", Object.assign({}, rest), children);
+})(_templateObject$6());
+var ListItem = styled__default(function (_ref2) {
+  var primary = _ref2.primary,
+      secondary = _ref2.secondary,
+      trailing = _ref2.trailing,
+      rest = _objectWithoutPropertiesLoose(_ref2, ["primary", "secondary", "trailing"]);
+
+  return React__default.createElement("li", Object.assign({}, rest), React__default.createElement(Typography, {
+    variant: "body1"
+  }, primary), React__default.createElement(Typography, {
+    variant: "caption",
+    color: "grey500"
+  }, secondary), trailing ? trailing : null);
+})(_templateObject2$3(), function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.colors.grey300;
+}, function (_ref4) {
+  var theme = _ref4.theme,
+      _ref4$button = _ref4.button,
+      button = _ref4$button === void 0 ? false : _ref4$button;
+  return button ? "\n    :hover {\n      background-color: " + theme.colors.grey200 + ";\n      cursor: pointer;\n    }\n  \n  " : "";
+}, function (_ref5) {
+  var trailing = _ref5.trailing;
+  return !!trailing ? "\n      svg {\n        position: absolute;\n        right: 0;\n        top: 16px;\n      }\n      \n    \n    " : "";
+});
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
