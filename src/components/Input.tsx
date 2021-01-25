@@ -1,9 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+type InputInnerRef =
+  | string
+  | ((instance: HTMLInputElement | null) => void)
+  | React.RefObject<HTMLInputElement>
+  | null
+  | undefined;
+
 export type InputProps = Omit<
   React.HTMLProps<HTMLInputElement>,
-  "error" | "label" | "helperText" | "trailing"
+  "error" | "label" | "helperText" | "trailing" | "innerRef"
 > & {
   /**
    * Width in pixel.
@@ -40,6 +47,12 @@ export type InputProps = Omit<
    * @type {React.ReactNode}
    */
   trailing?: React.ReactNode;
+  /**
+   * Inner Ref for dynamic
+   *
+   * @type {InputInnerRef}
+   */
+  innerRef?: InputInnerRef;
 };
 
 const InputWrapper = styled.div`
@@ -74,6 +87,7 @@ export const Input = styled(
     label,
     helperText,
     trailing,
+    innerRef,
     ...rest
   }: InputProps) => (
     <InputWrapper className={"bui-input"}>
@@ -84,7 +98,7 @@ export const Input = styled(
           label
         )
       ) : null}
-      <input {...rest} />
+      <input ref={innerRef} {...rest} />
       {trailing ? trailing : null}
       {helperText ? (
         typeof helperText === "string" ? (

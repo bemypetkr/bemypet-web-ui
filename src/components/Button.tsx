@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-interface ButtonBaseProps extends React.HTMLProps<HTMLButtonElement> {}
+type ButtonBaseProps = React.HTMLProps<HTMLButtonElement> & {};
 
 export const buttonBaseStyles = `
   outline: none;
