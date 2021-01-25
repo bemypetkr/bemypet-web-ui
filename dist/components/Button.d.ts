@@ -29,6 +29,7 @@ export declare type ButtonProps = Omit<ButtonBaseProps, "color" | "size" | "posi
 };
 export declare const Button: import("styled-components").StyledComponent<({ color, size, type, positive, negative, ...rest }: ButtonProps) => JSX.Element, any, {}, never>;
 export declare type IconButtonProps = Omit<ButtonBaseProps, "icon"> & {
+    type?: "button" | "submit" | "reset";
     icon: React.ReactNode;
 };
 export declare const IconButton: import("styled-components").StyledComponent<({ icon, type, ...rest }: IconButtonProps) => JSX.Element, any, {}, never>;

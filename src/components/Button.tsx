@@ -93,12 +93,13 @@ export const Button = styled(
 `;
 
 export type IconButtonProps = Omit<ButtonBaseProps, "icon"> & {
+  type?: "button" | "submit" | "reset";
   icon: React.ReactNode;
 };
 
 export const IconButton = styled(
   ({ icon, type = "button", ...rest }: IconButtonProps) => (
-    <button {...rest} children={icon} />
+    <button type={type} {...rest} children={icon} />
   ),
 )`
   ${buttonBaseStyles}

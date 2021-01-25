@@ -378,9 +378,13 @@ var Button = styled(function (_ref) {
 });
 var IconButton = styled(function (_ref7) {
   var icon = _ref7.icon,
+      _ref7$type = _ref7.type,
+      type = _ref7$type === void 0 ? "button" : _ref7$type,
       rest = _objectWithoutPropertiesLoose(_ref7, ["icon", "type"]);
 
-  return React.createElement("button", Object.assign({}, rest, {
+  return React.createElement("button", Object.assign({
+    type: type
+  }, rest, {
     children: icon
   }));
 })(_templateObject2(), buttonBaseStyles);
