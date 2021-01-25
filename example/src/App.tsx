@@ -219,6 +219,12 @@ const App = () => {
             <Row>
               <Input placeholder="Default" label="Default Label" />
               <Input
+                type="password"
+                placeholder="Password"
+                label="Password"
+                helperText={"Password can be displayed"}
+              />
+              <Input
                 placeholder="Default"
                 label="Default Label"
                 helperText="Helper message is here"

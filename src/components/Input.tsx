@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { IconButton } from "./Button";
+import { Hide, Show } from "./Icons";
 
 type InputInnerRef =
   | string
@@ -58,11 +60,16 @@ export type InputProps = Omit<
 const InputWrapper = styled.div`
   position: relative;
 
+  .bui-input-inner {
+    position: relative;
+  }
+
   svg {
     position: absolute;
     width: 24px;
     height: 24px;
     top: 12px;
+    bottom: 12px;
     right: 16px;
   }
 `;
@@ -89,26 +96,44 @@ export const Input = styled(
     trailing,
     innerRef,
     ...rest
-  }: InputProps) => (
-    <InputWrapper className={"bui-input"}>
-      {label ? (
-        typeof label === "string" ? (
-          <InputLabel>{label}</InputLabel>
-        ) : (
-          label
-        )
-      ) : null}
-      <input ref={innerRef} {...rest} />
-      {trailing ? trailing : null}
-      {helperText ? (
-        typeof helperText === "string" ? (
-          <InputHelperText>{helperText}</InputHelperText>
-        ) : (
-          helperText
-        )
-      ) : null}
-    </InputWrapper>
-  ),
+  }: InputProps) => {
+    const [visible, setVisible] = useState(false);
+    let inputType = type;
+    let showOrHideButton;
+    if (type === "password" && !trailing) {
+      const handleOnToggleVisible = () => setVisible(!visible);
+      showOrHideButton = (
+        <IconButton
+          icon={visible ? <Show /> : <Hide />}
+          onClick={handleOnToggleVisible}
+        />
+      );
+      inputType = visible ? "text" : "password";
+    }
+
+    return (
+      <InputWrapper className={"bui-input"}>
+        {label ? (
+          typeof label === "string" ? (
+            <InputLabel>{label}</InputLabel>
+          ) : (
+            label
+          )
+        ) : null}
+        <div className="bui-input-inner">
+          <input type={inputType} ref={innerRef} {...rest} />
+          {trailing ? trailing : showOrHideButton ? showOrHideButton : null}
+        </div>
+        {helperText ? (
+          typeof helperText === "string" ? (
+            <InputHelperText>{helperText}</InputHelperText>
+          ) : (
+            helperText
+          )
+        ) : null}
+      </InputWrapper>
+    );
+  },
 )`
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};

@@ -1477,7 +1477,7 @@ function _templateObject2$2() {
 }
 
 function _templateObject$5() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  .bui-input-inner {\n    position: relative;\n  }\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    bottom: 12px;\n    right: 16px;\n  }\n"]);
 
   _templateObject$5 = function _templateObject() {
     return data;
@@ -1495,17 +1495,41 @@ var InputHelperText = styled__default.p(_templateObject3$1(), function (_ref2) {
   return theme.colors.grey500;
 });
 var Input = styled__default(function (_ref3) {
-  var label = _ref3.label,
+  var _ref3$type = _ref3.type,
+      type = _ref3$type === void 0 ? "text" : _ref3$type,
+      label = _ref3.label,
       helperText = _ref3.helperText,
       trailing = _ref3.trailing,
       innerRef = _ref3.innerRef,
       rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText", "trailing", "innerRef"]);
 
+  var _useState = React.useState(false),
+      visible = _useState[0],
+      setVisible = _useState[1];
+
+  var inputType = type;
+  var showOrHideButton;
+
+  if (type === "password" && !trailing) {
+    var handleOnToggleVisible = function handleOnToggleVisible() {
+      return setVisible(!visible);
+    };
+
+    showOrHideButton = React__default.createElement(IconButton, {
+      icon: visible ? React__default.createElement(Show, null) : React__default.createElement(Hide, null),
+      onClick: handleOnToggleVisible
+    });
+    inputType = visible ? "text" : "password";
+  }
+
   return React__default.createElement(InputWrapper, {
     className: "bui-input"
-  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({
+  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("div", {
+    className: "bui-input-inner"
+  }, React__default.createElement("input", Object.assign({
+    type: inputType,
     ref: innerRef
-  }, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
+  }, rest)), trailing ? trailing : showOrHideButton ? showOrHideButton : null), helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
 })(_templateObject4$1(), function (_ref4) {
   var width = _ref4.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
