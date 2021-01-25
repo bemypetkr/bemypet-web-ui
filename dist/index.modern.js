@@ -3325,5 +3325,77 @@ var Row = styled.div(_templateObject5(), function (_ref9) {
   return getPixel(marginRight);
 });
 
-export { AppStoreIcon, AppleIcon, ArrowRight, Avatar, Blockquote, Button, Calendar, Camera, Check, Checkbox, Clear, ClearCircle, Column, Comment, FacebookIcon, Footer, GoogleIcon, Header, HeartFilled, HeartOutline, Hide, Image, Input, InstagramIcon, Layout, List, ListItem, Logo, Menu, More, NaverIcon, PageBody, Pencil, PlayStoreIcon, Plus, Profile, Row, Search, Share, Show, StarFilled, StarHalf, StarOutline, ThemeProvider, Typography, YoutubeIcon };
+function _templateObject$b() {
+  var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid ", ";\n  border-left: 4px solid\n    ", ";\n  border-radius: 6px;\n  color: ", ";\n  padding: 12px;\n  margin-left: 0;\n  margin-bottom: 16px;\n"]);
+
+  _templateObject$b = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function renderBorderColor(theme, color) {
+  if (color === void 0) {
+    color = "default";
+  }
+
+  switch (color) {
+    case "primary":
+      return theme.colors.primary100;
+
+    case "secondary":
+      return theme.colors.secondary100;
+
+    case "red":
+      return theme.colors.red;
+
+    case "green":
+      return theme.colors.green;
+
+    case "default":
+    default:
+      return theme.colors.grey600;
+  }
+}
+
+function renderColor(theme, color) {
+  if (color === void 0) {
+    color = "default";
+  }
+
+  switch (color) {
+    case "primary":
+      return theme.colors.primary100;
+
+    case "secondary":
+      return theme.colors.secondary100;
+
+    case "red":
+      return theme.colors.red;
+
+    case "green":
+      return theme.colors.green;
+
+    case "default":
+    default:
+      return theme.colors.grey600;
+  }
+}
+
+var MessageBox = styled.div(_templateObject$b(), function (_ref) {
+  var theme = _ref.theme,
+      color = _ref.color;
+  return renderBorderColor(theme, color);
+}, function (_ref2) {
+  var theme = _ref2.theme,
+      color = _ref2.color;
+  return renderBorderColor(theme, color);
+}, function (_ref3) {
+  var theme = _ref3.theme,
+      color = _ref3.color;
+  return renderColor(theme, color);
+});
+
+export { AppStoreIcon, AppleIcon, ArrowRight, Avatar, Blockquote, Button, Calendar, Camera, Check, Checkbox, Clear, ClearCircle, Column, Comment, FacebookIcon, Footer, GoogleIcon, Header, HeartFilled, HeartOutline, Hide, Image, Input, InstagramIcon, Layout, List, ListItem, Logo, Menu, MessageBox, More, NaverIcon, PageBody, Pencil, PlayStoreIcon, Plus, Profile, Row, Search, Share, Show, StarFilled, StarHalf, StarOutline, ThemeProvider, Typography, YoutubeIcon };
 //# sourceMappingURL=index.modern.js.map

@@ -49,4 +49,5 @@ export {
   PageBody,
 } from "components/Layout";
 
+export { MessageBox } from "components/MessageBox";
 export { Typography } from "components/Typography";
