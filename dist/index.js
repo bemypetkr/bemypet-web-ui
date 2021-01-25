@@ -186,7 +186,7 @@ var Urls = /*#__PURE__*/function () {
   _createClass(Urls, null, [{
     key: "homepage",
     get: function get() {
-      return "https://localhost:3000";
+      return "https://accounts.mypetlife.co.kr";
     }
   }, {
     key: "bemypetlife",
