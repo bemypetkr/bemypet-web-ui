@@ -1,7 +1,8 @@
 export default class Urls {
-    static get homepage(): string;
+    static get accounts(): string;
     static get bemypetlife(): string;
     static get creators(): string;
+    static get tools(): string;
     static get facebook(): string;
     static get youtube(): string;
     static get instagram(): string;

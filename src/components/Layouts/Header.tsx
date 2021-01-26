@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "components/Icons/Logo";
 import { Menu } from "./Menu";
+import Urls from "lib/urls";
 
 interface MenuItemProps {
   label: string;
@@ -12,6 +13,7 @@ interface MenuItemProps {
 interface HeaderProps {
   menus: MenuItemProps[];
   locationPath?: string;
+  isLoggedIn?: boolean;
 }
 
 const HeaderNav = styled.div`
@@ -79,61 +81,77 @@ const HeaderMenu = styled.div`
 const leftMenus: MenuItemProps[] = [
   {
     label: "라이프",
-    to: "https://mypetlife.co.kr/",
+    to: Urls.bemypetlife,
   },
   {
     label: "크리에이터즈",
-    to: "https://creators.mypetlife.co.kr/",
+    to: Urls.creators,
   },
   {
     label: "툴즈",
-    to: "https://tools.mypetlife.co.kr/",
+    to: Urls.tools,
   },
 ];
-
-const accountBaseUrl = "https://accounts.mypetlife.co.kr";
 
 const rightMenus: MenuItemProps[] = [
   {
     label: "로그인",
-    to: `${accountBaseUrl}/login`,
+    to: `${Urls.accounts}/login`,
   },
   {
     label: "회원가입",
-    to: `${accountBaseUrl}/registration`,
+    to: `${Urls.accounts}/registration`,
   },
 ];
 
-export const Header = styled(({ menus, locationPath }: HeaderProps) => (
-  <div>
-    <HeaderNav>
-      <ul>
-        {leftMenus.map(({ label, to }: MenuItemProps) => (
-          <HeaderNavItem
-            key={`header-nav-${label}`}
-            selected={locationPath?.startsWith(to)}
-          >
-            <a href={to}>{label}</a>
-          </HeaderNavItem>
-        ))}
-      </ul>
-      <ul>
-        {rightMenus.map(({ label, to }: MenuItemProps) => (
-          <HeaderNavItem
-            key={`header-nav-${label}`}
-            selected={locationPath?.startsWith(to)}
-          >
-            <a href={to}>{label}</a>
-          </HeaderNavItem>
-        ))}
-      </ul>
-    </HeaderNav>
-    <HeaderMenu>
-      <Logo />
-      <Menu menus={menus} />
-    </HeaderMenu>
-  </div>
-))`
+const rightLoggedInMenus: MenuItemProps[] = [
+  {
+    label: "마이페이지",
+    to: `${Urls.accounts}/mypage`,
+  },
+];
+
+export const Header = styled(
+  ({ menus, locationPath, isLoggedIn }: HeaderProps) => (
+    <div>
+      <HeaderNav>
+        <ul>
+          {leftMenus.map(({ label, to }: MenuItemProps) => (
+            <HeaderNavItem
+              key={`header-nav-${label}`}
+              selected={locationPath?.startsWith(to)}
+            >
+              <a href={to}>{label}</a>
+            </HeaderNavItem>
+          ))}
+        </ul>
+        <ul>
+          {isLoggedIn
+            ? rightLoggedInMenus.map(({ label, to }: MenuItemProps) => (
+                <HeaderNavItem
+                  key={`header-nav-${label}`}
+                  selected={locationPath?.startsWith(to)}
+                >
+                  <a href={to}>{label}</a>
+                </HeaderNavItem>
+              ))
+            : rightMenus.map(({ label, to }: MenuItemProps) => (
+                <HeaderNavItem
+                  key={`header-nav-${label}`}
+                  selected={locationPath?.startsWith(to)}
+                >
+                  <a href={to}>{label}</a>
+                </HeaderNavItem>
+              ))}
+        </ul>
+      </HeaderNav>
+      <HeaderMenu>
+        <Logo />
+        <Menu menus={menus} />
+      </HeaderMenu>
+    </div>
+  ),
+)`
   width: 100%;
   height: 140px;
 `;

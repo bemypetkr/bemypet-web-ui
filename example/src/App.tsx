@@ -77,7 +77,7 @@ const App = () => {
             { label: "홈", to: "/" },
             { label: "스토리", to: "/", selected: true },
           ]}
-          locationPath={"https://mypetlife.co.kr/"}
+          locationPath={"https://accounts.mypetlife.co.kr"}
         >
           <Typography variant="heading2">Bemypet UI</Typography>
         </Header>
