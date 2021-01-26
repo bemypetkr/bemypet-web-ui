@@ -8,3 +8,4 @@ export { Logo, ArrowRight, Blockquote, Calendar, Camera, Check, Clear, ClearCirc
 export { Layout, Header, Footer, Row, Column, PageBody, } from "components/Layout";
 export { MessageBox } from "components/MessageBox";
 export { Typography } from "components/Typography";
+export { default as Urls } from "lib/urls";
