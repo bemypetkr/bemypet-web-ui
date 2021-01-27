@@ -2,6 +2,7 @@ import React from "react";
 import {
   ThemeProvider,
   Layout,
+  PageBody,
   Row,
   Column,
   Avatar,
@@ -11,7 +12,7 @@ import {
   Input,
   List,
   ListItem,
-  PageBody,
+  Radio,
   Typography,
 
   // Common Icons
@@ -84,42 +85,26 @@ const App = () => {
         <PageBody>
           <Column marginTop={50}>
             <Typography variant="heading1" as="h1">
-              Checkbox
+              Radio
             </Typography>
             <Column>
-              <Checkbox />
-              <Checkbox defaultChecked />
-              <Checkbox label="w/ label" />
-              <Checkbox color="primary" label="Primary" />
-              <Checkbox
+              <Radio name="default" />
+              <Radio name="default" defaultChecked />
+              <Radio name="primary" color="primary" label="Primary" />
+              <Radio
+                name="primary"
                 color="primary"
                 label="Primary checked"
                 defaultChecked
               />
-              <Checkbox color="secondary" label="Secondary" />
-              <Checkbox
+              <Radio name="secondary" color="secondary" label="Secondary" />
+              <Radio
+                name="secondary"
                 color="secondary"
                 label="Secondary checked"
                 defaultChecked
               />
             </Column>
-          </Column>
-
-          <Column marginTop={50}>
-            <Typography variant="heading1" as="h1">
-              List
-            </Typography>
-            <Row>
-              <List>
-                <ListItem primary="Primary Text" />
-                <ListItem primary="Primary Text" secondary="Secondary Text" />
-                <ListItem
-                  primary="Primary Text w/ trailing icon"
-                  trailing={<ArrowRight />}
-                />
-                <ListItem primary="Primary Text (Hoverable)" button />
-              </List>
-            </Row>
           </Column>
 
           <Column marginTop={50} justifyContent="space-evenly">
@@ -238,6 +223,46 @@ const App = () => {
               />
             </Row>
           </Column>
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              Checkbox
+            </Typography>
+            <Column>
+              <Checkbox />
+              <Checkbox defaultChecked />
+              <Checkbox label="w/ label" />
+              <Checkbox color="primary" label="Primary" />
+              <Checkbox
+                color="primary"
+                label="Primary checked"
+                defaultChecked
+              />
+              <Checkbox color="secondary" label="Secondary" />
+              <Checkbox
+                color="secondary"
+                label="Secondary checked"
+                defaultChecked
+              />
+            </Column>
+          </Column>
+
+          <Column marginTop={50}>
+            <Typography variant="heading1" as="h1">
+              List
+            </Typography>
+            <Row>
+              <List>
+                <ListItem primary="Primary Text" />
+                <ListItem primary="Primary Text" secondary="Secondary Text" />
+                <ListItem
+                  primary="Primary Text w/ trailing icon"
+                  trailing={<ArrowRight />}
+                />
+                <ListItem primary="Primary Text (Hoverable)" button />
+              </List>
+            </Row>
+          </Column>
+
           <Column marginTop={50}>
             <Typography variant="heading1" as="h1">
               Avatar

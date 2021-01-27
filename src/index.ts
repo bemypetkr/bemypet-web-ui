@@ -4,6 +4,7 @@ export { Button } from "components/Button";
 export { Checkbox } from "components/Checkbox";
 export { Input } from "components/Input";
 export { List, ListItem } from "components/List";
+export { Radio } from "components/Radio";
 export {
   Logo,
   // Common Icons

@@ -1,11 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 import { ThemeInterface } from "theme/interfaces";
-import { Check } from "./Icons";
+import { colors } from "theme/color";
 
-export type CheckboxColor = "primary" | "secondary" | "default";
+import { IconProps } from "./Icons/interface";
 
-export type CheckboxProps = Omit<
+export const RadioSvg = ({
+  width = 24,
+  height = 24,
+  color = colors.grey500,
+}: IconProps): React.FunctionComponentElement<IconProps> => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    style={{ width, height }}
+    viewBox="0 0 30 30"
+  >
+    <circle
+      className="radioOutline"
+      cx="15"
+      cy="15"
+      r="18"
+      fill="none"
+      stroke={color}
+      strokeWidth="5"
+    />
+    <circle className="radioDot" cx="15" cy="15" r="8" fill="#fff" />
+  </svg>
+);
+
+export type RadioColor = "primary" | "secondary" | "default";
+
+export type RadioProps = Omit<
   React.HTMLProps<HTMLInputElement>,
   "error" | "label" | "helperText"
 > & {
@@ -14,7 +40,7 @@ export type CheckboxProps = Omit<
    * Default is 100%
    *
    * @type {number}
-   * @memberof CheckboxProps
+   * @memberof RadioProps
    */
   width?: number | string;
   /**
@@ -38,25 +64,25 @@ export type CheckboxProps = Omit<
    */
   helperText?: React.ReactNode | string;
   /**
-   * Checkbox color
+   * Radio color
    * "primary" | "secondary" | "default"
    *
-   * @type {CheckboxColor}
+   * @type {RadioColor}
    */
-  color?: CheckboxColor;
+  color?: RadioColor;
 };
 
 /**
  * Returns the color string for CSS fill property
  *
  * @param {ThemeInterface} theme
- * @param {CheckboxColor} [color="default"]
+ * @param {RadioColor} [color="default"]
  * @param {boolean} [checked=false]
  * @returns {string}
  */
 function renderCheckColor(
   theme: ThemeInterface,
-  color: CheckboxColor = "default",
+  color: RadioColor = "default",
   checked: boolean = false,
 ): string {
   switch (color) {
@@ -80,13 +106,13 @@ function renderCheckColor(
  * Returns the color string for CSS background-color property
  *
  * @param {ThemeInterface} theme
- * @param {CheckboxColor} [color="default"]
+ * @param {RadioColor} [color="default"]
  * @param {boolean} [checked=false]
  * @returns {string}
  */
 function renderBgColor(
   theme: ThemeInterface,
-  color: CheckboxColor = "default",
+  color: RadioColor = "default",
   checked: boolean = false,
 ): string {
   switch (color) {
@@ -104,19 +130,19 @@ function renderBgColor(
   }
 }
 
-export const Checkbox = styled(
+export const Radio = styled(
   ({
-    type = "checkbox", // error = false,
+    type = "Radio", // error = false,
     label,
     helperText,
     color,
     ...rest
-  }: CheckboxProps) => (
-    <CheckboxWrapper className={"bui-checkbox"}>
-      <CheckboxLabel color={color}>
+  }: RadioProps) => (
+    <RadioWrapper className={"bui-Radio"}>
+      <RadioLabel color={color}>
         <input type={type} {...rest} />
         <div>
-          <Check width={18} height={18} />
+          <RadioSvg width={18} height={18} color={color} />
         </div>
         {label ? (
           typeof label === "string" ? (
@@ -125,15 +151,15 @@ export const Checkbox = styled(
             label
           )
         ) : null}
-      </CheckboxLabel>
+      </RadioLabel>
       {helperText ? (
         typeof helperText === "string" ? (
-          <CheckboxHelperText>{helperText}</CheckboxHelperText>
+          <RadioHelperText>{helperText}</RadioHelperText>
         ) : (
           helperText
         )
       ) : null}
-    </CheckboxWrapper>
+    </RadioWrapper>
   ),
 )`
   white-space: nowrap;
@@ -157,7 +183,7 @@ export const Checkbox = styled(
       : ""};
 `;
 
-const CheckboxWrapper = styled.div<{ width?: string | number }>`
+const RadioWrapper = styled.div<{ width?: string | number }>`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -166,8 +192,8 @@ const CheckboxWrapper = styled.div<{ width?: string | number }>`
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
 `;
 
-const CheckboxLabel = styled.label<{
-  color?: CheckboxColor;
+const RadioLabel = styled.label<{
+  color?: RadioColor;
 }>`
   color: ${({ theme }) => theme.colors.grey600};
   margin-bottom: 8px;
@@ -190,7 +216,8 @@ const CheckboxLabel = styled.label<{
       border-color: ${({ theme, color }) => renderBgColor(theme, color, true)};
 
       path {
-        fill: ${({ theme, color }) => renderCheckColor(theme, color, true)};
+        stroke-color: ${({ theme, color }) =>
+          renderCheckColor(theme, color, true)};
         stroke: none;
       }
     }
@@ -202,7 +229,8 @@ const CheckboxLabel = styled.label<{
     width: 18px;
     height: 18px;
     border: 1px solid ${({ theme }) => theme.colors.grey300};
-    border-radius: 2px;
+    border-radius: 18px;
+    overflow: hidden;
   }
 
   :hover {
@@ -235,7 +263,7 @@ const CheckboxLabel = styled.label<{
   }
 `;
 
-const CheckboxHelperText = styled.p`
+const RadioHelperText = styled.p`
   margin: 4px 16px 0;
   font-size: 13px;
   color: ${({ theme }) => theme.colors.grey500};
