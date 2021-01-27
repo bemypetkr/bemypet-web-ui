@@ -59,7 +59,11 @@
     ],
     "@typescript-eslint/no-unused-vars": [
       "error",
-      { "args": "after-used", "ignoreRestSiblings": true }
+      {
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^_"
+      }
     ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-inferrable-types": [

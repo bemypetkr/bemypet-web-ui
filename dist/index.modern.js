@@ -202,7 +202,7 @@ var Avatar = styled(function (_ref) {
     var _ref9$size = _ref9.size,
         size = _ref9$size === void 0 ? 96 : _ref9$size;
     return size;
-  } + "px;\n      width: auto;\n      \n      .bui-typography  {\n        padding-top: 0;\n        padding-left: " + (size + 14) + "px;\n        text-align: left;\n      }\n  " : "";
+  } + "px;\n      width: auto;\n\n      .bui-typography  {\n        padding-top: 0;\n        padding-left: " + (size + 14) + "px;\n        text-align: left;\n      }\n  " : "";
 }, function (_ref10) {
   var _ref10$size = _ref10.size,
       size = _ref10$size === void 0 ? 96 : _ref10$size;
