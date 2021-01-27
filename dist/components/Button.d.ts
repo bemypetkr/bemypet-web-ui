@@ -1,5 +1,5 @@
 import React from "react";
-declare type ButtonBaseProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+declare type ButtonBaseProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 export declare const buttonBaseStyles = "\n  outline: none;\n  border: none;\n  background: none;\n  padding: 0;\n  margin: 0;\n  white-space: nowrap;\n\n  :hover {\n    cursor: pointer;\n  }\n\n  :disabled {\n    cursor: not-allowed;\n  }\n";
 export declare type ButtonColor = "primary" | "secondary" | "default";
 export declare type ButtonSize = "small" | "medium" | "large";

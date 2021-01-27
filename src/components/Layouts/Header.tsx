@@ -9,7 +9,7 @@ interface MenuItemProps {
   target?: string;
 }
 
-interface HeaderProps {
+export interface HeaderProps {
   menus: MenuItemProps[];
   locationPath?: string;
 }

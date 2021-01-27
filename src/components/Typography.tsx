@@ -27,8 +27,6 @@ export type TypographyVariant =
 
 export type TypographyTextAlign = "left" | "center" | "right";
 
-export interface TypographyPropss {}
-
 export type TypographyProps = Omit<
   React.HTMLProps<HTMLParagraphElement>,
   "color" | "variant"

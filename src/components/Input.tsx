@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+type InputBaseProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
 export type InputProps = Omit<
-  React.HTMLProps<HTMLInputElement>,
+  InputBaseProps,
   "error" | "label" | "helperText" | "trailing" | "innerRef"
 > & {
   /**

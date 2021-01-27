@@ -63,123 +63,6 @@ function _taggedTemplateLiteralLoose(strings, raw) {
   return strings;
 }
 
-var colors = {
-  grey100: "#ffffff",
-  grey200: "#f6f6f9",
-  grey300: "#e4e4e6",
-  grey400: "#cfcece",
-  grey500: "#868688",
-  grey600: "#090909",
-  primary100: "#fcd11e",
-  primary200: "#ffeb99",
-  secondary100: "#6d2cb6",
-  secondary200: "#f0e9f7",
-  green: "#13bd7f",
-  red: "#f24147",
-  opacityBlack10: "rgba(9, 9, 9, 0.1)",
-  opacityBlack50: "rgba(9, 9, 9, 0.5)"
-};
-var colors$1 = {
-  colors: colors
-};
-
-var buttonSizes = {
-  small: "\n    padding: 6px 8px;\n  ",
-  medium: "\n    padding: 10px 8px;\n  ",
-  large: "\n    padding: 14px 8px;\n  "
-};
-var buttonColors = {
-  "default": "\n    color: " + colors.grey500 + ";\n    background-color: " + colors.grey200 + ";\n\n    :hover {\n      background-color: " + colors.grey300 + ";\n    }\n  ",
-  primary: "\n    color: " + colors.grey600 + ";\n    background-color: " + colors.primary100 + ";\n\n    :hover {\n      background-color: " + colors.primary200 + ";\n    }\n  ",
-  secondary: "\n    color: " + colors.grey100 + ";\n    background-color: " + colors.secondary100 + ";\n\n    :hover {\n      background-color: " + colors.secondary200 + ";\n    }\n  "
-};
-var buttons = {
-  buttonSizes: buttonSizes,
-  buttonColors: buttonColors
-};
-
-var getPixel = function getPixel(value) {
-  return typeof value === "string" ? value : value + "px";
-};
-var calcRem = function calcRem(size) {
-  return size / 16 + "rem";
-};
-var calcHeight = function calcHeight(size, height) {
-  return "" + height / size;
-};
-
-var fontSizes = {
-  heading1: calcRem(36),
-  heading2: calcRem(26),
-  heading3: calcRem(20),
-  body1: calcRem(16),
-  body2: calcRem(13),
-  caption: calcRem(12),
-  article1: calcRem(16),
-  article2: calcRem(14)
-};
-var lineHeights = {
-  heading1: calcHeight(36, 48),
-  heading2: calcHeight(26, 38),
-  heading3: calcHeight(20, 32),
-  body1: calcHeight(16, 24),
-  body2: calcHeight(13, 20),
-  caption: calcHeight(12, 18),
-  article1: calcHeight(16, 32),
-  article2: calcHeight(14, 24)
-};
-var typography = {
-  heading1: "\n    font-size: " + fontSizes.heading1 + ";\n    line-height: " + lineHeights.heading1 + ";\n    font-weight: normal;\n  ",
-  heading2: "\n    font-size: " + fontSizes.heading2 + ";\n    line-height: " + lineHeights.heading2 + ";\n    font-weight: normal;\n  ",
-  heading3: "\n    font-size: " + fontSizes.heading3 + ";\n    line-height: " + lineHeights.heading3 + ";\n    font-weight: normal;\n  ",
-  body1: "\n    font-size: " + fontSizes.body1 + ";\n    line-height: " + lineHeights.body1 + ";\n    font-weight: normal;\n  ",
-  body2: "\n    font-size: " + fontSizes.body2 + ";\n    line-height: " + lineHeights.body2 + ";\n    font-weight: normal;\n  ",
-  caption: "\n    font-size: " + fontSizes.caption + ";\n    line-height: " + lineHeights.caption + ";\n    font-weight: normal;\n  ",
-  article1: "\n    font-size: " + fontSizes.article1 + ";\n    line-height: " + lineHeights.article1 + ";\n    font-weight: normal;\n  ",
-  article2: "\n    font-size: " + fontSizes.article2 + ";\n    line-height: " + lineHeights.article2 + ";\n    font-weight: normal;\n  "
-};
-var typography$1 = {
-  fontSizes: fontSizes,
-  lineHeights: lineHeights,
-  typography: typography
-};
-
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Regular\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Regular.svg\") format(\"svg\");\n    font-weight: normal;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Bold\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Bold.svg\") format(\"svg\");\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  body {\n    margin: 0;\n    padding: 0;\n    font-family: \"Apple SD Gothic Neo\", sans-serif;\n    font-size: 13px;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1, h2, h3, h4, h5, h6, p, ul {\n    margin: 0;\n    padding: 0;\n  }\n\n  ::selection {\n    background: ", "; /* WebKit/Blink Browsers */\n    color: inherit;\n  }\n\n  ::-moz-selection {\n    background: ", "; /* Gecko Browsers */\n    color: inherit;\n  }\n\n  a {\n    color: inherit;\n    text-decoration: none;\n\n    :hover {\n      text-decoration: underline;\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var deviceSizes = {
-  mobile: "360px",
-  tablet: "768px"
-};
-var devices = {
-  mobile: "only screen and (max-width: " + deviceSizes.mobile + ")",
-  tablet: "only screen and (max-width: " + deviceSizes.tablet + ")"
-};
-
-var theme = _extends({}, buttons, colors$1, typography$1, {
-  devices: devices
-});
-
-var BemypetTheme = styled.createGlobalStyle(_templateObject(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.colors.primary100;
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.colors.primary100;
-});
-var ThemeProvider = function ThemeProvider(_ref3) {
-  var children = _ref3.children;
-  return React__default.createElement(styled.ThemeProvider, {
-    theme: theme
-  }, React__default.createElement(BemypetTheme, null), children);
-};
-
 var Urls = /*#__PURE__*/function () {
   function Urls() {}
 
@@ -233,10 +116,10 @@ var Urls = /*#__PURE__*/function () {
   return Urls;
 }();
 
-function _templateObject$1() {
+function _templateObject() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n\n  ", "\n\n  color: ", ";\n\n  text-align: ", ";\n"]);
 
-  _templateObject$1 = function _templateObject() {
+  _templateObject = function _templateObject() {
     return data;
   };
 
@@ -250,7 +133,7 @@ var Typography = styled__default(function (_ref) {
   return React__default.createElement("p", Object.assign({
     className: "bui-typography " + className
   }, rest), children);
-})(_templateObject$1(), function (_ref2) {
+})(_templateObject(), function (_ref2) {
   var width = _ref2.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 }, function (_ref3) {
@@ -269,10 +152,10 @@ var Typography = styled__default(function (_ref) {
   return textAlign;
 });
 
-function _templateObject$2() {
+function _templateObject$1() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  background-repeat: no-repeat;\n  background-position: top left;\n  background-image: url(", ");\n  background-size: ", "px ", "px;\n\n  display: flex;\n  align-items: center;\n\n  // default align is vertical\n  flex-direction: column;\n  min-height: ", "px;\n  height: auto;\n\n  .bui-typography {\n    padding-top: ", "px;\n    white-space: nowrap;\n    text-align: center;\n  }\n\n  // when it displayed horizontally\n  ", "\n\n  img {\n    width: ", "px;\n    height: ", "px;\n  }\n"]);
 
-  _templateObject$2 = function _templateObject() {
+  _templateObject$1 = function _templateObject() {
     return data;
   };
 
@@ -291,7 +174,7 @@ var Avatar = styled__default(function (_ref) {
     height: size,
     src: src
   }) : null, label ? typeof label == "string" ? React__default.createElement(Typography, Object.assign({}, typographyProps), label) : label : null);
-})(_templateObject$2(), function (_ref2) {
+})(_templateObject$1(), function (_ref2) {
   var _ref2$size = _ref2.size,
       size = _ref2$size === void 0 ? 96 : _ref2$size;
   return size;
@@ -344,10 +227,10 @@ function _templateObject2() {
   return data;
 }
 
-function _templateObject$3() {
+function _templateObject$2() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  width: ", ";\n  border-radius: 50px;\n\n  font-size: 13px;\n  font-weight: bold;\n  line-height: 20px;\n\n  ", "\n\n  // positive will be green colored text\n  ", ";\n\n  // negative will be red colored text\n  ", ";\n\n  ", "\n"]);
 
-  _templateObject$3 = function _templateObject() {
+  _templateObject$2 = function _templateObject() {
     return data;
   };
 
@@ -362,7 +245,7 @@ var Button = styled__default(function (_ref) {
   return React__default.createElement("button", Object.assign({
     type: type
   }, rest));
-})(_templateObject$3(), buttonBaseStyles, function (_ref2) {
+})(_templateObject$2(), buttonBaseStyles, function (_ref2) {
   var width = _ref2.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 }, function (_ref3) {
@@ -473,6 +356,26 @@ var Logo = function Logo(_ref) {
       fillRule: "evenodd"
     }
   }));
+};
+
+var colors = {
+  grey100: "#ffffff",
+  grey200: "#f6f6f9",
+  grey300: "#e4e4e6",
+  grey400: "#cfcece",
+  grey500: "#868688",
+  grey600: "#090909",
+  primary100: "#fcd11e",
+  primary200: "#ffeb99",
+  secondary100: "#6d2cb6",
+  secondary200: "#f0e9f7",
+  green: "#13bd7f",
+  red: "#f24147",
+  opacityBlack10: "rgba(9, 9, 9, 0.1)",
+  opacityBlack50: "rgba(9, 9, 9, 0.5)"
+};
+var colors$1 = {
+  colors: colors
 };
 
 var ArrowRight = function ArrowRight(_ref) {
@@ -1321,10 +1224,10 @@ function _templateObject2$1() {
   return data;
 }
 
-function _templateObject$4() {
+function _templateObject$3() {
   var data = _taggedTemplateLiteralLoose(["\n  white-space: nowrap;\n  outline: none;\n\n  :disabled {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", ";\n"]);
 
-  _templateObject$4 = function _templateObject() {
+  _templateObject$3 = function _templateObject() {
     return data;
   };
 
@@ -1376,8 +1279,8 @@ function renderBgColor(theme, color, checked) {
         return theme.colors.secondary100;
       }
 
-    case "primary":
     case "default":
+    case "primary":
     default:
       if (checked) {
         return theme.colors.primary100;
@@ -1407,7 +1310,7 @@ var Checkbox = styled__default(function (_ref) {
     width: 18,
     height: 18
   })), label ? typeof label === "string" ? React__default.createElement("span", null, label) : label : null), helperText ? typeof helperText === "string" ? React__default.createElement(CheckboxHelperText, null, helperText) : helperText : null);
-})(_templateObject$4(), function (_ref2) {
+})(_templateObject$3(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.colors.grey500;
 }, function (_ref3) {
@@ -1484,16 +1387,16 @@ function _templateObject2$2() {
   return data;
 }
 
-function _templateObject$5() {
+function _templateObject$4() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
 
-  _templateObject$5 = function _templateObject() {
+  _templateObject$4 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var InputWrapper = styled__default.div(_templateObject$5());
+var InputWrapper = styled__default.div(_templateObject$4());
 var InputLabel = styled__default.label(_templateObject2$2(), function (_ref) {
   var theme = _ref.theme;
   return theme.colors.grey600;
@@ -1557,10 +1460,10 @@ function _templateObject2$3() {
   return data;
 }
 
-function _templateObject$6() {
+function _templateObject$5() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n"]);
 
-  _templateObject$6 = function _templateObject() {
+  _templateObject$5 = function _templateObject() {
     return data;
   };
 
@@ -1571,7 +1474,7 @@ var List = styled__default(function (_ref) {
       rest = _objectWithoutPropertiesLoose(_ref, ["children"]);
 
   return React__default.createElement("ul", Object.assign({}, rest), children);
-})(_templateObject$6());
+})(_templateObject$5());
 var ListItem = styled__default(function (_ref2) {
   var primary = _ref2.primary,
       secondary = _ref2.secondary,
@@ -1594,7 +1497,79 @@ var ListItem = styled__default(function (_ref2) {
   return button ? "\n    :hover {\n      background-color: " + theme.colors.grey200 + ";\n      cursor: pointer;\n    }\n  " : "";
 }, function (_ref5) {
   var trailing = _ref5.trailing;
-  return !!trailing ? "\n      svg {\n        position: absolute;\n        right: 0;\n        top: 16px;\n      }\n    " : "";
+  return trailing ? "\n      svg {\n        position: absolute;\n        right: 0;\n        top: 16px;\n      }\n    " : "";
+});
+
+function _templateObject$6() {
+  var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid ", ";\n  border-left: 4px solid\n    ", ";\n  border-radius: 6px;\n  color: ", ";\n  padding: 12px;\n  margin-left: 0;\n  margin-bottom: 16px;\n"]);
+
+  _templateObject$6 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function renderBorderColor(theme, color) {
+  if (color === void 0) {
+    color = "default";
+  }
+
+  switch (color) {
+    case "primary":
+      return theme.colors.primary100;
+
+    case "secondary":
+      return theme.colors.secondary100;
+
+    case "red":
+      return theme.colors.red;
+
+    case "green":
+      return theme.colors.green;
+
+    case "default":
+    default:
+      return theme.colors.grey600;
+  }
+}
+
+function renderColor(theme, color) {
+  if (color === void 0) {
+    color = "default";
+  }
+
+  switch (color) {
+    case "primary":
+      return theme.colors.primary100;
+
+    case "secondary":
+      return theme.colors.secondary100;
+
+    case "red":
+      return theme.colors.red;
+
+    case "green":
+      return theme.colors.green;
+
+    case "default":
+    default:
+      return theme.colors.grey600;
+  }
+}
+
+var MessageBox = styled__default.div(_templateObject$6(), function (_ref) {
+  var theme = _ref.theme,
+      color = _ref.color;
+  return renderBorderColor(theme, color);
+}, function (_ref2) {
+  var theme = _ref2.theme,
+      color = _ref2.color;
+  return renderBorderColor(theme, color);
+}, function (_ref3) {
+  var theme = _ref3.theme,
+      color = _ref3.color;
+  return renderColor(theme, color);
 });
 
 function _templateObject4$2() {
@@ -1636,37 +1611,6 @@ function _templateObject$7() {
 
   return data;
 }
-var RadioSvg = function RadioSvg(_ref) {
-  var _ref$width = _ref.width,
-      width = _ref$width === void 0 ? 24 : _ref$width,
-      _ref$height = _ref.height,
-      height = _ref$height === void 0 ? 24 : _ref$height,
-      _ref$color = _ref.color,
-      color = _ref$color === void 0 ? colors.grey500 : _ref$color;
-  return React__default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    fill: "none",
-    style: {
-      width: width,
-      height: height
-    },
-    viewBox: "0 0 30 30"
-  }, React__default.createElement("circle", {
-    className: "radioOutline",
-    cx: "15",
-    cy: "15",
-    r: "18",
-    fill: "none",
-    stroke: color,
-    strokeWidth: "5"
-  }), React__default.createElement("circle", {
-    className: "radioDot",
-    cx: "15",
-    cy: "15",
-    r: "8",
-    fill: "#fff"
-  }));
-};
 
 function renderCheckColor$1(theme, color, checked) {
   if (color === void 0) {
@@ -1724,14 +1668,14 @@ function renderBgColor$1(theme, color, checked) {
   }
 }
 
-var Radio = styled__default(function (_ref2) {
-  var _ref2$type = _ref2.type,
-      type = _ref2$type === void 0 ? "radio" : _ref2$type,
-      label = _ref2.label,
-      helperText = _ref2.helperText,
-      color = _ref2.color,
-      innerRef = _ref2.innerRef,
-      rest = _objectWithoutPropertiesLoose(_ref2, ["type", "error", "label", "helperText", "color", "innerRef"]);
+var Radio = styled__default(function (_ref) {
+  var _ref$type = _ref.type,
+      type = _ref$type === void 0 ? "radio" : _ref$type,
+      label = _ref.label,
+      helperText = _ref.helperText,
+      color = _ref.color,
+      innerRef = _ref.innerRef,
+      rest = _objectWithoutPropertiesLoose(_ref, ["type", "error", "label", "helperText", "color", "innerRef"]);
 
   return React__default.createElement(RadioWrapper, {
     className: "bui-Radio"
@@ -1745,24 +1689,28 @@ var Radio = styled__default(function (_ref2) {
     height: 18,
     color: color
   })), label ? typeof label === "string" ? React__default.createElement("span", null, label) : label : null), helperText ? typeof helperText === "string" ? React__default.createElement(RadioHelperText, null, helperText) : helperText : null);
-})(_templateObject$7(), function (_ref3) {
-  var theme = _ref3.theme;
+})(_templateObject$7(), function (_ref2) {
+  var theme = _ref2.theme;
   return theme.colors.grey500;
-}, function (_ref4) {
-  var theme = _ref4.theme;
+}, function (_ref3) {
+  var theme = _ref3.theme;
   return theme.colors.grey200;
-}, function (_ref5) {
-  var theme = _ref5.theme,
-      error = _ref5.error;
+}, function (_ref4) {
+  var theme = _ref4.theme,
+      error = _ref4.error;
   return error ? "\n      color: " + theme.colors.red + ";\n      border-color:  " + theme.colors.red + ";\n\n      :focus {\n        border-color:  " + theme.colors.red + ";\n      }\n      " : "";
 });
-var RadioWrapper = styled__default.div(_templateObject2$4(), function (_ref6) {
-  var width = _ref6.width;
+var RadioWrapper = styled__default.div(_templateObject2$4(), function (_ref5) {
+  var width = _ref5.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 });
-var RadioLabel = styled__default.label(_templateObject3$2(), function (_ref7) {
-  var theme = _ref7.theme;
+var RadioLabel = styled__default.label(_templateObject3$2(), function (_ref6) {
+  var theme = _ref6.theme;
   return theme.colors.grey600;
+}, function (_ref7) {
+  var theme = _ref7.theme,
+      color = _ref7.color;
+  return renderBgColor$1(theme, color, true);
 }, function (_ref8) {
   var theme = _ref8.theme,
       color = _ref8.color;
@@ -1770,30 +1718,118 @@ var RadioLabel = styled__default.label(_templateObject3$2(), function (_ref7) {
 }, function (_ref9) {
   var theme = _ref9.theme,
       color = _ref9.color;
-  return renderBgColor$1(theme, color, true);
-}, function (_ref10) {
-  var theme = _ref10.theme,
-      color = _ref10.color;
   return renderCheckColor$1(theme, color, true);
-}, function (_ref11) {
-  var theme = _ref11.theme;
+}, function (_ref10) {
+  var theme = _ref10.theme;
   return theme.colors.grey300;
+}, function (_ref11) {
+  var theme = _ref11.theme,
+      color = _ref11.color;
+  return renderCheckColor$1(theme, color);
 }, function (_ref12) {
   var theme = _ref12.theme,
       color = _ref12.color;
   return renderCheckColor$1(theme, color);
-}, function (_ref13) {
-  var theme = _ref13.theme,
-      color = _ref13.color;
-  return renderCheckColor$1(theme, color);
 });
-var RadioHelperText = styled__default.p(_templateObject4$2(), function (_ref14) {
-  var theme = _ref14.theme;
+var RadioHelperText = styled__default.p(_templateObject4$2(), function (_ref13) {
+  var theme = _ref13.theme;
   return theme.colors.grey500;
 });
+var RadioSvg = function RadioSvg(_ref14) {
+  var _ref14$width = _ref14.width,
+      width = _ref14$width === void 0 ? 24 : _ref14$width,
+      _ref14$height = _ref14.height,
+      height = _ref14$height === void 0 ? 24 : _ref14$height,
+      _ref14$color = _ref14.color,
+      color = _ref14$color === void 0 ? colors.grey500 : _ref14$color;
+  return React__default.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    fill: "none",
+    style: {
+      width: width,
+      height: height
+    },
+    viewBox: "0 0 30 30"
+  }, React__default.createElement("circle", {
+    className: "radioOutline",
+    cx: "15",
+    cy: "15",
+    r: "18",
+    fill: "none",
+    stroke: color,
+    strokeWidth: "5"
+  }), React__default.createElement("circle", {
+    className: "radioDot",
+    cx: "15",
+    cy: "15",
+    r: "8",
+    fill: "#fff"
+  }));
+};
+
+var buttonSizes = {
+  small: "\n    padding: 6px 8px;\n  ",
+  medium: "\n    padding: 10px 8px;\n  ",
+  large: "\n    padding: 14px 8px;\n  "
+};
+var buttonColors = {
+  "default": "\n    color: " + colors.grey500 + ";\n    background-color: " + colors.grey200 + ";\n\n    :hover {\n      background-color: " + colors.grey300 + ";\n    }\n  ",
+  primary: "\n    color: " + colors.grey600 + ";\n    background-color: " + colors.primary100 + ";\n\n    :hover {\n      background-color: " + colors.primary200 + ";\n    }\n  ",
+  secondary: "\n    color: " + colors.grey100 + ";\n    background-color: " + colors.secondary100 + ";\n\n    :hover {\n      background-color: " + colors.secondary200 + ";\n    }\n  "
+};
+var buttons = {
+  buttonSizes: buttonSizes,
+  buttonColors: buttonColors
+};
+
+var getPixel = function getPixel(value) {
+  return typeof value === "string" ? value : value + "px";
+};
+var calcRem = function calcRem(size) {
+  return size / 16 + "rem";
+};
+var calcHeight = function calcHeight(size, height) {
+  return "" + height / size;
+};
+
+var fontSizes = {
+  heading1: calcRem(36),
+  heading2: calcRem(26),
+  heading3: calcRem(20),
+  body1: calcRem(16),
+  body2: calcRem(13),
+  caption: calcRem(12),
+  article1: calcRem(16),
+  article2: calcRem(14)
+};
+var lineHeights = {
+  heading1: calcHeight(36, 48),
+  heading2: calcHeight(26, 38),
+  heading3: calcHeight(20, 32),
+  body1: calcHeight(16, 24),
+  body2: calcHeight(13, 20),
+  caption: calcHeight(12, 18),
+  article1: calcHeight(16, 32),
+  article2: calcHeight(14, 24)
+};
+var typography = {
+  heading1: "\n    font-size: " + fontSizes.heading1 + ";\n    line-height: " + lineHeights.heading1 + ";\n    font-weight: normal;\n  ",
+  heading2: "\n    font-size: " + fontSizes.heading2 + ";\n    line-height: " + lineHeights.heading2 + ";\n    font-weight: normal;\n  ",
+  heading3: "\n    font-size: " + fontSizes.heading3 + ";\n    line-height: " + lineHeights.heading3 + ";\n    font-weight: normal;\n  ",
+  body1: "\n    font-size: " + fontSizes.body1 + ";\n    line-height: " + lineHeights.body1 + ";\n    font-weight: normal;\n  ",
+  body2: "\n    font-size: " + fontSizes.body2 + ";\n    line-height: " + lineHeights.body2 + ";\n    font-weight: normal;\n  ",
+  caption: "\n    font-size: " + fontSizes.caption + ";\n    line-height: " + lineHeights.caption + ";\n    font-weight: normal;\n  ",
+  article1: "\n    font-size: " + fontSizes.article1 + ";\n    line-height: " + lineHeights.article1 + ";\n    font-weight: normal;\n  ",
+  article2: "\n    font-size: " + fontSizes.article2 + ";\n    line-height: " + lineHeights.article2 + ";\n    font-weight: normal;\n  "
+};
+var typography$1 = {
+  fontSizes: fontSizes,
+  lineHeights: lineHeights,
+  typography: typography
+};
 
 function _templateObject$8() {
-  var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid ", ";\n  border-left: 4px solid\n    ", ";\n  border-radius: 6px;\n  color: ", ";\n  padding: 12px;\n  margin-left: 0;\n  margin-bottom: 16px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Regular\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Regular.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Regular.svg\") format(\"svg\");\n    font-weight: normal;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  @font-face {\n    font-family: \"Apple SD Gothic Neo\";\n    src: local(\"Apple SD Gothic Neo\"), local(\"AppleSDGothicNeo-Bold\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff2\") format(\"woff2\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.woff\") format(\"woff\"),\n      url(\"./assets/fonts/AppleSDGothicNeo-Bold.ttf\") format(\"truetype\")\n        url(\"./assets/fonts/AppleSDGothicNeo-Bold.svg\") format(\"svg\");\n    font-weight: bold;\n    font-style: normal;\n    font-stretch: normal;\n  }\n\n  body {\n    margin: 0;\n    padding: 0;\n    font-family: \"Apple SD Gothic Neo\", sans-serif;\n    font-size: 13px;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n\n  h1, h2, h3, h4, h5, h6, p, ul {\n    margin: 0;\n    padding: 0;\n  }\n\n  ::selection {\n    background: ", "; /* WebKit/Blink Browsers */\n    color: inherit;\n  }\n\n  ::-moz-selection {\n    background: ", "; /* Gecko Browsers */\n    color: inherit;\n  }\n\n  a {\n    color: inherit;\n    text-decoration: none;\n\n    :hover {\n      text-decoration: underline;\n    }\n  }\n"]);
 
   _templateObject$8 = function _templateObject() {
     return data;
@@ -1801,68 +1837,32 @@ function _templateObject$8() {
 
   return data;
 }
+var deviceSizes = {
+  mobile: "360px",
+  tablet: "768px"
+};
+var devices = {
+  mobile: "only screen and (max-width: " + deviceSizes.mobile + ")",
+  tablet: "only screen and (max-width: " + deviceSizes.tablet + ")"
+};
 
-function renderBorderColor(theme, color) {
-  if (color === void 0) {
-    color = "default";
-  }
-
-  switch (color) {
-    case "primary":
-      return theme.colors.primary100;
-
-    case "secondary":
-      return theme.colors.secondary100;
-
-    case "red":
-      return theme.colors.red;
-
-    case "green":
-      return theme.colors.green;
-
-    case "default":
-    default:
-      return theme.colors.grey600;
-  }
-}
-
-function renderColor(theme, color) {
-  if (color === void 0) {
-    color = "default";
-  }
-
-  switch (color) {
-    case "primary":
-      return theme.colors.primary100;
-
-    case "secondary":
-      return theme.colors.secondary100;
-
-    case "red":
-      return theme.colors.red;
-
-    case "green":
-      return theme.colors.green;
-
-    case "default":
-    default:
-      return theme.colors.grey600;
-  }
-}
-
-var MessageBox = styled__default.div(_templateObject$8(), function (_ref) {
-  var theme = _ref.theme,
-      color = _ref.color;
-  return renderBorderColor(theme, color);
-}, function (_ref2) {
-  var theme = _ref2.theme,
-      color = _ref2.color;
-  return renderBorderColor(theme, color);
-}, function (_ref3) {
-  var theme = _ref3.theme,
-      color = _ref3.color;
-  return renderColor(theme, color);
+var theme = _extends({}, buttons, colors$1, typography$1, {
+  devices: devices
 });
+
+var BemypetTheme = styled.createGlobalStyle(_templateObject$8(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.colors.primary100;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.colors.primary100;
+});
+var ThemeProvider = function ThemeProvider(_ref3) {
+  var children = _ref3.children;
+  return React__default.createElement(styled.ThemeProvider, {
+    theme: theme
+  }, React__default.createElement(BemypetTheme, null), children);
+};
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -3544,7 +3544,7 @@ var Layout = function Layout(_ref) {
   return React__default.createElement(Wrapper, null, React__default.createElement(HelmetComponent, Object.assign({
     titleTemplate: "%s :: \uBE44\uB9C8\uC774\uD3AB",
     defaultTitle: "\uBE44\uB9C8\uC774\uD3AB"
-  }, helmetProps)), React__default.createElement(Main, null, !!loading ? loading : children), React__default.createElement(Footer, Object.assign({}, footerProps)));
+  }, helmetProps)), React__default.createElement(Main, null, loading ? loading : children), React__default.createElement(Footer, Object.assign({}, footerProps)));
 };
 var Wrapper = styled__default.div(_templateObject$c());
 var Main = styled__default.main(_templateObject2$8());
@@ -3628,6 +3628,7 @@ exports.Header = Header;
 exports.HeartFilled = HeartFilled;
 exports.HeartOutline = HeartOutline;
 exports.Hide = Hide;
+exports.IconButton = IconButton;
 exports.Image = Image;
 exports.Input = Input;
 exports.InstagramIcon = InstagramIcon;

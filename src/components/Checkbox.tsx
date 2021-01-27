@@ -3,10 +3,15 @@ import styled from "styled-components";
 import { ThemeInterface } from "theme/interfaces";
 import { Check } from "./Icons";
 
+type InputBaseProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
 export type CheckboxColor = "primary" | "secondary" | "default";
 
 export type CheckboxProps = Omit<
-  React.HTMLProps<HTMLInputElement>,
+  InputBaseProps,
   "error" | "label" | "helperText" | "innerRef"
 > & {
   /**
@@ -95,8 +100,9 @@ function renderBgColor(
       if (checked) {
         return theme.colors.secondary100;
       }
-    case "primary":
+    // falls through
     case "default":
+    case "primary":
     default:
       if (checked) {
         return theme.colors.primary100;

@@ -1,5 +1,6 @@
 import React from "react";
-export declare type InputProps = Omit<React.HTMLProps<HTMLInputElement>, "error" | "label" | "helperText" | "trailing" | "innerRef"> & {
+declare type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+export declare type InputProps = Omit<InputBaseProps, "error" | "label" | "helperText" | "trailing" | "innerRef"> & {
     /**
      * Width in pixel.
      * Default is 100%
@@ -38,3 +39,4 @@ export declare type InputProps = Omit<React.HTMLProps<HTMLInputElement>, "error"
     innerRef?: React.RefObject<HTMLInputElement>;
 };
 export declare const Input: import("styled-components").StyledComponent<({ type, error, label, helperText, trailing, innerRef, ...rest }: InputProps) => JSX.Element, any, {}, never>;
+export {};

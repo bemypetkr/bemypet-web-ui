@@ -1,7 +1,7 @@
 import React from "react";
 import { HelmetProps } from "react-helmet-async";
 import { Footer, FooterProps } from "./Layouts/Footer";
-interface LayoutProps {
+export interface LayoutProps {
     helmetProps?: HelmetProps;
     children?: React.ReactNode;
     loading?: React.ReactNode;
@@ -9,7 +9,7 @@ interface LayoutProps {
 }
 export declare const Layout: ({ helmetProps, footerProps, children, loading, }: LayoutProps) => JSX.Element;
 export declare const PageBody: import("styled-components").StyledComponent<"div", any, {}, never>;
-interface GridProps {
+export interface GridProps {
     justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-evenly" | "space-around" | "stretch";
     alignItems?: "flex-start" | "flex-end" | "center";
     marginTop?: string | number;

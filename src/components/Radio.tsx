@@ -5,34 +5,15 @@ import { colors } from "theme/color";
 
 import { IconProps } from "./Icons/interface";
 
-export const RadioSvg = ({
-  width = 24,
-  height = 24,
-  color = colors.grey500,
-}: IconProps): React.FunctionComponentElement<IconProps> => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    style={{ width, height }}
-    viewBox="0 0 30 30"
-  >
-    <circle
-      className="radioOutline"
-      cx="15"
-      cy="15"
-      r="18"
-      fill="none"
-      stroke={color}
-      strokeWidth="5"
-    />
-    <circle className="radioDot" cx="15" cy="15" r="8" fill="#fff" />
-  </svg>
-);
+type InputBaseProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
 
 export type RadioColor = "primary" | "secondary" | "default";
 
 export type RadioProps = Omit<
-  React.HTMLProps<HTMLInputElement>,
+  InputBaseProps,
   "error" | "label" | "helperText" | "innerRef"
 > & {
   /**
@@ -121,6 +102,7 @@ function renderBgColor(
       if (checked) {
         return theme.colors.secondary100;
       }
+    // falls through
     case "primary":
     case "default":
     default:
@@ -271,3 +253,27 @@ const RadioHelperText = styled.p`
   font-size: 13px;
   color: ${({ theme }) => theme.colors.grey500};
 `;
+
+export const RadioSvg = ({
+  width = 24,
+  height = 24,
+  color = colors.grey500,
+}: IconProps): React.FunctionComponentElement<IconProps> => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    style={{ width, height }}
+    viewBox="0 0 30 30"
+  >
+    <circle
+      className="radioOutline"
+      cx="15"
+      cy="15"
+      r="18"
+      fill="none"
+      stroke={color}
+      strokeWidth="5"
+    />
+    <circle className="radioDot" cx="15" cy="15" r="8" fill="#fff" />
+  </svg>
+);

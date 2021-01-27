@@ -1,5 +1,5 @@
 import React from "react";
-interface ListProps {
+export interface ListProps {
     children?: React.ReactNode;
 }
 export declare const List: import("styled-components").StyledComponent<({ children, ...rest }: ListProps) => JSX.Element, any, {}, never>;
@@ -17,4 +17,3 @@ export declare type ListItemProps = Omit<React.HTMLProps<HTMLLIElement>, "primar
     button?: boolean;
 };
 export declare const ListItem: import("styled-components").StyledComponent<({ primary, secondary, trailing, button, ...rest }: ListItemProps) => JSX.Element, any, {}, never>;
-export {};
