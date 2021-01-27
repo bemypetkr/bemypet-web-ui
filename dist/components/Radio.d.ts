@@ -2,7 +2,7 @@ import React from "react";
 import { IconProps } from "./Icons/interface";
 export declare const RadioSvg: ({ width, height, color, }: IconProps) => React.FunctionComponentElement<IconProps>;
 export declare type RadioColor = "primary" | "secondary" | "default";
-export declare type RadioProps = Omit<React.HTMLProps<HTMLInputElement>, "error" | "label" | "helperText"> & {
+export declare type RadioProps = Omit<React.HTMLProps<HTMLInputElement>, "error" | "label" | "helperText" | "innerRef"> & {
     /**
      * Width in pixel.
      * Default is 100%
@@ -38,5 +38,6 @@ export declare type RadioProps = Omit<React.HTMLProps<HTMLInputElement>, "error"
      * @type {RadioColor}
      */
     color?: RadioColor;
+    innerRef?: React.RefObject<HTMLInputElement>;
 };
-export declare const Radio: import("styled-components").StyledComponent<({ type, label, helperText, color, ...rest }: RadioProps) => JSX.Element, any, {}, never>;
+export declare const Radio: import("styled-components").StyledComponent<({ type, error, label, helperText, color, innerRef, ...rest }: RadioProps) => JSX.Element, any, {}, never>;

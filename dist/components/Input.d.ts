@@ -35,6 +35,6 @@ export declare type InputProps = Omit<React.HTMLProps<HTMLInputElement>, "error"
      * @type {React.ReactNode}
      */
     trailing?: React.ReactNode;
-    innerRef?: any;
+    innerRef?: React.RefObject<HTMLInputElement>;
 };
 export declare const Input: import("styled-components").StyledComponent<({ type, error, label, helperText, trailing, innerRef, ...rest }: InputProps) => JSX.Element, any, {}, never>;

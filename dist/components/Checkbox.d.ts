@@ -1,6 +1,6 @@
 import React from "react";
 export declare type CheckboxColor = "primary" | "secondary" | "default";
-export declare type CheckboxProps = Omit<React.HTMLProps<HTMLInputElement>, "error" | "label" | "helperText"> & {
+export declare type CheckboxProps = Omit<React.HTMLProps<HTMLInputElement>, "error" | "label" | "helperText" | "innerRef"> & {
     /**
      * Width in pixel.
      * Default is 100%
@@ -36,5 +36,6 @@ export declare type CheckboxProps = Omit<React.HTMLProps<HTMLInputElement>, "err
      * @type {CheckboxColor}
      */
     color?: CheckboxColor;
+    innerRef?: React.RefObject<HTMLInputElement>;
 };
-export declare const Checkbox: import("styled-components").StyledComponent<({ type, label, helperText, color, ...rest }: CheckboxProps) => JSX.Element, any, {}, never>;
+export declare const Checkbox: import("styled-components").StyledComponent<({ type, label, helperText, color, innerRef, ...rest }: CheckboxProps) => JSX.Element, any, {}, never>;
