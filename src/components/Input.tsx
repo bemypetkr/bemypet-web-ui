@@ -50,6 +50,7 @@ export type InputProps = Omit<
 
 const InputWrapper = styled.div`
   position: relative;
+  width: 100%;
 
   svg {
     position: absolute;

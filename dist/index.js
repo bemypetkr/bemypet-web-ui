@@ -1388,7 +1388,7 @@ function _templateObject2$2() {
 }
 
 function _templateObject$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 100%;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
 
   _templateObject$4 = function _templateObject() {
     return data;
