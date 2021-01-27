@@ -1444,10 +1444,14 @@ const Input = styled(({
   label,
   helperText,
   trailing,
+  innerRef,
   ...rest
 }) => React.createElement(InputWrapper, {
   className: "bui-input"
-}, label ? typeof label === "string" ? React.createElement(InputLabel, null, label) : label : null, React.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React.createElement(InputHelperText, null, helperText) : helperText : null))(_t4$1 || (_t4$1 = _$5`
+}, label ? typeof label === "string" ? React.createElement(InputLabel, null, label) : label : null, React.createElement("input", Object.assign({
+  type: _type,
+  ref: innerRef
+}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React.createElement(InputHelperText, null, helperText) : helperText : null))(_t4$1 || (_t4$1 = _$5`
   width: ${0};
   white-space: nowrap;
   outline: none;

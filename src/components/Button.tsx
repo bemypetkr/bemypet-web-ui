@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-interface ButtonBaseProps extends React.HTMLProps<HTMLButtonElement> {}
+type ButtonBaseProps = React.HTMLProps<HTMLButtonElement>;
 
 export const buttonBaseStyles = `
   outline: none;
@@ -60,7 +60,7 @@ export const Button = styled(
     positive,
     negative,
     ...rest
-  }: ButtonProps) => <button {...rest} />,
+  }: ButtonProps) => <button type={type} {...rest} />,
 )`
   ${buttonBaseStyles}
 
@@ -98,7 +98,9 @@ export type IconButtonProps = Omit<ButtonBaseProps, "icon"> & {
 
 export const IconButton = styled(
   ({ icon, type = "button", ...rest }: IconButtonProps) => (
-    <button {...rest} children={icon} />
+    <button type={type} {...rest}>
+      {icon}
+    </button>
   ),
 )`
   ${buttonBaseStyles}

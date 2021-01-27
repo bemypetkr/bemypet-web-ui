@@ -7,7 +7,7 @@ export type CheckboxColor = "primary" | "secondary" | "default";
 
 export type CheckboxProps = Omit<
   React.HTMLProps<HTMLInputElement>,
-  "error" | "label" | "helperText"
+  "error" | "label" | "helperText" | "innerRef"
 > & {
   /**
    * Width in pixel.
@@ -44,6 +44,7 @@ export type CheckboxProps = Omit<
    * @type {CheckboxColor}
    */
   color?: CheckboxColor;
+  innerRef?: React.RefObject<HTMLInputElement>;
 };
 
 /**
@@ -57,7 +58,7 @@ export type CheckboxProps = Omit<
 function renderCheckColor(
   theme: ThemeInterface,
   color: CheckboxColor = "default",
-  checked: boolean = false,
+  checked = false,
 ): string {
   switch (color) {
     case "primary":
@@ -87,7 +88,7 @@ function renderCheckColor(
 function renderBgColor(
   theme: ThemeInterface,
   color: CheckboxColor = "default",
-  checked: boolean = false,
+  checked = false,
 ): string {
   switch (color) {
     case "secondary":
@@ -110,11 +111,12 @@ export const Checkbox = styled(
     label,
     helperText,
     color,
+    innerRef,
     ...rest
   }: CheckboxProps) => (
     <CheckboxWrapper className={"bui-checkbox"}>
       <CheckboxLabel color={color}>
-        <input type={type} {...rest} />
+        <input ref={innerRef} type={type} {...rest} />
         <div>
           <Check width={18} height={18} />
         </div>

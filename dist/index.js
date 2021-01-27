@@ -1495,14 +1495,20 @@ var InputHelperText = styled__default.p(_templateObject3$1(), function (_ref2) {
   return theme.colors.grey500;
 });
 var Input = styled__default(function (_ref3) {
-  var label = _ref3.label,
+  var _ref3$type = _ref3.type,
+      type = _ref3$type === void 0 ? "text" : _ref3$type,
+      label = _ref3.label,
       helperText = _ref3.helperText,
       trailing = _ref3.trailing,
-      rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText", "trailing"]);
+      innerRef = _ref3.innerRef,
+      rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText", "trailing", "innerRef"]);
 
   return React__default.createElement(InputWrapper, {
     className: "bui-input"
-  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({}, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
+  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({
+    type: type,
+    ref: innerRef
+  }, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
 })(_templateObject4$1(), function (_ref4) {
   var width = _ref4.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";

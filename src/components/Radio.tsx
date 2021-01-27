@@ -33,7 +33,7 @@ export type RadioColor = "primary" | "secondary" | "default";
 
 export type RadioProps = Omit<
   React.HTMLProps<HTMLInputElement>,
-  "error" | "label" | "helperText"
+  "error" | "label" | "helperText" | "innerRef"
 > & {
   /**
    * Width in pixel.
@@ -70,6 +70,7 @@ export type RadioProps = Omit<
    * @type {RadioColor}
    */
   color?: RadioColor;
+  innerRef?: React.RefObject<HTMLInputElement>;
 };
 
 /**
@@ -132,15 +133,17 @@ function renderBgColor(
 
 export const Radio = styled(
   ({
-    type = "Radio", // error = false,
+    type = "radio",
+    error,
     label,
     helperText,
     color,
+    innerRef,
     ...rest
   }: RadioProps) => (
     <RadioWrapper className={"bui-Radio"}>
       <RadioLabel color={color}>
-        <input type={type} {...rest} />
+        <input ref={innerRef} type={type} {...rest} />
         <div>
           <RadioSvg width={18} height={18} color={color} />
         </div>
