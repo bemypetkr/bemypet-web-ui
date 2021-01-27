@@ -5,6 +5,7 @@ export { Checkbox } from "components/Checkbox";
 export { Input } from "components/Input";
 export { List, ListItem } from "components/List";
 export { Radio } from "components/Radio";
+export { MessageBox } from "components/MessageBox";
 export {
   Logo,
   // Common Icons
