@@ -60,6 +60,7 @@ export const Avatar = styled(
   background-position: top left;
   background-image: url(${Urls.placeholderImgSrc});
   background-size: ${({ size = 96 }) => size}px ${({ size = 96 }) => size}px;
+  overflow: hidden;
 
   display: flex;
   align-items: center;
