@@ -61,6 +61,7 @@ export const Avatar = styled(
   background-image: url(${Urls.placeholderImgSrc});
   background-size: ${({ size = 96 }) => size}px ${({ size = 96 }) => size}px;
   overflow: hidden;
+  border-radius: 100%;
 
   display: flex;
   align-items: center;
@@ -95,5 +96,6 @@ export const Avatar = styled(
   img {
     width: ${({ size = 96 }) => size}px;
     height: ${({ size = 96 }) => size}px;
+    object-fit: cover;
   }
 `;
