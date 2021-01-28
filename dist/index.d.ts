@@ -20,4 +20,5 @@ export type { FooterProps } from "components/Layouts/Footer";
 export type { HeaderProps } from "components/Layouts/Header";
 export type { LayoutProps, GridProps } from "components/Layout";
 export { Logo, ArrowRight, Blockquote, Calendar, Camera, Check, Clear, ClearCircle, Comment, HeartFilled, HeartOutline, Hide, Image, Menu, More, Pencil, Plus, Profile, Search, Share, Show, StarFilled, StarHalf, StarOutline, AppleIcon, AppStoreIcon, FacebookIcon, GoogleIcon, InstagramIcon, NaverIcon, PlayStoreIcon, YoutubeIcon, } from "components/Icons";
+export { default as Urls } from "lib/urls";
 export type { IconProps } from "components/Icons/interface";

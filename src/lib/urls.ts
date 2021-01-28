@@ -1,7 +1,6 @@
 export default class Urls {
-  public static get homepage(): string {
-    return "https://localhost:3000";
-    return "https://account.mypetlife.co.kr";
+  public static get accounts(): string {
+    return "https://accounts.mypetlife.co.kr";
   }
 
   public static get bemypetlife(): string {
@@ -10,6 +9,10 @@ export default class Urls {
 
   public static get creators(): string {
     return "https://creators.mypetlife.co.kr";
+  }
+
+  public static get tools(): string {
+    return "https://tools.mypetlife.co.kr";
   }
 
   public static get facebook(): string {

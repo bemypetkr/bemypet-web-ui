@@ -1,4 +1,5 @@
 import React from "react";
+declare type InputInnerRef = string | ((instance: HTMLInputElement | null) => void) | React.RefObject<HTMLInputElement> | null | undefined;
 declare type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 export declare type CheckboxColor = "primary" | "secondary" | "default";
 export declare type CheckboxProps = Omit<InputBaseProps, "error" | "label" | "helperText" | "innerRef"> & {
@@ -37,7 +38,12 @@ export declare type CheckboxProps = Omit<InputBaseProps, "error" | "label" | "he
      * @type {CheckboxColor}
      */
     color?: CheckboxColor;
-    innerRef?: React.RefObject<HTMLInputElement>;
+    /**
+     * Inner Ref for dynamic
+     *
+     * @type {InputInnerRef}
+     */
+    innerRef?: InputInnerRef;
 };
 export declare const Checkbox: import("styled-components").StyledComponent<({ type, label, helperText, color, innerRef, ...rest }: CheckboxProps) => JSX.Element, any, {}, never>;
 export {};

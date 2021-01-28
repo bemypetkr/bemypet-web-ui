@@ -3,6 +3,13 @@ import styled from "styled-components";
 import { ThemeInterface } from "theme/interfaces";
 import { Check } from "./Icons";
 
+type InputInnerRef =
+  | string
+  | ((instance: HTMLInputElement | null) => void)
+  | React.RefObject<HTMLInputElement>
+  | null
+  | undefined;
+
 type InputBaseProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -49,7 +56,13 @@ export type CheckboxProps = Omit<
    * @type {CheckboxColor}
    */
   color?: CheckboxColor;
-  innerRef?: React.RefObject<HTMLInputElement>;
+
+  /**
+   * Inner Ref for dynamic
+   *
+   * @type {InputInnerRef}
+   */
+  innerRef?: InputInnerRef;
 };
 
 /**
@@ -113,7 +126,7 @@ function renderBgColor(
 
 export const Checkbox = styled(
   ({
-    type = "checkbox", // error = false,
+    type = "checkbox",
     label,
     helperText,
     color,

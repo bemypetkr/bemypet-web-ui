@@ -96,6 +96,7 @@ export const Button = styled(
 `;
 
 export type IconButtonProps = Omit<ButtonBaseProps, "icon"> & {
+  type?: "button" | "submit" | "reset";
   icon: React.ReactNode;
 };
 

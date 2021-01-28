@@ -73,4 +73,6 @@ export {
   PlayStoreIcon,
   YoutubeIcon,
 } from "components/Icons";
+
+export { default as Urls } from "lib/urls";
 export type { IconProps } from "components/Icons/interface";

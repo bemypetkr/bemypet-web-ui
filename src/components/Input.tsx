@@ -1,5 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { IconButton } from "./Button";
+import { Hide, Show } from "./Icons";
+
+type InputInnerRef =
+  | string
+  | ((instance: HTMLInputElement | null) => void)
+  | React.RefObject<HTMLInputElement>
+  | null
+  | undefined;
 
 type InputBaseProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -45,18 +54,28 @@ export type InputProps = Omit<
    * @type {React.ReactNode}
    */
   trailing?: React.ReactNode;
-  innerRef?: React.RefObject<HTMLInputElement>;
+  /**
+   * Inner Ref for dynamic
+   *
+   * @type {InputInnerRef}
+   */
+  innerRef?: InputInnerRef;
 };
 
 const InputWrapper = styled.div`
   position: relative;
   width: 100%;
 
+  .bui-input-inner {
+    position: relative;
+  }
+
   svg {
     position: absolute;
     width: 24px;
     height: 24px;
     top: 12px;
+    bottom: 12px;
     right: 16px;
   }
 `;
@@ -83,26 +102,44 @@ export const Input = styled(
     trailing,
     innerRef,
     ...rest
-  }: InputProps) => (
-    <InputWrapper className={"bui-input"}>
-      {label ? (
-        typeof label === "string" ? (
-          <InputLabel>{label}</InputLabel>
-        ) : (
-          label
-        )
-      ) : null}
-      <input type={type} ref={innerRef} {...rest} />
-      {trailing ? trailing : null}
-      {helperText ? (
-        typeof helperText === "string" ? (
-          <InputHelperText>{helperText}</InputHelperText>
-        ) : (
-          helperText
-        )
-      ) : null}
-    </InputWrapper>
-  ),
+  }: InputProps) => {
+    const [visible, setVisible] = useState(false);
+    let inputType = type;
+    let showOrHideButton;
+    if (type === "password" && !trailing) {
+      const handleOnToggleVisible = () => setVisible(!visible);
+      showOrHideButton = (
+        <IconButton
+          icon={visible ? <Show /> : <Hide />}
+          onClick={handleOnToggleVisible}
+        />
+      );
+      inputType = visible ? "text" : "password";
+    }
+
+    return (
+      <InputWrapper className={"bui-input"}>
+        {label ? (
+          typeof label === "string" ? (
+            <InputLabel>{label}</InputLabel>
+          ) : (
+            label
+          )
+        ) : null}
+        <div className="bui-input-inner">
+          <input type={inputType} ref={innerRef} {...rest} />
+          {trailing ? trailing : showOrHideButton ? showOrHideButton : null}
+        </div>
+        {helperText ? (
+          typeof helperText === "string" ? (
+            <InputHelperText>{helperText}</InputHelperText>
+          ) : (
+            helperText
+          )
+        ) : null}
+      </InputWrapper>
+    );
+  },
 )`
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};

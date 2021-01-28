@@ -67,9 +67,9 @@ var Urls = /*#__PURE__*/function () {
   function Urls() {}
 
   _createClass(Urls, null, [{
-    key: "homepage",
+    key: "accounts",
     get: function get() {
-      return "https://localhost:3000";
+      return "https://accounts.mypetlife.co.kr";
     }
   }, {
     key: "bemypetlife",
@@ -80,6 +80,11 @@ var Urls = /*#__PURE__*/function () {
     key: "creators",
     get: function get() {
       return "https://creators.mypetlife.co.kr";
+    }
+  }, {
+    key: "tools",
+    get: function get() {
+      return "https://tools.mypetlife.co.kr";
     }
   }, {
     key: "facebook",
@@ -1388,7 +1393,7 @@ function _templateObject2$2() {
 }
 
 function _templateObject$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 100%;\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    right: 16px;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 100%;\n\n  .bui-input-inner {\n    position: relative;\n  }\n\n  svg {\n    position: absolute;\n    width: 24px;\n    height: 24px;\n    top: 12px;\n    bottom: 12px;\n    right: 16px;\n  }\n"]);
 
   _templateObject$4 = function _templateObject() {
     return data;
@@ -1414,12 +1419,33 @@ var Input = styled__default(function (_ref3) {
       innerRef = _ref3.innerRef,
       rest = _objectWithoutPropertiesLoose(_ref3, ["type", "error", "label", "helperText", "trailing", "innerRef"]);
 
+  var _useState = React.useState(false),
+      visible = _useState[0],
+      setVisible = _useState[1];
+
+  var inputType = type;
+  var showOrHideButton;
+
+  if (type === "password" && !trailing) {
+    var handleOnToggleVisible = function handleOnToggleVisible() {
+      return setVisible(!visible);
+    };
+
+    showOrHideButton = React__default.createElement(IconButton, {
+      icon: visible ? React__default.createElement(Show, null) : React__default.createElement(Hide, null),
+      onClick: handleOnToggleVisible
+    });
+    inputType = visible ? "text" : "password";
+  }
+
   return React__default.createElement(InputWrapper, {
     className: "bui-input"
-  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("input", Object.assign({
-    type: type,
+  }, label ? typeof label === "string" ? React__default.createElement(InputLabel, null, label) : label : null, React__default.createElement("div", {
+    className: "bui-input-inner"
+  }, React__default.createElement("input", Object.assign({
+    type: inputType,
     ref: innerRef
-  }, rest)), trailing ? trailing : null, helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
+  }, rest)), trailing ? trailing : showOrHideButton ? showOrHideButton : null), helperText ? typeof helperText === "string" ? React__default.createElement(InputHelperText, null, helperText) : helperText : null);
 })(_templateObject4$1(), function (_ref4) {
   var width = _ref4.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
@@ -3445,25 +3471,29 @@ var HeaderNavItem = styled__default.li(_templateObject2$7(), function (_ref3) {
 var HeaderMenu = styled__default.div(_templateObject3$5());
 var leftMenus = [{
   label: "라이프",
-  to: "https://mypetlife.co.kr/"
+  to: Urls.bemypetlife
 }, {
   label: "크리에이터즈",
-  to: "https://creators.mypetlife.co.kr/"
+  to: Urls.creators
 }, {
   label: "툴즈",
-  to: "https://tools.mypetlife.co.kr/"
+  to: Urls.tools
 }];
-var accountBaseUrl = "https://accounts.mypetlife.co.kr";
 var rightMenus = [{
   label: "로그인",
-  to: accountBaseUrl + "/login"
+  to: Urls.accounts + "/login"
 }, {
   label: "회원가입",
-  to: accountBaseUrl + "/registration"
+  to: Urls.accounts + "/registration"
+}];
+var rightLoggedInMenus = [{
+  label: "마이페이지",
+  to: Urls.accounts + "/mypage"
 }];
 var Header = styled__default(function (_ref7) {
   var menus = _ref7.menus,
-      locationPath = _ref7.locationPath;
+      locationPath = _ref7.locationPath,
+      isLoggedIn = _ref7.isLoggedIn;
   return React__default.createElement("div", null, React__default.createElement(HeaderNav, null, React__default.createElement("ul", null, leftMenus.map(function (_ref8) {
     var label = _ref8.label,
         to = _ref8.to;
@@ -3473,9 +3503,18 @@ var Header = styled__default(function (_ref7) {
     }, React__default.createElement("a", {
       href: to
     }, label));
-  })), React__default.createElement("ul", null, rightMenus.map(function (_ref9) {
+  })), React__default.createElement("ul", null, isLoggedIn ? rightLoggedInMenus.map(function (_ref9) {
     var label = _ref9.label,
         to = _ref9.to;
+    return React__default.createElement(HeaderNavItem, {
+      key: "header-nav-" + label,
+      selected: locationPath === null || locationPath === void 0 ? void 0 : locationPath.startsWith(to)
+    }, React__default.createElement("a", {
+      href: to
+    }, label));
+  }) : rightMenus.map(function (_ref10) {
+    var label = _ref10.label,
+        to = _ref10.to;
     return React__default.createElement(HeaderNavItem, {
       key: "header-nav-" + label,
       selected: locationPath === null || locationPath === void 0 ? void 0 : locationPath.startsWith(to)
@@ -3655,5 +3694,6 @@ exports.StarHalf = StarHalf;
 exports.StarOutline = StarOutline;
 exports.ThemeProvider = ThemeProvider;
 exports.Typography = Typography;
+exports.Urls = Urls;
 exports.YoutubeIcon = YoutubeIcon;
 //# sourceMappingURL=index.js.map
