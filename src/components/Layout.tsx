@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { getPixel } from "lib/helpers";
 import { Footer, FooterProps } from "./Layouts/Footer";
 
-interface LayoutProps {
+export interface LayoutProps {
   helmetProps?: HelmetProps;
   children?: React.ReactNode;
   loading?: React.ReactNode;
@@ -24,7 +24,7 @@ export const Layout = ({
         defaultTitle="비마이펫"
         {...helmetProps}
       />
-      <Main>{!!loading ? loading : children}</Main>
+      <Main>{loading ? loading : children}</Main>
       <Footer {...footerProps} />
     </Wrapper>
   );
@@ -52,7 +52,7 @@ const HelmetComponent = ({ ...props }: HelmetProps) => (
   </HelmetProvider>
 );
 
-interface GridProps {
+export interface GridProps {
   justifyContent?:
     | "flex-start"
     | "flex-end"

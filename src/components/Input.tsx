@@ -10,8 +10,13 @@ type InputInnerRef =
   | null
   | undefined;
 
+type InputBaseProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
 export type InputProps = Omit<
-  React.HTMLProps<HTMLInputElement>,
+  InputBaseProps,
   "error" | "label" | "helperText" | "trailing" | "innerRef"
 > & {
   /**
@@ -59,6 +64,7 @@ export type InputProps = Omit<
 
 const InputWrapper = styled.div`
   position: relative;
+  width: 100%;
 
   .bui-input-inner {
     position: relative;
@@ -90,7 +96,7 @@ const InputHelperText = styled.p`
 export const Input = styled(
   ({
     type = "text",
-    error = false,
+    error,
     label,
     helperText,
     trailing,

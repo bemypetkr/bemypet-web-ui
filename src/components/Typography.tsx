@@ -27,11 +27,11 @@ export type TypographyVariant =
 
 export type TypographyTextAlign = "left" | "center" | "right";
 
-export interface TypographyPropss {}
+type TypographyBaseProps = React.HTMLProps<HTMLParagraphElement>;
 
 export type TypographyProps = Omit<
-  React.HTMLProps<HTMLParagraphElement>,
-  "color" | "variant"
+  TypographyBaseProps,
+  "color" | "variant" | "children"
 > & {
   /**
    * "grey100" | "grey200" | "grey300" | "grey400" | "grey500" | "grey600" | "primary100" | "primary200" | "secondary100" | "secondary200" | "green" | "red"
@@ -63,7 +63,7 @@ export const Typography = styled(
     className,
     children,
     ...rest
-  }: TypographyProps) => (
+  }: React.PropsWithChildren<TypographyProps>) => (
     <p className={`bui-typography ${className}`} {...rest}>
       {children}
     </p>

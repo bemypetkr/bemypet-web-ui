@@ -1,5 +1,4 @@
 import React from "react";
-import { TypographyPropss } from "./Typography";
 export declare type AvatarAxis = "vertical" | "horizontal";
 export declare type AvatarProps = {
     /**
@@ -22,6 +21,6 @@ export declare type AvatarProps = {
      * @type {AvatarAxis}
      */
     axis?: AvatarAxis;
-    typographyProps?: TypographyPropss;
+    typographyProps?: any;
 };
-export declare const Avatar: import("styled-components").StyledComponent<({ size, label, axis, src, typographyProps, ...rest }: AvatarProps) => JSX.Element, any, {}, never>;
+export declare const Avatar: import("styled-components").StyledComponent<({ size, label, axis: _axis, src, typographyProps, ...rest }: AvatarProps) => JSX.Element, any, {}, never>;

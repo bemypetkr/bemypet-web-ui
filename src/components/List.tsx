@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Typography } from "./Typography";
 
-interface ListProps {
+export interface ListProps {
   children?: React.ReactNode;
 }
 
@@ -64,7 +64,7 @@ export const ListItem = styled(
       : ""}
 
   ${({ trailing }) =>
-    !!trailing
+    trailing
       ? `
       svg {
         position: absolute;

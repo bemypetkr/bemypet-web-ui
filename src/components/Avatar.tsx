@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import Urls from "lib/urls";
-import { Typography, TypographyPropss } from "./Typography";
+import { Typography } from "./Typography";
 
 export type AvatarAxis = "vertical" | "horizontal";
 
@@ -27,14 +27,16 @@ export type AvatarProps = {
    * @type {AvatarAxis}
    */
   axis?: AvatarAxis;
-  typographyProps?: TypographyPropss;
+  // todo
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  typographyProps?: any;
 };
 
 export const Avatar = styled(
   ({
     size = 96,
     label,
-    axis = "vertical",
+    axis: _axis = "vertical",
     src,
     typographyProps,
     ...rest
@@ -43,6 +45,7 @@ export const Avatar = styled(
       {src ? <img width={size} height={size} src={src} /> : null}
       {label ? (
         typeof label == "string" ? (
+          // eslint-disable-next-line react/no-children-prop
           <Typography {...typographyProps}>{label}</Typography>
         ) : (
           label
@@ -79,7 +82,7 @@ export const Avatar = styled(
       flex-direction: row;
       min-width: ${({ size = 96 }) => size}px;
       width: auto;
-      
+
       .bui-typography  {
         padding-top: 0;
         padding-left: ${size + 14}px;

@@ -1,6 +1,7 @@
 import React from "react";
 declare type InputInnerRef = string | ((instance: HTMLInputElement | null) => void) | React.RefObject<HTMLInputElement> | null | undefined;
-export declare type InputProps = Omit<React.HTMLProps<HTMLInputElement>, "error" | "label" | "helperText" | "trailing" | "innerRef"> & {
+declare type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+export declare type InputProps = Omit<InputBaseProps, "error" | "label" | "helperText" | "trailing" | "innerRef"> & {
     /**
      * Width in pixel.
      * Default is 100%

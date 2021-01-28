@@ -1,14 +1,14 @@
 import React from "react";
-declare type InputInnerRef = string | ((instance: HTMLInputElement | null) => void) | React.RefObject<HTMLInputElement> | null | undefined;
+import { IconProps } from "./Icons/interface";
 declare type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
-export declare type CheckboxColor = "primary" | "secondary" | "default";
-export declare type CheckboxProps = Omit<InputBaseProps, "error" | "label" | "helperText" | "innerRef"> & {
+export declare type RadioColor = "primary" | "secondary" | "default";
+export declare type RadioProps = Omit<InputBaseProps, "error" | "label" | "helperText" | "innerRef"> & {
     /**
      * Width in pixel.
      * Default is 100%
      *
      * @type {number}
-     * @memberof CheckboxProps
+     * @memberof RadioProps
      */
     width?: number | string;
     /**
@@ -32,18 +32,14 @@ export declare type CheckboxProps = Omit<InputBaseProps, "error" | "label" | "he
      */
     helperText?: React.ReactNode | string;
     /**
-     * Checkbox color
+     * Radio color
      * "primary" | "secondary" | "default"
      *
-     * @type {CheckboxColor}
+     * @type {RadioColor}
      */
-    color?: CheckboxColor;
-    /**
-     * Inner Ref for dynamic
-     *
-     * @type {InputInnerRef}
-     */
-    innerRef?: InputInnerRef;
+    color?: RadioColor;
+    innerRef?: React.RefObject<HTMLInputElement>;
 };
-export declare const Checkbox: import("styled-components").StyledComponent<({ type, label, helperText, color, innerRef, ...rest }: CheckboxProps) => JSX.Element, any, {}, never>;
+export declare const Radio: import("styled-components").StyledComponent<({ type, error, label, helperText, color, innerRef, ...rest }: RadioProps) => JSX.Element, any, {}, never>;
+export declare const RadioSvg: ({ width, height, color, }: IconProps) => React.FunctionComponentElement<IconProps>;
 export {};
