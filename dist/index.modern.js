@@ -131,7 +131,9 @@ var Typography = styled(function (_ref) {
       children = _ref.children,
       rest = _objectWithoutPropertiesLoose(_ref, ["color", "variant", "textAlign", "className", "children"]);
 
-  return React.createElement("p", Object.assign({
+  return typeof children !== "string" ? React.createElement("div", Object.assign({
+    className: "bui-typography " + className
+  }, rest), children) : React.createElement("p", Object.assign({
     className: "bui-typography " + className
   }, rest), children);
 })(_templateObject(), function (_ref2) {
@@ -154,7 +156,7 @@ var Typography = styled(function (_ref) {
 });
 
 function _templateObject$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  background-repeat: no-repeat;\n  background-position: top left;\n  background-image: url(", ");\n  background-size: ", "px ", "px;\n\n  display: flex;\n  align-items: center;\n\n  // default align is vertical\n  flex-direction: column;\n  min-height: ", "px;\n  height: auto;\n\n  .bui-typography {\n    padding-top: ", "px;\n    white-space: nowrap;\n    text-align: center;\n  }\n\n  // when it displayed horizontally\n  ", "\n\n  img {\n    width: ", "px;\n    height: ", "px;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  background-repeat: no-repeat;\n  background-position: top left;\n  background-image: url(", ");\n  background-size: ", "px ", "px;\n  overflow: hidden;\n  border-radius: 100%;\n\n  display: flex;\n  align-items: center;\n\n  // default align is vertical\n  flex-direction: column;\n  min-height: ", "px;\n  height: auto;\n\n  .bui-typography {\n    padding-top: ", "px;\n    white-space: nowrap;\n    text-align: center;\n  }\n\n  // when it displayed horizontally\n  ", "\n\n  img {\n    width: ", "px;\n    height: ", "px;\n    object-fit: cover;\n  }\n"]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -1429,7 +1431,8 @@ var Input = styled(function (_ref3) {
 
     showOrHideButton = React.createElement(IconButton, {
       icon: visible ? React.createElement(Show, null) : React.createElement(Hide, null),
-      onClick: handleOnToggleVisible
+      onClick: handleOnToggleVisible,
+      tabIndex: -1
     });
     inputType = visible ? "text" : "password";
   }
@@ -1868,7 +1871,7 @@ var devices = {
   tablet: "only screen and (max-width: " + deviceSizes.tablet + ")"
 };
 
-var theme = _extends({}, buttons, colors$1, typography$1, {
+var defaultTheme = _extends({}, buttons, colors$1, typography$1, {
   devices: devices
 });
 
@@ -1880,9 +1883,10 @@ var BemypetTheme = createGlobalStyle(_templateObject$8(), function (_ref) {
   return theme.colors.primary100;
 });
 var ThemeProvider = function ThemeProvider(_ref3) {
-  var children = _ref3.children;
+  var children = _ref3.children,
+      theme = _ref3.theme;
   return React.createElement(ThemeProvider$1, {
-    theme: theme
+    theme: _extends({}, defaultTheme, theme)
   }, React.createElement(BemypetTheme, null), children);
 };
 

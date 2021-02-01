@@ -27,11 +27,12 @@ export type TypographyVariant =
 
 export type TypographyTextAlign = "left" | "center" | "right";
 
-type TypographyBaseProps = React.HTMLProps<HTMLParagraphElement>;
+type TypographyBaseProps = React.HTMLProps<HTMLParagraphElement> &
+  React.HTMLProps<HTMLDivElement>;
 
 export type TypographyProps = Omit<
   TypographyBaseProps,
-  "color" | "variant" | "children"
+  "color" | "variant" | "textAlign" | "children"
 > & {
   /**
    * "grey100" | "grey200" | "grey300" | "grey400" | "grey500" | "grey600" | "primary100" | "primary200" | "secondary100" | "secondary200" | "green" | "red"
@@ -53,6 +54,7 @@ export type TypographyProps = Omit<
    * @type {TypographyTextAlign}
    */
   textAlign?: TypographyTextAlign;
+  children?: React.ReactNode | React.ReactNode[];
 };
 
 export const Typography = styled(
@@ -63,11 +65,16 @@ export const Typography = styled(
     className,
     children,
     ...rest
-  }: React.PropsWithChildren<TypographyProps>) => (
-    <p className={`bui-typography ${className}`} {...rest}>
-      {children}
-    </p>
-  ),
+  }: React.PropsWithChildren<TypographyProps>) =>
+    typeof children !== "string" ? (
+      <div className={`bui-typography ${className}`} {...rest}>
+        {children}
+      </div>
+    ) : (
+      <p className={`bui-typography ${className}`} {...rest}>
+        {children}
+      </p>
+    ),
 )`
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
