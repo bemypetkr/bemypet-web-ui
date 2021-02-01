@@ -2684,7 +2684,7 @@ const Footer = styled(({
     href: "tel:050-7724-6399"
   }, "050-7724-6399"), ",", " ", React.createElement("a", {
     href: "mailto:business@bemypet.kr"
-  }, "business@bemypet.kr"), version ? React.createElement("span", null, "version: ", version) : null), _buttons.map(({
+  }, "business@bemypet.kr"), version ? React.createElement("span", null, " version: v", version) : null), _buttons.map(({
     label,
     onClick
   }) => React.createElement(FooterButton, {

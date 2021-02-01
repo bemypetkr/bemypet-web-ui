@@ -2857,7 +2857,7 @@ var Footer = styled__default(function (_ref) {
     href: "tel:050-7724-6399"
   }, "050-7724-6399"), ",", " ", React__default.createElement("a", {
     href: "mailto:business@bemypet.kr"
-  }, "business@bemypet.kr"), version ? React__default.createElement("span", null, "version: ", version) : null), buttons.map(function (_ref2) {
+  }, "business@bemypet.kr"), version ? React__default.createElement("span", null, " version: v", version) : null), buttons.map(function (_ref2) {
     var label = _ref2.label,
         onClick = _ref2.onClick;
     return React__default.createElement(FooterButton, {

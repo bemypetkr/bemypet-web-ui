@@ -42,7 +42,7 @@ export const Footer = styled(
           서초구 서초중앙로 24길 55, 401호 대표자 : 성현진 문의:{" "}
           <a href={"tel:050-7724-6399"}>050-7724-6399</a>,{" "}
           <a href="mailto:business@bemypet.kr">business@bemypet.kr</a>
-          {version ? <span>version: {version}</span> : null}
+          {version ? <span> version: v{version}</span> : null}
         </FooterInfo>
         {buttons.map(({ label, onClick }) => (
           <FooterButton key={`footer-button-${label}`} onClick={onClick}>
