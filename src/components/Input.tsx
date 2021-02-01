@@ -112,6 +112,7 @@ export const Input = styled(
         <IconButton
           icon={visible ? <Show /> : <Hide />}
           onClick={handleOnToggleVisible}
+          tabIndex={-1}
         />
       );
       inputType = visible ? "text" : "password";

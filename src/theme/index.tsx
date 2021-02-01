@@ -89,7 +89,7 @@ const BemypetTheme = createGlobalStyle`
 
 export interface ThemeProviderProps {
   children?: React.ReactNode;
-  theme?: any;
+  theme?: object;
 }
 
 export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
