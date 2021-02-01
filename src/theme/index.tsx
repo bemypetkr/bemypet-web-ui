@@ -19,7 +19,7 @@ const devices: DeviceTheme = {
   tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
 };
 
-const theme = {
+const defaultTheme = {
   ...buttons,
   ...colors,
   ...typography,
@@ -87,9 +87,14 @@ const BemypetTheme = createGlobalStyle`
   }
 `;
 
-export const ThemeProvider = ({ children }: any) => {
+export interface ThemeProviderProps {
+  children?: React.ReactNode;
+  theme?: any;
+}
+
+export const ThemeProvider = ({ children, theme }: ThemeProviderProps) => {
   return (
-    <StyledThemeProvider theme={theme}>
+    <StyledThemeProvider theme={{ ...defaultTheme, ...theme }}>
       <BemypetTheme />
       {children}
     </StyledThemeProvider>
