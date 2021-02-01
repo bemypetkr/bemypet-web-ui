@@ -3103,7 +3103,7 @@ const ListItem = styled(({
     alignItems: "center"
   }, avatar ? avatar : null, React.createElement(Column, {
     width: "auto",
-    marginLeft: 16,
+    marginLeft: avatar != null ? 16 : 0,
     justifyContent: "flex-start",
     alignItems: "center"
   }, React.createElement(Typography, {

@@ -3286,7 +3286,7 @@ var ListItem = styled__default(function (_ref2) {
     alignItems: "center"
   }, avatar ? avatar : null, React__default.createElement(Column, {
     width: "auto",
-    marginLeft: 16,
+    marginLeft: avatar != null ? 16 : 0,
     justifyContent: "flex-start",
     alignItems: "center"
   }, React__default.createElement(Typography, {

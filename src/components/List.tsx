@@ -47,7 +47,7 @@ export const ListItem = styled(
           {avatar ? avatar : null}
           <Column
             width={"auto"}
-            marginLeft={16}
+            marginLeft={avatar != null ? 16 : 0}
             justifyContent="flex-start"
             alignItems="center"
           >
