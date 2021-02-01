@@ -43,31 +43,21 @@ export const ListItem = styled(
   }: ListItemProps) => {
     return (
       <li {...rest}>
-        {avatar ? (
-          <Row justifyContent="flex-start" alignItems="center">
-            {avatar}
-            <Column
-              width={"auto"}
-              marginLeft={16}
-              justifyContent="flex-start"
-              alignItems="center"
-            >
-              <Typography variant="body1">{primary}</Typography>
-              <Typography variant="caption" color="grey500">
-                {secondary}
-              </Typography>
-              {trailing ? trailing : null}
-            </Column>
-          </Row>
-        ) : (
-          <Column justifyContent="flex-start" alignItems="center">
+        <Row justifyContent="flex-start" alignItems="center">
+          {avatar ? avatar : null}
+          <Column
+            width={"auto"}
+            marginLeft={16}
+            justifyContent="flex-start"
+            alignItems="center"
+          >
             <Typography variant="body1">{primary}</Typography>
             <Typography variant="caption" color="grey500">
               {secondary}
             </Typography>
             {trailing ? trailing : null}
           </Column>
-        )}
+        </Row>
       </li>
     );
   },
