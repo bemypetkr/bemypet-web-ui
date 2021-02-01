@@ -12,6 +12,7 @@ export declare const PageBody: import("styled-components").StyledComponent<"div"
 export interface GridProps {
     justifyContent?: "flex-start" | "flex-end" | "center" | "space-between" | "space-evenly" | "space-around" | "stretch";
     alignItems?: "flex-start" | "flex-end" | "center";
+    width?: string | number;
     marginTop?: string | number;
     marginBottom?: string | number;
     marginLeft?: string | number;

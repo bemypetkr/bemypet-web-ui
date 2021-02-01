@@ -7,6 +7,7 @@ export declare type ListItemProps = Omit<React.HTMLProps<HTMLLIElement>, "primar
     primary?: React.ReactNode;
     secondary?: React.ReactNode;
     trailing?: React.ReactNode;
+    avatar?: React.ReactNode;
     /**
      * Make list item behavior as a button
      * Default is false
@@ -16,4 +17,4 @@ export declare type ListItemProps = Omit<React.HTMLProps<HTMLLIElement>, "primar
      */
     button?: boolean;
 };
-export declare const ListItem: import("styled-components").StyledComponent<({ primary, secondary, trailing, button, ...rest }: ListItemProps) => JSX.Element, any, {}, never>;
+export declare const ListItem: import("styled-components").StyledComponent<({ primary, secondary, trailing, avatar, button, ...rest }: ListItemProps) => JSX.Element, any, {}, never>;

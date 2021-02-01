@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Column, Row } from "./Layout";
 
 import { Typography } from "./Typography";
 
@@ -20,6 +21,7 @@ export type ListItemProps = Omit<
   primary?: React.ReactNode;
   secondary?: React.ReactNode;
   trailing?: React.ReactNode;
+  avatar?: React.ReactNode;
   /**
    * Make list item behavior as a button
    * Default is false
@@ -31,14 +33,41 @@ export type ListItemProps = Omit<
 };
 
 export const ListItem = styled(
-  ({ primary, secondary, trailing, button, ...rest }: ListItemProps) => {
+  ({
+    primary,
+    secondary,
+    trailing,
+    avatar,
+    button,
+    ...rest
+  }: ListItemProps) => {
     return (
       <li {...rest}>
-        <Typography variant="body1">{primary}</Typography>
-        <Typography variant="caption" color="grey500">
-          {secondary}
-        </Typography>
-        {trailing ? trailing : null}
+        {avatar ? (
+          <Row justifyContent="flex-start" alignItems="center">
+            {avatar}
+            <Column
+              width={"auto"}
+              marginLeft={16}
+              justifyContent="flex-start"
+              alignItems="center"
+            >
+              <Typography variant="body1">{primary}</Typography>
+              <Typography variant="caption" color="grey500">
+                {secondary}
+              </Typography>
+              {trailing ? trailing : null}
+            </Column>
+          </Row>
+        ) : (
+          <Column justifyContent="flex-start" alignItems="center">
+            <Typography variant="body1">{primary}</Typography>
+            <Typography variant="caption" color="grey500">
+              {secondary}
+            </Typography>
+            {trailing ? trailing : null}
+          </Column>
+        )}
       </li>
     );
   },

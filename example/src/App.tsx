@@ -260,6 +260,12 @@ const App = () => {
               <List>
                 <ListItem primary="Primary Text" />
                 <ListItem primary="Primary Text" secondary="Secondary Text" />
+                <ListItem avatar={<Avatar />} primary="Primary Text" />
+                <ListItem
+                  avatar={<Avatar />}
+                  primary="Primary Text"
+                  secondary="Secondary Text"
+                />
                 <ListItem
                   primary="Primary Text w/ trailing icon"
                   trailing={<ArrowRight />}

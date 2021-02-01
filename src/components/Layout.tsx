@@ -62,6 +62,7 @@ export interface GridProps {
     | "space-around"
     | "stretch";
   alignItems?: "flex-start" | "flex-end" | "center";
+  width?: string | number;
   marginTop?: string | number;
   marginBottom?: string | number;
   marginLeft?: string | number;
@@ -69,7 +70,7 @@ export interface GridProps {
 }
 
 export const Column = styled.div<GridProps>`
-  width: 100%;
+  width: ${({ width = "100%" }) => getPixel(width)};
   display: flex;
   flex-direction: column;
   justify-content: ${({ justifyContent = "flex-start" }) => justifyContent};
