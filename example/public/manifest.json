@@ -1,6 +1,6 @@
 {
-  "short_name": "@bemypetkr/web-ui",
-  "name": "@bemypetkr/web-ui",
+  "short_name": "bemypet-web-ui",
+  "name": "bemypet-web-ui",
   "icons": [
     {
       "src": "favicon.ico",
