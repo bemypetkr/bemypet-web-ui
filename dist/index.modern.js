@@ -3008,10 +3008,10 @@ const Layout = ({
   children,
   loading
 }) => {
-  return React.createElement(Wrapper, null, React.createElement(HelmetComponent, Object.assign({
+  return React.createElement(x$1, null, React.createElement(Wrapper, null, React.createElement(N, Object.assign({
     titleTemplate: "%s :: \uBE44\uB9C8\uC774\uD3AB",
     defaultTitle: "\uBE44\uB9C8\uC774\uD3AB"
-  }, helmetProps)), React.createElement(Main, null, loading ? loading : children), React.createElement(Footer, Object.assign({}, footerProps)));
+  }, helmetProps)), React.createElement(Main, null, loading ? loading : children), React.createElement(Footer, Object.assign({}, footerProps))));
 };
 const Wrapper = styled.div(_t$8 || (_t$8 = _$8`
   display: flex;
@@ -3026,10 +3026,6 @@ const PageBody = styled.div(_t3$5 || (_t3$5 = _$8`
   max-width: 100%;
   margin: 0 auto;
 `));
-
-const HelmetComponent = ({ ...props
-}) => React.createElement(x$1, null, React.createElement(N, Object.assign({}, props)));
-
 const Column = styled.div(_t4$4 || (_t4$4 = _$8`
   width: ${0};
   display: flex;

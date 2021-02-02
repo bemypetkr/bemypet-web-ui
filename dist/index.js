@@ -3179,73 +3179,66 @@ var Layout = function Layout(_ref) {
       footerProps = _ref.footerProps,
       children = _ref.children,
       loading = _ref.loading;
-  return React__default.createElement(Wrapper, null, React__default.createElement(HelmetComponent, Object.assign({
+  return React__default.createElement(x$1, null, React__default.createElement(Wrapper, null, React__default.createElement(N, Object.assign({
     titleTemplate: "%s :: \uBE44\uB9C8\uC774\uD3AB",
     defaultTitle: "\uBE44\uB9C8\uC774\uD3AB"
-  }, helmetProps)), React__default.createElement(Main, null, loading ? loading : children), React__default.createElement(Footer, Object.assign({}, footerProps)));
+  }, helmetProps)), React__default.createElement(Main, null, loading ? loading : children), React__default.createElement(Footer, Object.assign({}, footerProps))));
 };
 var Wrapper = styled__default.div(_templateObject$8());
 var Main = styled__default.main(_templateObject2$6());
 var PageBody = styled__default.div(_templateObject3$5());
-
-var HelmetComponent = function HelmetComponent(_ref2) {
-  var props = _extends({}, _ref2);
-
-  return React__default.createElement(x$1, null, React__default.createElement(N, Object.assign({}, props)));
-};
-
-var Column = styled__default.div(_templateObject4$4(), function (_ref3) {
-  var _ref3$width = _ref3.width,
-      width = _ref3$width === void 0 ? "100%" : _ref3$width;
+var Column = styled__default.div(_templateObject4$4(), function (_ref2) {
+  var _ref2$width = _ref2.width,
+      width = _ref2$width === void 0 ? "100%" : _ref2$width;
   return getPixel(width);
-}, function (_ref4) {
-  var _ref4$justifyContent = _ref4.justifyContent,
-      justifyContent = _ref4$justifyContent === void 0 ? "flex-start" : _ref4$justifyContent;
+}, function (_ref3) {
+  var _ref3$justifyContent = _ref3.justifyContent,
+      justifyContent = _ref3$justifyContent === void 0 ? "flex-start" : _ref3$justifyContent;
   return justifyContent;
-}, function (_ref5) {
-  var _ref5$alignItems = _ref5.alignItems,
-      alignItems = _ref5$alignItems === void 0 ? "flex-start" : _ref5$alignItems;
+}, function (_ref4) {
+  var _ref4$alignItems = _ref4.alignItems,
+      alignItems = _ref4$alignItems === void 0 ? "flex-start" : _ref4$alignItems;
   return alignItems;
-}, function (_ref6) {
-  var _ref6$marginTop = _ref6.marginTop,
-      marginTop = _ref6$marginTop === void 0 ? 0 : _ref6$marginTop;
+}, function (_ref5) {
+  var _ref5$marginTop = _ref5.marginTop,
+      marginTop = _ref5$marginTop === void 0 ? 0 : _ref5$marginTop;
   return getPixel(marginTop);
-}, function (_ref7) {
-  var _ref7$marginBottom = _ref7.marginBottom,
-      marginBottom = _ref7$marginBottom === void 0 ? 0 : _ref7$marginBottom;
+}, function (_ref6) {
+  var _ref6$marginBottom = _ref6.marginBottom,
+      marginBottom = _ref6$marginBottom === void 0 ? 0 : _ref6$marginBottom;
   return getPixel(marginBottom);
-}, function (_ref8) {
-  var _ref8$marginLeft = _ref8.marginLeft,
-      marginLeft = _ref8$marginLeft === void 0 ? 0 : _ref8$marginLeft;
+}, function (_ref7) {
+  var _ref7$marginLeft = _ref7.marginLeft,
+      marginLeft = _ref7$marginLeft === void 0 ? 0 : _ref7$marginLeft;
   return getPixel(marginLeft);
-}, function (_ref9) {
-  var _ref9$marginRight = _ref9.marginRight,
-      marginRight = _ref9$marginRight === void 0 ? 0 : _ref9$marginRight;
+}, function (_ref8) {
+  var _ref8$marginRight = _ref8.marginRight,
+      marginRight = _ref8$marginRight === void 0 ? 0 : _ref8$marginRight;
   return getPixel(marginRight);
 });
-var Row = styled__default.div(_templateObject5(), function (_ref10) {
-  var _ref10$justifyContent = _ref10.justifyContent,
-      justifyContent = _ref10$justifyContent === void 0 ? "flex-start" : _ref10$justifyContent;
+var Row = styled__default.div(_templateObject5(), function (_ref9) {
+  var _ref9$justifyContent = _ref9.justifyContent,
+      justifyContent = _ref9$justifyContent === void 0 ? "flex-start" : _ref9$justifyContent;
   return justifyContent;
-}, function (_ref11) {
-  var _ref11$alignItems = _ref11.alignItems,
-      alignItems = _ref11$alignItems === void 0 ? "flex-start" : _ref11$alignItems;
+}, function (_ref10) {
+  var _ref10$alignItems = _ref10.alignItems,
+      alignItems = _ref10$alignItems === void 0 ? "flex-start" : _ref10$alignItems;
   return alignItems;
-}, function (_ref12) {
-  var _ref12$marginTop = _ref12.marginTop,
-      marginTop = _ref12$marginTop === void 0 ? 0 : _ref12$marginTop;
+}, function (_ref11) {
+  var _ref11$marginTop = _ref11.marginTop,
+      marginTop = _ref11$marginTop === void 0 ? 0 : _ref11$marginTop;
   return getPixel(marginTop);
-}, function (_ref13) {
-  var _ref13$marginBottom = _ref13.marginBottom,
-      marginBottom = _ref13$marginBottom === void 0 ? 0 : _ref13$marginBottom;
+}, function (_ref12) {
+  var _ref12$marginBottom = _ref12.marginBottom,
+      marginBottom = _ref12$marginBottom === void 0 ? 0 : _ref12$marginBottom;
   return getPixel(marginBottom);
-}, function (_ref14) {
-  var _ref14$marginLeft = _ref14.marginLeft,
-      marginLeft = _ref14$marginLeft === void 0 ? 0 : _ref14$marginLeft;
+}, function (_ref13) {
+  var _ref13$marginLeft = _ref13.marginLeft,
+      marginLeft = _ref13$marginLeft === void 0 ? 0 : _ref13$marginLeft;
   return getPixel(marginLeft);
-}, function (_ref15) {
-  var _ref15$marginRight = _ref15.marginRight,
-      marginRight = _ref15$marginRight === void 0 ? 0 : _ref15$marginRight;
+}, function (_ref14) {
+  var _ref14$marginRight = _ref14.marginRight,
+      marginRight = _ref14$marginRight === void 0 ? 0 : _ref14$marginRight;
   return getPixel(marginRight);
 });
 

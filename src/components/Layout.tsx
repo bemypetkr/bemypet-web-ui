@@ -18,15 +18,17 @@ export const Layout = ({
   loading,
 }: LayoutProps) => {
   return (
-    <Wrapper>
-      <HelmetComponent
-        titleTemplate="%s :: 비마이펫"
-        defaultTitle="비마이펫"
-        {...helmetProps}
-      />
-      <Main>{loading ? loading : children}</Main>
-      <Footer {...footerProps} />
-    </Wrapper>
+    <HelmetProvider>
+      <Wrapper>
+        <Helmet
+          titleTemplate="%s :: 비마이펫"
+          defaultTitle="비마이펫"
+          {...helmetProps}
+        />
+        <Main>{loading ? loading : children}</Main>
+        <Footer {...footerProps} />
+      </Wrapper>
+    </HelmetProvider>
   );
 };
 
@@ -45,12 +47,6 @@ export const PageBody = styled.div`
   max-width: 100%;
   margin: 0 auto;
 `;
-
-const HelmetComponent = ({ ...props }: HelmetProps) => (
-  <HelmetProvider>
-    <Helmet {...props} />
-  </HelmetProvider>
-);
 
 export interface GridProps {
   justifyContent?:
