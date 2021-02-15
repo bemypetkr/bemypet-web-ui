@@ -20,6 +20,7 @@ export interface FooterProps {
   version?: string;
   buttons?: FooterButtonProps[];
   outlinks?: string;
+  visible?: boolean;
 }
 
 export const Footer = styled(
@@ -120,6 +121,8 @@ export const Footer = styled(
     display: flex;
     align-items: center;
   }
+
+  ${({ visible }) => (visible === false ? "display: none" : "")};
 `;
 
 const FooterInfo = styled.div`
