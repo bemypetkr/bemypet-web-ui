@@ -29,7 +29,7 @@ export type ButtonSize = "small" | "medium" | "large";
 
 export type ButtonProps = Omit<
   ButtonBaseProps,
-  "color" | "size" | "positive" | "negative"
+  "color" | "size" | "positive" | "negative" | "loading"
 > & {
   /**
    * Width in pixel.
@@ -53,6 +53,7 @@ export type ButtonProps = Omit<
   size?: ButtonSize;
   positive?: boolean;
   negative?: boolean;
+  loading?: boolean;
 };
 
 export const Button = styled(
@@ -62,15 +63,23 @@ export const Button = styled(
     type = "button",
     positive,
     negative,
+    loading,
+    disabled,
+    children,
     ...rest
-  }: ButtonProps) => <button type={type} {...rest} />,
+  }: ButtonProps) => (
+    <button type={type} {...rest} disabled={loading || disabled}>
+      <div className="bui-button-wrapper">{children}</div>
+      <ButtonLoadingIndicator className="bui-button-indicator" />
+    </button>
+  ),
 )`
   ${buttonBaseStyles}
 
   width: ${({ width }) =>
     width ? (typeof width === "string" ? width : `${width}px`) : "100%"};
   border-radius: 50px;
-
+  position: relative;
   font-size: 13px;
   font-weight: bold;
   line-height: 20px;
@@ -93,6 +102,59 @@ export const Button = styled(
   ${({ theme, size = "medium" }) => `
     ${theme.buttonSizes[size]};
   `}
+
+  ${({ theme, size = "medium" }) => `
+    ${theme.buttonSizes[size]};
+  `}
+
+
+
+  .bui-button-wrapper {
+    transition: padding-right 300ms;
+  }
+
+  ${({ loading = true }) =>
+    loading &&
+    `
+    .bui-button-wrapper {
+      padding-right: 1.4em;
+    }
+
+    .bui-button-indicator {
+      width: 1.4em;
+      height: 1.4em;
+      margin-top: -0.7em;
+    
+      animation: loadingSpinner 1s infinite linear;
+      opacity: 1;
+    }
+  `}
+`;
+
+const ButtonLoadingIndicator = styled.div`
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  border-radius: 50%;
+  border: 0.17em solid ${({ theme }) => theme.colors.grey400};
+  border-left-color: transparent;
+  content: " ";
+  opacity: 0;
+  box-sizing: border-box;
+  transition: width 0.3s, height 0.3s, margin 0.3s, opacity 0.1s;
+  transition-timing-function: ease-in;
+
+  @keyframes loadingSpinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 export type IconButtonProps = Omit<ButtonBaseProps, "icon"> & {

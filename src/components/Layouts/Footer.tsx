@@ -16,7 +16,12 @@ interface FooterButtonProps {
   onClick: () => void;
 }
 
-export interface FooterProps {
+type FooterBaseProps = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLElement>,
+  HTMLElement
+>;
+
+export interface FooterProps extends FooterBaseProps {
   version?: string;
   buttons?: FooterButtonProps[];
   outlinks?: string;

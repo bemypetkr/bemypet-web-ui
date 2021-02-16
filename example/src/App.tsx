@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ThemeProvider,
   Layout,
@@ -52,6 +52,13 @@ import {
 } from "bemypet-web-ui";
 
 const App = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleOnButtonClick = () => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 3000);
+  };
+
   return (
     <ThemeProvider>
       <Layout
@@ -156,26 +163,76 @@ const App = () => {
               Color Variation
             </Typography>
             <Row>
-              <Button>Default</Button>
-              <Button positive>Positive</Button>
-              <Button negative>Negative</Button>
-              <Button disabled>Disabled</Button>
-              <Button color="primary">Primary</Button>
+              <Button onClick={handleOnButtonClick} loading={loading}>
+                Default
+              </Button>
+              <Button onClick={handleOnButtonClick} loading={loading} positive>
+                Positive
+              </Button>
+              <Button onClick={handleOnButtonClick} loading={loading} negative>
+                Negative
+              </Button>
+              <Button onClick={handleOnButtonClick} loading={loading} disabled>
+                Disabled
+              </Button>
+              <Button
+                onClick={handleOnButtonClick}
+                loading={loading}
+                color="primary"
+              >
+                Primary
+              </Button>
+              <Button
+                onClick={handleOnButtonClick}
+                loading={loading}
+                color="secondary"
+              >
+                Secondary
+              </Button>
             </Row>
             <Typography variant="heading3" as="h3">
               Size Variation
             </Typography>
             <Row>
-              <Button size="small">Small</Button>
-              <Button>Medium</Button>
-              <Button size="large">Large</Button>
-              <Button color="primary" size="small">
+              <Button
+                onClick={handleOnButtonClick}
+                loading={loading}
+                size="small"
+              >
                 Small
               </Button>
-              <Button color="primary" size="medium">
+              <Button onClick={handleOnButtonClick} loading={loading}>
                 Medium
               </Button>
-              <Button color="primary" size="large">
+              <Button
+                onClick={handleOnButtonClick}
+                loading={loading}
+                size="large"
+              >
+                Large
+              </Button>
+              <Button
+                onClick={handleOnButtonClick}
+                loading={loading}
+                color="primary"
+                size="small"
+              >
+                Small
+              </Button>
+              <Button
+                onClick={handleOnButtonClick}
+                loading={loading}
+                color="primary"
+                size="medium"
+              >
+                Medium
+              </Button>
+              <Button
+                onClick={handleOnButtonClick}
+                loading={loading}
+                color="primary"
+                size="large"
+              >
                 Large
               </Button>
             </Row>

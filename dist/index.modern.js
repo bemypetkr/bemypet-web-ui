@@ -157,7 +157,8 @@ const Avatar = styled(({
 
 let _$2 = t => t,
     _t$2,
-    _t2;
+    _t2,
+    _t3;
 const buttonBaseStyles = `
   outline: none;
   border: none;
@@ -180,15 +181,24 @@ const Button = styled(({
   type: _type = "button",
   positive,
   negative,
+  loading,
+  disabled,
+  children,
   ...rest
 }) => React.createElement("button", Object.assign({
   type: _type
-}, rest)))(_t$2 || (_t$2 = _$2`
+}, rest, {
+  disabled: loading || disabled
+}), React.createElement("div", {
+  className: "bui-button-wrapper"
+}, children), React.createElement(ButtonLoadingIndicator, {
+  className: "bui-button-indicator"
+})))(_t$2 || (_t$2 = _$2`
   ${0}
 
   width: ${0};
   border-radius: 50px;
-
+  position: relative;
   font-size: 13px;
   font-weight: bold;
   line-height: 20px;
@@ -200,6 +210,16 @@ const Button = styled(({
 
   // negative will be red colored text
   ${0};
+
+  ${0}
+
+  ${0}
+
+
+
+  .bui-button-wrapper {
+    transition: padding-right 300ms;
+  }
 
   ${0}
 `), buttonBaseStyles, ({
@@ -225,14 +245,61 @@ const Button = styled(({
   size: _size = "medium"
 }) => `
     ${theme.buttonSizes[_size]};
+  `, ({
+  theme,
+  size: _size2 = "medium"
+}) => `
+    ${theme.buttonSizes[_size2]};
+  `, ({
+  loading: _loading = true
+}) => _loading && `
+    .bui-button-wrapper {
+      padding-right: 1.4em;
+    }
+
+    .bui-button-indicator {
+      width: 1.4em;
+      height: 1.4em;
+      margin-top: -0.7em;
+    
+      animation: loadingSpinner 1s infinite linear;
+      opacity: 1;
+    }
   `);
+const ButtonLoadingIndicator = styled.div(_t2 || (_t2 = _$2`
+  position: absolute;
+  top: 50%;
+  right: 1em;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  border-radius: 50%;
+  border: 0.17em solid ${0};
+  border-left-color: transparent;
+  content: " ";
+  opacity: 0;
+  box-sizing: border-box;
+  transition: width 0.3s, height 0.3s, margin 0.3s, opacity 0.1s;
+  transition-timing-function: ease-in;
+
+  @keyframes loadingSpinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`), ({
+  theme
+}) => theme.colors.grey400);
 const IconButton = styled(({
   icon,
   type: _type2 = "button",
   ...rest
 }) => React.createElement("button", Object.assign({
   type: _type2
-}, rest), icon))(_t2 || (_t2 = _$2`
+}, rest), icon))(_t3 || (_t3 = _$2`
   ${0}
 `), buttonBaseStyles);
 
@@ -1026,7 +1093,7 @@ const YoutubeIcon = ({
 let _$3 = t => t,
     _t$3,
     _t2$1,
-    _t3,
+    _t3$1,
     _t4;
 
 function renderCheckColor(theme, color = "default", checked = false) {
@@ -1120,7 +1187,7 @@ const CheckboxWrapper = styled.div(_t2$1 || (_t2$1 = _$3`
 `), ({
   width
 }) => width ? typeof width === "string" ? width : `${width}px` : "100%");
-const CheckboxLabel = styled.label(_t3 || (_t3 = _$3`
+const CheckboxLabel = styled.label(_t3$1 || (_t3$1 = _$3`
   color: ${0};
   margin-bottom: 8px;
   font-size: 13px;
@@ -1215,7 +1282,7 @@ const CheckboxHelperText = styled.p(_t4 || (_t4 = _$3`
 let _$4 = t => t,
     _t$4,
     _t2$2,
-    _t3$1,
+    _t3$2,
     _t4$1;
 const InputWrapper = styled.div(_t$4 || (_t$4 = _$4`
   position: relative;
@@ -1242,7 +1309,7 @@ const InputLabel = styled.label(_t2$2 || (_t2$2 = _$4`
 `), ({
   theme
 }) => theme.colors.grey600);
-const InputHelperText = styled.p(_t3$1 || (_t3$1 = _$4`
+const InputHelperText = styled.p(_t3$2 || (_t3$2 = _$4`
   margin: 4px 16px 0;
   font-size: 13px;
   color: ${0};
@@ -2657,7 +2724,7 @@ const calcHeight = (size, height) => `${height / size}`;
 let _$5 = t => t,
     _t$5,
     _t2$3,
-    _t3$2,
+    _t3$3,
     _t4$2;
 const Footer = styled(({
   version,
@@ -2754,6 +2821,8 @@ const Footer = styled(({
     display: flex;
     align-items: center;
   }
+
+  ${0};
 `), ({
   theme
 }) => theme.colors.grey500, ({
@@ -2762,7 +2831,9 @@ const Footer = styled(({
   theme
 }) => theme.colors.grey300, ({
   theme
-}) => theme.colors.grey300);
+}) => theme.colors.grey300, ({
+  visible
+}) => visible === false ? "display: none" : "");
 const FooterInfo = styled.div(_t2$3 || (_t2$3 = _$5`
   border-right: 1px solid ${0};
   height: 100%;
@@ -2772,7 +2843,7 @@ const FooterInfo = styled.div(_t2$3 || (_t2$3 = _$5`
 `), ({
   theme
 }) => theme.colors.grey300);
-const FooterButton = styled.button(_t3$2 || (_t3$2 = _$5`
+const FooterButton = styled.button(_t3$3 || (_t3$3 = _$5`
   ${0}
   padding: 12px 10px;
   color: ${0};
@@ -2798,7 +2869,7 @@ const FooterIconButtons = styled.div(_t4$2 || (_t4$2 = _$5`
 let _$6 = t => t,
     _t$6,
     _t2$4,
-    _t3$3;
+    _t3$4;
 const Menu$1 = ({
   menus: _menus = []
 }) => React.createElement(MenuWrapper, null, _menus.map(({
@@ -2844,7 +2915,7 @@ const MenuItem = styled.a(_t2$4 || (_t2$4 = _$6`
     color: ${theme.colors.grey600};
     font-weight: bold;
   `);
-const SelectedCircle = styled.span(_t3$3 || (_t3$3 = _$6`
+const SelectedCircle = styled.span(_t3$4 || (_t3$4 = _$6`
   z-index: -1;
   position: absolute;
   top: -3px;
@@ -2860,7 +2931,7 @@ const SelectedCircle = styled.span(_t3$3 || (_t3$3 = _$6`
 let _$7 = t => t,
     _t$7,
     _t2$5,
-    _t3$4,
+    _t3$5,
     _t4$3;
 const HeaderNav = styled.div(_t$7 || (_t$7 = _$7`
   padding: 0 30px;
@@ -2921,7 +2992,7 @@ const HeaderNavItem = styled.li(_t2$5 || (_t2$5 = _$7`
       background-color: ${theme.colors.grey100};
     }  
   ` : "");
-const HeaderMenu = styled.div(_t3$4 || (_t3$4 = _$7`
+const HeaderMenu = styled.div(_t3$5 || (_t3$5 = _$7`
   padding: 0 42px;
   width: 100%;
   height: 100px;
@@ -2990,7 +3061,7 @@ const Header = styled(({
 let _$8 = t => t,
     _t$8,
     _t2$6,
-    _t3$5,
+    _t3$6,
     _t4$4,
     _t5;
 const Layout = ({
@@ -3012,7 +3083,7 @@ const Wrapper = styled.div(_t$8 || (_t$8 = _$8`
 const Main = styled.main(_t2$6 || (_t2$6 = _$8`
   flex: 1;
 `));
-const PageBody = styled.div(_t3$5 || (_t3$5 = _$8`
+const PageBody = styled.div(_t3$6 || (_t3$6 = _$8`
   width: 700px;
   max-width: 100%;
   margin: 0 auto;
@@ -3199,7 +3270,7 @@ const MessageBox = styled.div(_t$a || (_t$a = _$a`
 let _$b = t => t,
     _t$b,
     _t2$8,
-    _t3$6,
+    _t3$7,
     _t4$5;
 
 function renderCheckColor$1(theme, color = "default", checked = false) {
@@ -3295,7 +3366,7 @@ const RadioWrapper = styled.div(_t2$8 || (_t2$8 = _$b`
 `), ({
   width
 }) => width ? typeof width === "string" ? width : `${width}px` : "100%");
-const RadioLabel = styled.label(_t3$6 || (_t3$6 = _$b`
+const RadioLabel = styled.label(_t3$7 || (_t3$7 = _$b`
   color: ${0};
   margin-bottom: 8px;
   font-size: 13px;

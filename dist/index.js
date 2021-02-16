@@ -224,8 +224,18 @@ var Avatar = styled__default(function (_ref) {
   return size;
 });
 
-function _templateObject2() {
+function _templateObject3() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 50%;\n  right: 1em;\n  width: 1em;\n  height: 1em;\n  margin-top: -0.5em;\n  border-radius: 50%;\n  border: 0.17em solid ", ";\n  border-left-color: transparent;\n  content: \" \";\n  opacity: 0;\n  box-sizing: border-box;\n  transition: width 0.3s, height 0.3s, margin 0.3s, opacity 0.1s;\n  transition-timing-function: ease-in;\n\n  @keyframes loadingSpinner {\n    from {\n      transform: rotate(0deg);\n    }\n    to {\n      transform: rotate(360deg);\n    }\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -235,7 +245,7 @@ function _templateObject2() {
 }
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  width: ", ";\n  border-radius: 50px;\n\n  font-size: 13px;\n  font-weight: bold;\n  line-height: 20px;\n\n  ", "\n\n  // positive will be green colored text\n  ", ";\n\n  // negative will be red colored text\n  ", ";\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  width: ", ";\n  border-radius: 50px;\n  position: relative;\n  font-size: 13px;\n  font-weight: bold;\n  line-height: 20px;\n\n  ", "\n\n  // positive will be green colored text\n  ", ";\n\n  // negative will be red colored text\n  ", ";\n\n  ", "\n\n  ", "\n\n\n\n  .bui-button-wrapper {\n    transition: padding-right 300ms;\n  }\n\n  ", "\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -247,11 +257,20 @@ var buttonBaseStyles = "\n  outline: none;\n  border: none;\n  background: none;
 var Button = styled__default(function (_ref) {
   var _ref$type = _ref.type,
       type = _ref$type === void 0 ? "button" : _ref$type,
-      rest = _objectWithoutPropertiesLoose(_ref, ["color", "size", "type", "positive", "negative"]);
+      loading = _ref.loading,
+      disabled = _ref.disabled,
+      children = _ref.children,
+      rest = _objectWithoutPropertiesLoose(_ref, ["color", "size", "type", "positive", "negative", "loading", "disabled", "children"]);
 
   return React__default.createElement("button", Object.assign({
     type: type
-  }, rest));
+  }, rest, {
+    disabled: loading || disabled
+  }), React__default.createElement("div", {
+    className: "bui-button-wrapper"
+  }, children), React__default.createElement(ButtonLoadingIndicator, {
+    className: "bui-button-indicator"
+  }));
 })(_templateObject$2(), buttonBaseStyles, function (_ref2) {
   var width = _ref2.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
@@ -273,17 +292,30 @@ var Button = styled__default(function (_ref) {
       _ref6$size = _ref6.size,
       size = _ref6$size === void 0 ? "medium" : _ref6$size;
   return "\n    " + theme.buttonSizes[size] + ";\n  ";
+}, function (_ref7) {
+  var theme = _ref7.theme,
+      _ref7$size = _ref7.size,
+      size = _ref7$size === void 0 ? "medium" : _ref7$size;
+  return "\n    " + theme.buttonSizes[size] + ";\n  ";
+}, function (_ref8) {
+  var _ref8$loading = _ref8.loading,
+      loading = _ref8$loading === void 0 ? true : _ref8$loading;
+  return loading && "\n    .bui-button-wrapper {\n      padding-right: 1.4em;\n    }\n\n    .bui-button-indicator {\n      width: 1.4em;\n      height: 1.4em;\n      margin-top: -0.7em;\n    \n      animation: loadingSpinner 1s infinite linear;\n      opacity: 1;\n    }\n  ";
 });
-var IconButton = styled__default(function (_ref7) {
-  var icon = _ref7.icon,
-      _ref7$type = _ref7.type,
-      type = _ref7$type === void 0 ? "button" : _ref7$type,
-      rest = _objectWithoutPropertiesLoose(_ref7, ["icon", "type"]);
+var ButtonLoadingIndicator = styled__default.div(_templateObject2(), function (_ref9) {
+  var theme = _ref9.theme;
+  return theme.colors.grey400;
+});
+var IconButton = styled__default(function (_ref10) {
+  var icon = _ref10.icon,
+      _ref10$type = _ref10.type,
+      type = _ref10$type === void 0 ? "button" : _ref10$type,
+      rest = _objectWithoutPropertiesLoose(_ref10, ["icon", "type"]);
 
   return React__default.createElement("button", Object.assign({
     type: type
   }, rest), icon);
-})(_templateObject2(), buttonBaseStyles);
+})(_templateObject3(), buttonBaseStyles);
 
 var Logo = function Logo(_ref) {
   var _ref$color = _ref.color,
@@ -1202,10 +1234,10 @@ function _templateObject4() {
   return data;
 }
 
-function _templateObject3() {
+function _templateObject3$1() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  margin-bottom: 8px;\n  font-size: 13px;\n  line-height: 1.54;\n\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  cursor: pointer;\n\n  input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n\n    :checked + div {\n      background-color: ", ";\n      border-color: ", ";\n\n      path {\n        fill: ", ";\n        stroke: none;\n      }\n    }\n  }\n\n  div {\n    position: relative;\n    margin-right: 8px;\n    width: 18px;\n    height: 18px;\n    border: 1px solid ", ";\n    border-radius: 2px;\n  }\n\n  :hover {\n    div {\n      border-color: ", ";\n    }\n\n    svg {\n      path {\n        stroke-dashoffset: 0;\n      }\n    }\n  }\n\n  svg {\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    path {\n      fill: none;\n      stroke: ", ";\n      stroke-width: 2px;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n      stroke-dasharray: 71px;\n      stroke-dashoffset: 71px;\n      transition: all 0.6s ease;\n    }\n  }\n"]);
 
-  _templateObject3 = function _templateObject3() {
+  _templateObject3$1 = function _templateObject3() {
     return data;
   };
 
@@ -1323,7 +1355,7 @@ var CheckboxWrapper = styled__default.div(_templateObject2$1(), function (_ref5)
   var width = _ref5.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 });
-var CheckboxLabel = styled__default.label(_templateObject3(), function (_ref6) {
+var CheckboxLabel = styled__default.label(_templateObject3$1(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.colors.grey600;
 }, function (_ref7) {
@@ -1365,10 +1397,10 @@ function _templateObject4$1() {
   return data;
 }
 
-function _templateObject3$1() {
+function _templateObject3$2() {
   var data = _taggedTemplateLiteralLoose(["\n  margin: 4px 16px 0;\n  font-size: 13px;\n  color: ", ";\n"]);
 
-  _templateObject3$1 = function _templateObject3() {
+  _templateObject3$2 = function _templateObject3() {
     return data;
   };
 
@@ -1399,7 +1431,7 @@ var InputLabel = styled__default.label(_templateObject2$2(), function (_ref) {
   var theme = _ref.theme;
   return theme.colors.grey600;
 });
-var InputHelperText = styled__default.p(_templateObject3$1(), function (_ref2) {
+var InputHelperText = styled__default.p(_templateObject3$2(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.colors.grey500;
 });
@@ -2799,10 +2831,10 @@ function _templateObject4$2() {
   return data;
 }
 
-function _templateObject3$2() {
+function _templateObject3$3() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  padding: 12px 10px;\n  color: ", ";\n  background-color: ", ";\n"]);
 
-  _templateObject3$2 = function _templateObject3() {
+  _templateObject3$3 = function _templateObject3() {
     return data;
   };
 
@@ -2820,7 +2852,7 @@ function _templateObject2$3() {
 }
 
 function _templateObject$5() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  min-height: 40px;\n  font-size: 11px;\n  color: ", ";\n  background-color: ", ";\n  border-top: 1px solid ", ";\n\n  > button {\n    border-right: 1px solid ", ";\n    height: 100%;\n    box-sizing: border-box;\n    display: flex;\n    align-items: center;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  min-height: 40px;\n  font-size: 11px;\n  color: ", ";\n  background-color: ", ";\n  border-top: 1px solid ", ";\n\n  > button {\n    border-right: 1px solid ", ";\n    height: 100%;\n    box-sizing: border-box;\n    display: flex;\n    align-items: center;\n  }\n\n  ", ";\n"]);
 
   _templateObject$5 = function _templateObject() {
     return data;
@@ -2923,24 +2955,27 @@ var Footer = styled__default(function (_ref) {
 }, function (_ref6) {
   var theme = _ref6.theme;
   return theme.colors.grey300;
+}, function (_ref7) {
+  var visible = _ref7.visible;
+  return visible === false ? "display: none" : "";
 });
-var FooterInfo = styled__default.div(_templateObject2$3(), function (_ref7) {
-  var theme = _ref7.theme;
+var FooterInfo = styled__default.div(_templateObject2$3(), function (_ref8) {
+  var theme = _ref8.theme;
   return theme.colors.grey300;
 });
-var FooterButton = styled__default.button(_templateObject3$2(), buttonBaseStyles, function (_ref8) {
-  var theme = _ref8.theme;
-  return theme.colors.grey500;
-}, function (_ref9) {
+var FooterButton = styled__default.button(_templateObject3$3(), buttonBaseStyles, function (_ref9) {
   var theme = _ref9.theme;
+  return theme.colors.grey500;
+}, function (_ref10) {
+  var theme = _ref10.theme;
   return theme.colors.grey100;
 });
 var FooterIconButtons = styled__default.div(_templateObject4$2());
 
-function _templateObject3$3() {
+function _templateObject3$4() {
   var data = _taggedTemplateLiteralLoose(["\n  z-index: -1;\n  position: absolute;\n  top: -3px;\n  right: -5px;\n  width: 12px;\n  height: 12px;\n  background-color: ", ";\n  border-radius: 50%;\n"]);
 
-  _templateObject3$3 = function _templateObject3() {
+  _templateObject3$4 = function _templateObject3() {
     return data;
   };
 
@@ -2993,7 +3028,7 @@ var MenuItem = styled__default.a(_templateObject2$4(), function (_ref3) {
       selected = _ref5.selected;
   return !!selected && "\n    color: " + theme.colors.grey600 + ";\n    font-weight: bold;\n  ";
 });
-var SelectedCircle = styled__default.span(_templateObject3$3(), function (_ref6) {
+var SelectedCircle = styled__default.span(_templateObject3$4(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.colors.primary100;
 });
@@ -3008,10 +3043,10 @@ function _templateObject4$3() {
   return data;
 }
 
-function _templateObject3$4() {
+function _templateObject3$5() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: 0 42px;\n  width: 100%;\n  height: 100px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  box-sizing: border-box;\n  overflow: hidden;\n"]);
 
-  _templateObject3$4 = function _templateObject3() {
+  _templateObject3$5 = function _templateObject3() {
     return data;
   };
 
@@ -3058,7 +3093,7 @@ var HeaderNavItem = styled__default.li(_templateObject2$5(), function (_ref3) {
       selected = _ref6.selected;
   return selected ? "\n      a {\n      font-weight: bold;\n      color: " + theme.colors.grey600 + ";\n      background-color: " + theme.colors.grey100 + ";\n    }  \n  " : "";
 });
-var HeaderMenu = styled__default.div(_templateObject3$4());
+var HeaderMenu = styled__default.div(_templateObject3$5());
 var leftMenus = [{
   label: "라이프",
   to: Urls.bemypetlife
@@ -3136,10 +3171,10 @@ function _templateObject4$4() {
   return data;
 }
 
-function _templateObject3$5() {
+function _templateObject3$6() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 700px;\n  max-width: 100%;\n  margin: 0 auto;\n"]);
 
-  _templateObject3$5 = function _templateObject3() {
+  _templateObject3$6 = function _templateObject3() {
     return data;
   };
 
@@ -3177,7 +3212,7 @@ var Layout = function Layout(_ref) {
 };
 var Wrapper = styled__default.div(_templateObject$8());
 var Main = styled__default.main(_templateObject2$6());
-var PageBody = styled__default.div(_templateObject3$5());
+var PageBody = styled__default.div(_templateObject3$6());
 var Column = styled__default.div(_templateObject4$4(), function (_ref2) {
   var _ref2$width = _ref2.width,
       width = _ref2$width === void 0 ? "100%" : _ref2$width;
@@ -3374,10 +3409,10 @@ function _templateObject4$5() {
   return data;
 }
 
-function _templateObject3$6() {
+function _templateObject3$7() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n  margin-bottom: 8px;\n  font-size: 13px;\n  line-height: 1.54;\n\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  cursor: pointer;\n\n  input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n\n    :checked + div {\n      background-color: ", ";\n      border-color: ", ";\n\n      path {\n        stroke-color: ", ";\n        stroke: none;\n      }\n    }\n  }\n\n  div {\n    position: relative;\n    margin-right: 8px;\n    width: 18px;\n    height: 18px;\n    border: 1px solid ", ";\n    border-radius: 18px;\n    overflow: hidden;\n  }\n\n  :hover {\n    div {\n      border-color: ", ";\n    }\n\n    svg {\n      path {\n        stroke-dashoffset: 0;\n      }\n    }\n  }\n\n  svg {\n    position: absolute;\n    top: 0;\n    left: 0;\n\n    path {\n      fill: none;\n      stroke: ", ";\n      stroke-width: 2px;\n      stroke-linecap: round;\n      stroke-linejoin: round;\n      stroke-dasharray: 71px;\n      stroke-dashoffset: 71px;\n      transition: all 0.6s ease;\n    }\n  }\n"]);
 
-  _templateObject3$6 = function _templateObject3() {
+  _templateObject3$7 = function _templateObject3() {
     return data;
   };
 
@@ -3496,7 +3531,7 @@ var RadioWrapper = styled__default.div(_templateObject2$8(), function (_ref5) {
   var width = _ref5.width;
   return width ? typeof width === "string" ? width : width + "px" : "100%";
 });
-var RadioLabel = styled__default.label(_templateObject3$6(), function (_ref6) {
+var RadioLabel = styled__default.label(_templateObject3$7(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.colors.grey600;
 }, function (_ref7) {
