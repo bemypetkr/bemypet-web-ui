@@ -113,7 +113,7 @@ export const Button = styled(
     transition: padding-right 300ms;
   }
 
-  ${({ loading = true }) =>
+  ${({ loading }) =>
     loading &&
     `
     .bui-button-wrapper {
