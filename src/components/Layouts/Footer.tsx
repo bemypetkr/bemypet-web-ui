@@ -21,18 +21,22 @@ type FooterBaseProps = React.DetailedHTMLProps<
   HTMLElement
 >;
 
-export interface FooterProps extends FooterBaseProps {
+export type FooterProps = Omit<
+  FooterBaseProps,
+  "version" | "buttons" | "outlinks" | "visible"
+> & {
   version?: string;
   buttons?: FooterButtonProps[];
   outlinks?: string;
   visible?: boolean;
-}
+};
 
 export const Footer = styled(
   ({
     version,
     outlinks = "instagram|youtube|facebook|playStore|appStore",
     buttons = [],
+    visible,
     ...rest
   }: FooterProps) => {
     const outlinkProviders = outlinks.split("|");
