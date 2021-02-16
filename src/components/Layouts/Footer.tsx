@@ -16,15 +16,7 @@ interface FooterButtonProps {
   onClick: () => void;
 }
 
-type FooterBaseProps = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLElement>,
-  HTMLElement
->;
-
-export type FooterProps = Omit<
-  FooterBaseProps,
-  "version" | "buttons" | "outlinks" | "visible"
-> & {
+export type FooterProps = {
   version?: string;
   buttons?: FooterButtonProps[];
   outlinks?: string;

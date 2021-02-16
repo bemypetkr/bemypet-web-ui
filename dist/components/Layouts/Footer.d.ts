@@ -4,8 +4,7 @@ interface FooterButtonProps {
     icon?: React.ReactNode;
     onClick: () => void;
 }
-declare type FooterBaseProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-export declare type FooterProps = Omit<FooterBaseProps, "version" | "buttons" | "outlinks" | "visible"> & {
+export declare type FooterProps = {
     version?: string;
     buttons?: FooterButtonProps[];
     outlinks?: string;
